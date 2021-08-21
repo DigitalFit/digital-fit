@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:labelVisibilityMode = "labeled"
+    app:startDestination="@+id/navigation_init">
+
+    <fragment
+        android:id="@+id/navigation_workout"
+        android:name="com.example.digitalfit.ui.workout.WorkoutFragment"
+        android:label="@string/workout"
+        tools:layout="@layout/fragment_workout" />
+
+    <fragment
+        android:id="@+id/navigation_exercises"
+        android:name="com.example.digitalfit.ui.exercises.ExercisesFragment"
+        android:label="@string/exercises"
+        tools:layout="@layout/fragment_exercises" />
+
+    <fragment
+        android:id="@+id/navigation_init"
+        android:name="com.example.digitalfit.ui.init.InitFragment"
+        android:label="@string/init"
+        tools:layout="@layout/fragment_init" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.digitalfit.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_nutrition"
+        android:name="com.example.digitalfit.ui.nutrition.NutritionFragment"
+        android:label="@string/nutrition"
+        tools:layout="@layout/fragment_nutrition" />
+</navigation>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DigitalFit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="init">Init</string>
+    <string name="exercises">Exercises</string>
+    <string name="workout">Workout</string>
+    <string name="profile">Profile</string>
+    <string name="nutrition">Nutrition</string>
+</resources>

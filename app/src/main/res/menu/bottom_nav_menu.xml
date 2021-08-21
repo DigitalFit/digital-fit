@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_exercises"
+        android:icon="@drawable/halteres"
+        android:title="@string/exercises" />
+
+    <item
+        android:id="@+id/navigation_workout"
+        android:icon="@drawable/halteres"
+        android:title="@string/workout" />
+
+    <item
+        android:id="@+id/navigation_init"
+        android:icon="@drawable/halteres"
+        android:title="@string/init" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/halteres"
+        android:title="@string/profile" />
+
+    <item
+        android:id="@+id/navigation_nutrition"
+        android:icon="@drawable/halteres"
+        android:title="@string/nutrition" />
+
+</menu>
