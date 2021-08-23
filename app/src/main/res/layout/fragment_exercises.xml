@@ -4,20 +4,185 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.exercises.ExercisesFragment">
+    android:background="@color/aqua"
+    tools:context=".ui.workout.ExercisesFragment">
 
     <TextView
-        android:id="@+id/text_exercises"
-        android:layout_width="match_parent"
+        android:id="@+id/filtrarPor"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/filtrar_por"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/search_bar"
+        app:layout_constraintTop_toBottomOf="@id/equipamentos"
+        app:layout_constraintVertical_bias="0.356">
+
+    </TextView>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/GruposMusculares"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:text="@string/gruposmusculares"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@id/treino3"
+        app:layout_constraintEnd_toStartOf="@id/todos"
+        app:layout_constraintStart_toEndOf="@id/equipamentos"
+        app:layout_constraintTop_toBottomOf="@+id/filtrarPor"
+        app:layout_constraintVertical_bias="0.508" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/todos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@color/white"
+        android:text="@string/todos"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@id/treino3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/GruposMusculares"
+        app:layout_constraintTop_toBottomOf="@id/filtrarPor" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/equipamentos"
+        android:layout_width="116dp"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:text="@string/equipamentos"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@+id/treino3"
+        app:layout_constraintEnd_toStartOf="@id/GruposMusculares"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filtrarPor" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/treino1"
+        android:layout_width="339dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="664dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imgTreino1"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+        </ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/treino2"
+        android:layout_width="339dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="428dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgTreino2"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+        </ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/treino3"
+        android:layout_width="338dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="308dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgTreino3"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+        </ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/treino4"
+        android:layout_width="339dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="544dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgTreino4"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+
+        </ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text_Exercícios"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="104dp"
+        android:text="@string/Exercícios"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.017">
+
+    </TextView>
+
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="323dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/filtrarPor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_Exercícios"
+        app:layout_constraintTop_toBottomOf="@id/text_Exercícios"
+        tools:layout_editor_absoluteY="94dp">
+
+    </SearchView>
+
+
+    <ScrollView
+        android:layout_width="15dp"
+        android:layout_height="526dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toEndOf="@id/treino3"
+        app:layout_constraintTop_toBottomOf="@id/todos"
+        app:layout_constraintVertical_bias="0.311">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+    >
 </androidx.constraintlayout.widget.ConstraintLayout>
+

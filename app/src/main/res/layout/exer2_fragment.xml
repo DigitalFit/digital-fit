@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.exercises.ExercisesFragment"
+    android:background="@color/aqua">
+
+    <TextView
+        android:layout_width="127dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/Exercícios"
+        android:textColor="@color/white"
+        android:textLocale=""
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="567dp"
+        android:layout_alignBottom="@+id/radioButton13"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-130dp"
+        android:src="@drawable/gdsdde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563" />
+
+    <RadioButton
+        android:id="@+id/Ombro"
+        android:layout_width="39dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="269dp"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <RadioButton
+        android:id="@+id/Peito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="277dp"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <RadioButton
+        android:id="@+id/Abdomen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="345dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461"
+        tools:layout_editor_absoluteX="80dp" />
+
+    <RadioButton
+        android:id="@+id/Coxa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginBottom="300dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="436dp" />
+
+    <RadioButton
+        android:id="@+id/Antebraco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="356dp"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <RadioButton
+        android:id="@+id/Costas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="260dp"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="242dp" />
+
+    <RadioButton
+        android:id="@+id/Oblíquo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="334dp"
+        android:layout_marginEnd="41dp" />
+
+    <RadioButton
+        android:id="@+id/Tríceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="305dp"
+        android:layout_marginEnd="112dp"
+        tools:layout_editor_absoluteX="333dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <RadioButton
+        android:id="@+id/Glúteo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="404dp"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="377dp" />
+
+    <RadioButton
+        android:id="@+id/Quadríceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="450dp"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="440dp" />
+
+    <RadioButton
+        android:id="@+id/Panturrilha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="531dp"
+        android:layout_marginEnd="42dp"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="514dp" />
+
+    <RadioButton
+        android:id="@+id/Bíceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="314dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton13"
+        android:layout_width="83dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="542dp"
+        android:text="Cardio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="551dp" />
+
+
+</RelativeLayout>

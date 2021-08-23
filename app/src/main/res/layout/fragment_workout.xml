@@ -1,22 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/aqua"
     tools:context=".ui.workout.WorkoutFragment">
 
     <TextView
         android:id="@+id/text_workout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="104dp"
+        android:text="@string/treinos"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="floating"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar">
+        </TextView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="54dp"
+        android:layout_height="36dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@android:drawable/ic_search_category_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@id/text_workout"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="295dp"
+        android:layout_height="27dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="@id/text_workout"
+        tools:layout_editor_absoluteY="133dp">
+
+        </androidx.appcompat.widget.SearchView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/calendarView"
+        app:layout_constraintStart_toStartOf="@+id/search_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/search_bar">
+       </com.google.android.material.card.MaterialCardView>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="307dp"
+        android:layout_height="145dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/card"
+        app:layout_constraintTop_toBottomOf="@id/Aeróbicos">
+        </CalendarView>
+    
+    <ImageView
+        android:id="@+id/Aeróbicos"
+        android:layout_width="306dp"
+        android:layout_height="182dp"
+        app:layout_constraintBottom_toTopOf="@id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/calendarView"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:srcCompat="@drawable/aerobicos">
+
+        <Button
+            android:id="@+id/btAeróbicos"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="128dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="200dp"
+            android:text="@string/Aeróbicos"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card"
+            app:layout_constraintVertical_bias="0.819" >
+
+        </Button>
+
+    </ImageView>
+    
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="306dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="336dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/Aeróbicos"
+        app:layout_constraintBottom_toTopOf="@id/Aeróbicos"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:srcCompat="@drawable/muscula">
+
+        <Button
+            android:id="@+id/btMuscula"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="128dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="200dp"
+            android:text="@string/Musculação"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.819" >
+
+        </Button>
+
+    </ImageView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
