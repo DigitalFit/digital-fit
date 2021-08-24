@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/telafundo"
+    android:focusableInTouchMode="false"
+    android:visibility="visible"
     tools:context=".ui.login.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/txDigitalFit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="84dp"
+        android:text="@string/digital_fit"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#3F51B5"
+        android:text="@string/entrar_com_email"
+        app:layout_constraintBottom_toTopOf="@id/btGoogle"
+        app:layout_constraintEnd_toEndOf="@id/txDigitalFit"
+        app:layout_constraintStart_toStartOf="@id/txDigitalFit"
+        app:layout_constraintTop_toBottomOf="@id/txDigitalFit" />
+
+    <Button
+        android:id="@+id/btGoogle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#F4F4F4"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="@string/entrar_com_conta_google"
+        app:layout_constraintEnd_toEndOf="@id/txDigitalFit"
+        app:layout_constraintStart_toStartOf="@id/txDigitalFit"
+        app:layout_constraintTop_toBottomOf="@id/btEmail"
+        app:layout_constraintBottom_toTopOf="@id/btRegister"
+        app:strokeColor="#0B0A0A" />
+
+
+    <Button
+        android:id="@+id/btRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#3F51B5"
+        android:text="@string/cadastre_se"
+        app:layout_constraintEnd_toEndOf="@id/txDigitalFit"
+        app:layout_constraintStart_toStartOf="@id/txDigitalFit"
+        app:layout_constraintTop_toBottomOf="@id/btGoogle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

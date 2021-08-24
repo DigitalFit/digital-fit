@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/login_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginFragment">
 
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.digitalfit.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_loginEmailFragment"
+            app:destination="@id/loginEmailFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_loginGoogleFragment"
+            app:destination="@id/loginGoogleFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginEmailFragment"
+        android:name="com.example.digitalfit.ui.login.LoginEmailFragment"
+        android:label="fragment_login_email"
+        tools:layout="@layout/fragment_login_email" >
+        <action
+            android:id="@+id/action_loginEmailFragment_to_recoverPasswordFragment"
+            app:destination="@id/recoverPasswordFragment" />
+        <action
+            android:id="@+id/action_loginEmailFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/recoverPasswordFragment"
+        android:name="com.example.digitalfit.ui.login.RecoverPasswordFragment"
+        android:label="fragment_recover_password"
+        tools:layout="@layout/fragment_recover_password" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.digitalfit.ui.login.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/loginGoogleFragment"
+        android:name="com.example.digitalfit.ui.login.LoginGoogleFragment"
+        android:label="fragment_login_google"
+        tools:layout="@layout/fragment_login_google" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.digitalfit.MainActivity"
+        android:label="MainActivity" />
 </navigation>

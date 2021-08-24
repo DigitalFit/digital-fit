@@ -103,6 +103,22 @@
     <string name="exerc_cios">exercícios</string>
     <string name="exercicios">exercícios</string>
     <string name="Exercícios">Exercícios</string>
-      <string name="Musculação">Musculação</string>
+    <string name="Musculação">Musculação</string>
     <string name="Aeróbicos">Aeróbicos</string>
+    <string name="digital_fit">DIGITAL FIT</string>
+    <string name="entrar_com_email">ENTRAR COM E-MAIL</string>
+    <string name="entrar_com_conta_google">ENTRAR COM CONTA GOOGLE</string>
+    <string name="cadastre_se">CADASTRE-SE</string>
+    <string name="e_mail">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="iniciar_sessao">INICIAR SESSÃO</string>
+    <string name="esqueceu_a_senha">ESQUECEU A SENHA ?</string>
+    <string name="recuperar_senha">RECUPERAR SENHA</string>
+    <string name="e_maill">E-mail</string>
+    <string name="termos_uso">Aceito os Termos de Uso e as Politicas de Privacidade</string>
+    <string name="senha_cadastro">Senha</string>
+    <string name="nome_cadastro">Nome</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="enviar_email">ENVIAR E-MAIL DE RECUPERAÇÃO</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>
