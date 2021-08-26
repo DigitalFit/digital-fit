@@ -1,4 +1,4 @@
-package com.example.digitalfit
+package com.example.digitalfit.ui.exercises
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
