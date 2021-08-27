@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.nutrition.NutritionFragment">
 
+    
     <TextView
         android:id="@+id/text_nutrition"
         android:layout_width="match_parent"
