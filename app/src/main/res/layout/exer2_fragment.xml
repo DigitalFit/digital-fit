@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="119dp"
         android:layout_marginTop="51dp"
-        android:text="@string/Exercícios"
+        android:text="@string/Exercises"
         android:textColor="@color/white"
         android:textLocale=""
         android:textSize="25sp" />

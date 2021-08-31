@@ -3,4 +3,15 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="primary_title_default">30sp</dimen>
+    <dimen name="horizontal_margin_default">16dp</dimen>
+    <dimen name="vertical_margin_default">8dp</dimen>
+    <dimen name="vertical_margin_between_contents">16dp</dimen>
+    <dimen name="secondary_title_default">20sp</dimen>
+    <dimen name="margin_default">8dp</dimen>
+    <dimen name="avatar_size">100dp</dimen>
+    <dimen name="text_card">16sp</dimen>
+    <dimen name="icon_size">30dp</dimen>
+    <dimen name="horizontal_margin_extra">32dp</dimen>
+    <dimen name="title_card">18sp</dimen>
 </resources>

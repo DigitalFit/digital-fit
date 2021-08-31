@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,103 +12,112 @@
         tools:context=".ui.workout.WorkoutFragment">
 
         <TextView
-            android:id="@+id/text_workout"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvWorkout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/treinos"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:layout_marginEnd="@dimen/horizontal_margin_default"
+            android:text="@string/workout"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/search_bar"
-            app:layout_constraintEnd_toStartOf="@id/floatingActionButton"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            android:textSize="@dimen/primary_title_default"
+            app:layout_constraintBottom_toTopOf="@id/search_bar"
+            app:layout_constraintEnd_toStartOf="@id/ibAdd"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/white"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@android:drawable/ic_search_category_default"
-            app:layout_constraintBottom_toTopOf="@id/search_bar"
+        <ImageButton
+            android:id="@+id/ibAdd"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="@dimen/horizontal_margin_default"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/add_square_icon"
+            app:layout_constraintBottom_toBottomOf="@id/tvWorkout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_workout"
-            app:layout_constraintTop_toTopOf="@id/text_workout">
-
-        </androidx.appcompat.widget.AppCompatImageButton>
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/card"
-            app:layout_constraintEnd_toEndOf="@id/floatingActionButton"
-            app:layout_constraintStart_toStartOf="@id/text_workout"
-            app:layout_constraintTop_toBottomOf="@id/text_workout">
-
-        </androidx.appcompat.widget.SearchView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@id/calendarView"
-            app:layout_constraintEnd_toEndOf="@id/search_bar"
-            app:layout_constraintStart_toStartOf="@+id/search_bar"
-            app:layout_constraintTop_toBottomOf="@id/search_bar" >
-
-        </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintStart_toEndOf="@id/tvWorkout"
+            app:layout_constraintTop_toTopOf="@id/tvWorkout" />
 
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
             android:layout_height="145dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
             android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/aerobicos"
-            app:layout_constraintEnd_toEndOf="@id/card"
-            app:layout_constraintStart_toStartOf="@id/card"
-            app:layout_constraintTop_toBottomOf="@id/card">
-
+            app:layout_constraintEnd_toEndOf="@id/ibAdd"
+            app:layout_constraintStart_toStartOf="@id/tvWorkout"
+            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
+            app:layout_constraintBottom_toTopOf="@id/search_bar">
         </CalendarView>
 
-
-
-        <ImageButton
-            android:id="@+id/aerobicos"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
             android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/aerobicos"
-            app:layout_constraintBottom_toTopOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="@id/calendarView"
-            app:layout_constraintStart_toStartOf="@id/calendarView"
-            app:layout_constraintTop_toBottomOf="@id/calendarView">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/calendarView"
+            app:layout_constraintEnd_toEndOf="@id/ibAdd"
+            app:layout_constraintStart_toStartOf="@id/tvWorkout"
+            />
 
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/imageView"
+        <ScrollView
+            android:id="@+id/svWorkout"
             android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/muscula"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:layout_marginTop="@dimen/vertical_margin_default"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/aerobicos"
-            app:layout_constraintStart_toStartOf="@id/aerobicos"
-            app:layout_constraintTop_toBottomOf="@id/aerobicos" >
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_bar">
 
-        </ImageButton>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vertical_margin_default"
+                    android:layout_marginStart="@dimen/horizontal_margin_default"
+                    android:text="@string/workout_list"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/secondary_title_default"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vgWorkoutRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_default"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:id="@+id/card"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/calendarView"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/search_bar"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/search_bar"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/search_bar" />-->
+
+
+
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

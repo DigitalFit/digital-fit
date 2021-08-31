@@ -5,184 +5,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/aqua"
+
     tools:context=".ui.exercises.ExercisesFragment">
 
     <TextView
-        android:id="@+id/filtrarPor"
-        android:layout_width="92dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="4dp"
-        android:text="@string/filtrar_por"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/search_bar"
-        app:layout_constraintTop_toBottomOf="@id/equipamentos"
-        app:layout_constraintVertical_bias="0.356">
-
-    </TextView>
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/GruposMusculares"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:text="@string/gruposmusculares"
-        android:textColor="@color/aqua"
-        app:layout_constraintBottom_toTopOf="@id/treino3"
-        app:layout_constraintEnd_toStartOf="@id/todos"
-        app:layout_constraintStart_toEndOf="@id/equipamentos"
-        app:layout_constraintTop_toBottomOf="@+id/filtrarPor"
-        app:layout_constraintVertical_bias="0.508" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/todos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:background="@color/white"
-        android:text="@string/todos"
-        android:textColor="@color/aqua"
-        app:layout_constraintBottom_toTopOf="@id/treino3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/GruposMusculares"
-        app:layout_constraintTop_toBottomOf="@id/filtrarPor" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/equipamentos"
-        android:layout_width="116dp"
-        android:layout_height="49dp"
-        android:background="@color/white"
-        android:text="@string/equipamentos"
-        android:textColor="@color/aqua"
-        app:layout_constraintBottom_toTopOf="@+id/treino3"
-        app:layout_constraintEnd_toStartOf="@id/GruposMusculares"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/filtrarPor" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/treino1"
-        android:layout_width="339dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="664dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgTreino1"
-            android:layout_width="80dp"
-            android:layout_height="match_parent">
-
-        </ImageView>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/treino2"
-        android:layout_width="339dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="428dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgTreino2"
-            android:layout_width="80dp"
-            android:layout_height="match_parent">
-
-        </ImageView>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/treino3"
-        android:layout_width="338dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="308dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgTreino3"
-            android:layout_width="80dp"
-            android:layout_height="match_parent">
-
-        </ImageView>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/treino4"
-        android:layout_width="339dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="544dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgTreino4"
-            android:layout_width="80dp"
-            android:layout_height="match_parent">
-
-        </ImageView>
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/text_Exercícios"
+        android:id="@+id/tvExercises"
         android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="104dp"
-        android:text="@string/Exercícios"
-        android:textAlignment="gravity"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_default"
+        android:layout_marginTop="@dimen/vertical_margin_default"
+        android:layout_marginEnd="@dimen/horizontal_margin_default"
+        android:text="@string/Exercises"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        android:textSize="@dimen/primary_title_default"
+        app:layout_constraintBottom_toTopOf="@id/search_bar"
+        app:layout_constraintEnd_toStartOf="@id/ibAdd"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </TextView>
+    <ImageButton
+        android:id="@+id/ibAdd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_default"
+        android:adjustViewBounds="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:src="@drawable/add_square_icon"
+        app:layout_constraintBottom_toBottomOf="@id/tvExercises"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvExercises"
+        app:layout_constraintTop_toTopOf="@id/tvExercises" />
+
 
     <SearchView
         android:id="@+id/search_bar"
-        android:layout_width="323dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_contents"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/filtrarPor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/text_Exercícios"
-        app:layout_constraintTop_toBottomOf="@id/text_Exercícios"
-        tools:layout_editor_absoluteY="94dp">
-
+        app:layout_constraintBottom_toTopOf="@id/tvFilter"
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toEndOf="@id/tvExercises"
+        app:layout_constraintStart_toStartOf="@+id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/tvExercises" >
     </SearchView>
 
+    <TextView
+        android:id="@+id/tvFilter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_contents"
+        android:text="@string/filter"
+        android:textColor="@color/white"
+        android:textSize="@dimen/secondary_title_default"
+        app:layout_constraintBottom_toTopOf="@id/chAll"
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toStartOf="@+id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/search_bar">
+
+    </TextView>
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_default"
+        android:background="@color/white"
+        android:text="@string/all"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@id/svExercises"
+        app:layout_constraintEnd_toStartOf="@id/chMuscleGroups"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/tvFilter" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chMuscleGroups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="@string/MuscleGroups"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@id/svExercises"
+        app:layout_constraintEnd_toStartOf="@id/chEquipments"
+        app:layout_constraintStart_toEndOf="@id/chAll"
+        app:layout_constraintTop_toTopOf="@id/chAll" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chEquipments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="@string/Equipments"
+        android:textColor="@color/aqua"
+        app:layout_constraintBottom_toTopOf="@id/svExercises"
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toEndOf="@id/chMuscleGroups"
+        app:layout_constraintTop_toTopOf="@id/chAll" />
 
     <ScrollView
-        android:layout_width="15dp"
-        android:layout_height="526dp"
+        android:id="@+id/svExercises"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.816"
-        app:layout_constraintStart_toEndOf="@id/treino3"
-        app:layout_constraintTop_toBottomOf="@id/todos"
-        app:layout_constraintVertical_bias="0.311">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chAll">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vgExerciseRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
     </ScrollView>
-    >
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

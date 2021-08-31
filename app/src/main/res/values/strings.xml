@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">DigitalFit</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="init">Init</string>
-    <string name="exercises">Exercises</string>
-    <string name="workout">Workout</string>
-    <string name="profile">Profile</string>
-    <string name="nutrition">Nutrition</string>
+    <string name="init">Início</string>
+    <string name="exercises">Exercícios</string>
+    <string name="workout">Treinos</string>
+    <string name="profile">Perfil</string>
+    <string name="nutrition">Nutrição</string>
     <string name="treinos">Treinos</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -96,13 +96,13 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="equipamentos">Equipamentos</string>
-    <string name="filtrar_por">Filtrar por</string>
-    <string name="todos">todos</string>
-    <string name="gruposmusculares">GruposMusculares</string>
+    <string name="Equipments">Equipamentos</string>
+    <string name="filter">Filtrar por</string>
+    <string name="all">Todos</string>
+    <string name="MuscleGroups">GruposMusculares</string>
     <string name="exerc_cios">exercícios</string>
     <string name="exercicios">exercícios</string>
-    <string name="Exercícios">Exercícios</string>
+    <string name="Exercises">Exercícios</string>
     <string name="Musculação">Musculação</string>
     <string name="Aeróbicos">Aeróbicos</string>
     <string name="digital_fit">DIGITAL FIT</string>
@@ -121,4 +121,8 @@
     <string name="cadastro">Cadastro</string>
     <string name="enviar_email">ENVIAR E-MAIL DE RECUPERAÇÃO</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="workout_list">Lista de Treinos</string>
+    <string name="burn">Calorias (Kcal)</string>
+    <string name="duration">Duração (minutos)</string>
+    <string name="quantity">Quantidade (exercícios)</string>
 </resources>
