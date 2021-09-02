@@ -72,6 +72,11 @@ class ExercisesFragment : Fragment() {
                 vgExerciseRecyclerView.adapter = exerciseAdapter
             }
         }
+
+        binding?.chAll?.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
+        }
+
     }
 
     override fun onDestroyView() {
