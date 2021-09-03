@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aqua">
+
+    <ImageButton
+        android:id="@+id/ibNutritionVoltarGerenciar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/seta_esquerda"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/tvGerenciarRefeicoes"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:text="Gerenciar Refeições"
+        android:textColor="@color/white"
+        android:textSize="12pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toEndOf="@+id/ibNutritionVoltarGerenciar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGerenciarCafeManha"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGerenciarRefeicoes">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Café da Manhã"
+            android:textSize="7pt"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibEditarCafeManha"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:background="@drawable/three_dots_icon"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="14dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/despertador"/>
+
+        <TextView
+            android:id="@+id/tvHorarioCafeManha"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="50dp"
+            android:text="08:00"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGerenciarAlmoco"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvGerenciarCafeManha">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Almoço"
+            android:textSize="7pt"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibEditarAlmoco"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:background="@drawable/three_dots_icon"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="14dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/despertador"/>
+
+        <TextView
+            android:id="@+id/tvHorarioAlmoco"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="50dp"
+            android:text="13:00"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGerenciarCafeTarde"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvGerenciarAlmoco">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Café da Tarde"
+            android:textSize="7pt"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibEditarCafeTarde"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:background="@drawable/three_dots_icon"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="14dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/despertador"/>
+
+        <TextView
+            android:id="@+id/tvHorarioCafeTarde"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="50dp"
+            android:text="16:00"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGerenciarJantar"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvGerenciarCafeTarde">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Jantar"
+            android:textSize="7pt"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibEditarJantar"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:background="@drawable/three_dots_icon"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="14dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/despertador"/>
+
+        <TextView
+            android:id="@+id/tvHorarioJantar"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginLeft="50dp"
+            android:text="19:00"/>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

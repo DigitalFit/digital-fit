@@ -4,7 +4,187 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    android:background="@color/aqua"
+    tools:context=".ui.init.InitFragment">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonGoogle"
+        android:layout_width="325dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="524dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/pesquisa"
+        android:text="Vincular sua conta Google"
+        android:textColor="@color/black"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="370dp"
+        android:layout_height="350dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="190dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_margin="10dp"
+            android:text="MINHAS INFORMAÇÕES"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivFotoPerfil"
+            android:layout_width="112dp"
+            android:layout_height="111dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/perfil"
+            />
+
+        <TextView
+            android:id="@+id/tvProfileNome"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="50dp"
+            android:text="FERNANDO"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvProfileSobrenome"
+            android:layout_width="201dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="70dp"
+            android:text="ALBURQUERQUE"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textIdade"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="100dp"
+            android:text="20 Anos"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/textCidade"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="100dp"
+            android:text="São Paulo/SP"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/textEEmail"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="195dp"
+            android:text="EMAIL"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/etProfileEmail"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="200dp"
+            android:inputType="textWebEmailAddress"
+            android:text="fernando.alburquerque@mail.com"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/tvDataNasc"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="230dp"
+            android:text="Data de Nascimento"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/editTextDataNasc"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="235dp"
+            android:inputType="textWebEmailAddress"
+            android:text="01 de jan de 2001"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/textEGenero"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="265dp"
+            android:text="Gênero"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/editTextGenero"
+            android:layout_width="275dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="270dp"
+            android:inputType="textWebEmailAddress"
+            android:text="Masculino"
+            android:textSize="10dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonTermos"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/white"
+        android:text="Termos de Uso e Política de Privacidade"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rippleColor="#FBFBFB" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSair"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/sair"
+        android:text="Sair"
+        android:textSize="12dp"
+        android:textColor="@color/red"
+        android:textAlignment="viewStart"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rippleColor="#FBFBFB" />
 
     <TextView
         android:id="@+id/text_profile"
@@ -19,4 +199,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPageProfile"
+        android:layout_width="128dp"
+        android:layout_height="38dp"
+        android:text="PERFIL"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageButton
+        android:id="@+id/ibProfileConf"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/conf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
