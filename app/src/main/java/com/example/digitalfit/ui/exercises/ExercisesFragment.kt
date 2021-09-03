@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.SearchView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.lifecycle.ViewModelProvider
@@ -14,12 +18,13 @@ import com.example.digitalfit.R
 import com.example.digitalfit.adapter.ExerciseAdapter
 import com.example.digitalfit.databinding.FragmentExercisesBinding
 import com.example.digitalfit.model.Exercise
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ExercisesFragment : Fragment() {
 
     private lateinit var exercisesViewModel: ExercisesViewModel
     private var binding: FragmentExercisesBinding? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,12 +33,15 @@ class ExercisesFragment : Fragment() {
 //        exercisesViewModel =
 //            ViewModelProvider(this).get(ExercisesViewModel::class.java)
 
+
         binding = FragmentExercisesBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         val exercise1  = Exercise(
             name = "exercicio1 com nome muito grande",
@@ -73,8 +81,21 @@ class ExercisesFragment : Fragment() {
             }
         }
 
-        binding?.chAll?.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
+
+
+        binding?.let {
+            with(it) {
+                chAll.setOnClickListener {
+                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
+                }
+                chMuscleGroups.setOnClickListener {
+                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetMusclesFragment)
+                }
+                chEquipments.setOnClickListener {
+                    findNavController().navigate(com.example.digitalfit.R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
+                }
+
+            }
         }
 
     }

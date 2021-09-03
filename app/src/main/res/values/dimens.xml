@@ -14,4 +14,7 @@
     <dimen name="icon_size">30dp</dimen>
     <dimen name="horizontal_margin_extra">32dp</dimen>
     <dimen name="title_card">18sp</dimen>
+    <dimen name="icon_padding">16dp</dimen>
+    <dimen name="cornerRadiusButton">20dp</dimen>
+    <dimen name="checkBox_text_size">18sp</dimen>
 </resources>

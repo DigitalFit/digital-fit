@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/aqua"
+        android:background="@color/primary_background"
         tools:context=".ui.workout.WorkoutFragment">
 
         <TextView
@@ -23,7 +23,6 @@
             android:textSize="@dimen/primary_title_default"
             app:layout_constraintBottom_toTopOf="@id/search_bar"
             app:layout_constraintEnd_toStartOf="@id/ibAdd"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

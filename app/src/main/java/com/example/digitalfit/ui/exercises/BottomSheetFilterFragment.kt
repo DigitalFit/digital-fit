@@ -13,34 +13,32 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class BottomSheetFilterFragment : BottomSheetDialogFragment() {
 
     private var binding: FragmentBottomSheetFilterBinding? = null
-    
-        override fun onCreateView(
+
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       
-            binding = FragmentBottomSheetFilterBinding.inflate(inflater, container, false)
-            return binding?.root
+        binding = FragmentBottomSheetFilterBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding?.cbEx1?.setOnCheckedChangeListener { _, isChecked ->
-
-            if(isChecked){
-                binding?.cbEx2?.isChecked = true
-                binding?.cbEx3?.isChecked = true
-                binding?.cbEx4?.isChecked = true
-            }else{
-                binding?.cbEx2?.isChecked = false
-                binding?.cbEx3?.isChecked = false
-                binding?.cbEx4?.isChecked = false
-            }
-
+/*//////////
+        val checkedRadioButtonId = binding?.rgFilter?.checkedRadioButtonId // Returns View.NO_ID if nothing is checked.
+        binding?.rgFilter?.setOnCheckedChangeListener { group, checkedId ->
+            // Responds to child RadioButton checked/unchecked
         }
 
+// To check a radio button
+        radioButton.isChecked = true
+
+// To listen for a radio button's checked/unchecked state changes
+        radioButton.setOnCheckedChangeListener { buttonView, isChecked
+            // Responds to radio button being checked/unchecked
+        }
+*//////////
     }
 
     override fun onDestroyView() {
