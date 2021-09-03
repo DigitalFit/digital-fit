@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+    tools:context=".features.nutrition.NutritionFragment">
+=======
     android:background="@color/aqua"
     tools:context=".ui.nutrition.NutritionFragment">
+>>>>>>> 0c979a08c8090c157acce83f6fdfd56e8c5b1388
 
     <ScrollView
 

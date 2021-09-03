@@ -100,7 +100,6 @@
     <string name="filter">Filtrar por</string>
     <string name="all">Todos</string>
     <string name="MuscleGroups">Grupos Musculares</string>
-    <string name="exerc_cios">exercícios</string>
     <string name="exercicios">exercícios</string>
     <string name="Exercises">Exercícios</string>
     <string name="Musculação">Musculação</string>
@@ -163,4 +162,5 @@
     <string name="halter">Halter</string>
     <string name="barra">Barra</string>
     <string name="aparelho">Aparelho</string>
+    <string name="error_default">Erro desconhecido, tente novamente</string>
 </resources>

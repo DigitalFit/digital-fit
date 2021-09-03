@@ -7,7 +7,7 @@
     android:background="@drawable/telafundo"
     android:focusableInTouchMode="false"
     android:visibility="visible"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".features.login.LoginFragment">
 
 
     <TextView

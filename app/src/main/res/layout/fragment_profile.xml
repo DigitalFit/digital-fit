@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/aqua"
-    tools:context=".ui.init.InitFragment">
+    tools:context=".features.profile.ProfileFragment">
 
 
     <com.google.android.material.button.MaterialButton
@@ -185,6 +185,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:rippleColor="#FBFBFB" />
+>>>>>>> 0c979a08c8090c157acce83f6fdfd56e8c5b1388
 
     <TextView
         android:id="@+id/text_profile"

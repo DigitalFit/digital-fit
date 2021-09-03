@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.digitalfit.ui.login.LoginFragment"
+        android:name="com.example.digitalfit.features.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginEmailFragment"
-        android:name="com.example.digitalfit.ui.login.LoginEmailFragment"
+        android:name="com.example.digitalfit.features.login.LoginEmailFragment"
         android:label="fragment_login_email"
         tools:layout="@layout/fragment_login_email" >
         <action
@@ -34,17 +34,17 @@
     </fragment>
     <fragment
         android:id="@+id/recoverPasswordFragment"
-        android:name="com.example.digitalfit.ui.login.RecoverPasswordFragment"
+        android:name="com.example.digitalfit.features.login.RecoverPasswordFragment"
         android:label="fragment_recover_password"
         tools:layout="@layout/fragment_recover_password" />
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.digitalfit.ui.login.RegistrationFragment"
+        android:name="com.example.digitalfit.features.login.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/loginGoogleFragment"
-        android:name="com.example.digitalfit.ui.login.LoginGoogleFragment"
+        android:name="com.example.digitalfit.features.login.LoginGoogleFragment"
         android:label="fragment_login_google"
         tools:layout="@layout/fragment_login_google" />
     <activity
