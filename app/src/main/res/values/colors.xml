@@ -7,4 +7,12 @@
     <color name="teal_700">#016EFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#008000</color>
+    <color name="gray">#D3D3D3</color>
+    <color name="primary_background">#0A4463</color>
+    <color name="secondary_background">#064C72</color>
+    <color name="aqua_button">#007E8A</color>
+    <color name="green_radioButton">#77D353</color>
+    <color name="light_grey">#DCDCDC</color>
 </resources>

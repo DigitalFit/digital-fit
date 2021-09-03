@@ -36,7 +36,10 @@ class ExerciseAdapter (
         ) {
             binding.tvExercise.text = exercise.name
             binding.ivExercise.setImageResource(exercise.avatar)
-            binding.ibExercise.setImageResource(exercise.icon)
+            binding.ibExercise.setOnClickListener {
+              it.isSelected = !it.isSelected
+            }
+            //binding.ibExercise.setImageResource(exercise.icon)
         }
 
     }

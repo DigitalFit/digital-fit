@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCalendarNutrition"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/aqua"
+        app:cardCornerRadius="30dp">
+
+
+        <CalendarView
+            android:id="@+id/calendarViewNutrition"
+            android:layout_width="match_parent"
+            android:layout_height="305dp"
+            android:layout_marginTop="60dp"
+            android:background="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="250dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="Selecione uma Data"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonFecharCalendario"
+            android:layout_width="52dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:text="X"
+            android:textColor="#FFFFFF"
+            android:textSize="12pt" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
