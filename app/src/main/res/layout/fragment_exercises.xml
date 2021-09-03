@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/aqua"
+    android:id="@+id/clExercises"
 
-    tools:context=".ui.exercises.ExercisesFragment">
+    tools:context=".features.exercises.view.ExercisesFragment">
 
     <TextView
         android:id="@+id/tvExercises"

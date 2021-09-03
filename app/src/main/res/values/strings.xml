@@ -125,4 +125,5 @@
     <string name="burn">Calorias (Kcal)</string>
     <string name="duration">Duração (minutos)</string>
     <string name="quantity">Quantidade (exercícios)</string>
+    <string name="error_default">Erro desconhecido, tente novamente</string>
 </resources>

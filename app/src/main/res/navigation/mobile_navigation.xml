@@ -8,31 +8,31 @@
 
     <fragment
         android:id="@+id/navigation_workout"
-        android:name="com.example.digitalfit.ui.workout.WorkoutFragment"
+        android:name="com.example.digitalfit.features.workout.WorkoutFragment"
         android:label="@string/workout"
         tools:layout="@layout/fragment_workout" />
 
     <fragment
         android:id="@+id/navigation_exercises"
-        android:name="com.example.digitalfit.ui.exercises.ExercisesFragment"
+        android:name="com.example.digitalfit.features.exercises.view.ExercisesFragment"
         android:label="@string/exercises"
         tools:layout="@layout/fragment_exercises" />
 
     <fragment
         android:id="@+id/navigation_init"
-        android:name="com.example.digitalfit.ui.init.InitFragment"
+        android:name="com.example.digitalfit.features.init.InitFragment"
         android:label="@string/init"
         tools:layout="@layout/fragment_init" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.digitalfit.ui.profile.ProfileFragment"
+        android:name="com.example.digitalfit.features.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_nutrition"
-        android:name="com.example.digitalfit.ui.nutrition.NutritionFragment"
+        android:name="com.example.digitalfit.features.nutrition.NutritionFragment"
         android:label="@string/nutrition"
         tools:layout="@layout/fragment_nutrition" />
 </navigation>

@@ -1,11 +1,11 @@
 package com.example.digitalfit.adapter
 
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digitalfit.databinding.ExerciseItemBinding
 import com.example.digitalfit.model.Exercise
+import com.example.digitalfit.modelApi.Result
 
 class ExerciseAdapter (
     private val exerciseList: List<Exercise>,
@@ -31,8 +31,8 @@ class ExerciseAdapter (
     ) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(
-            exercise: Exercise,
-            onClickListener: (exercise: Exercise) -> Unit,
+            exercise: Result?,
+            onClickListener: (movie: Result) -> Unit,
         ) {
             binding.tvExercise.text = exercise.name
             binding.ivExercise.setImageResource(exercise.avatar)
