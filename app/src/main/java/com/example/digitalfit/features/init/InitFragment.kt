@@ -12,33 +12,21 @@ import com.example.digitalfit.databinding.FragmentInitBinding
 
 class InitFragment : Fragment() {
 
-    private lateinit var initViewModel: InitViewModel
     private var _binding: FragmentInitBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        initViewModel =
-            ViewModelProvider(this).get(InitViewModel::class.java)
-
+    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState:Bundle?): View? {
         _binding = FragmentInitBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textInit
-        initViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return _binding?.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         _binding = null
+
     }
+
 }
+

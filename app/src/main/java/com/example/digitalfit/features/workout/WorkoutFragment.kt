@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.adapter.WorkoutAdapter
 import com.example.digitalfit.databinding.FragmentWorkoutBinding
 import com.example.digitalfit.model.Workout

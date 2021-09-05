@@ -1,5 +1,5 @@
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
+//import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
@@ -38,16 +38,20 @@ class ExercisesViewModel : BaseViewModel() {
 
     }
 
-    fun getMovieById(id: Int) {
-        viewModelScope.launch {
-            callApi(
-                suspend { exercisesUseCase.getMovieById(id) },
-                onSuccess = {
-                    it
-                }
-            )
-        }
-    }
+//    fun getMovieById(id: Int) {
+//        viewModelScope.launch {
+//            callApi(
+//                suspend { exercisesUseCase.getMovieById(id) },
+//                onSuccess = {
+//                    it
+//                }
+//            )
+//        }
+//    }
+//
+//    private fun callApi(call: suspend () -> Unit, onSuccess: (Any?) -> Unit) {
+//
+//    }
 }
 
 
