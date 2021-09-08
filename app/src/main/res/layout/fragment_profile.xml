@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".features.profile.ProfileFragment">
-=======
     android:background="@color/aqua"
-    tools:context=".ui.init.InitFragment">
+    tools:context=".features.profile.ProfileFragment">
+
+
 
 
     <com.google.android.material.button.MaterialButton

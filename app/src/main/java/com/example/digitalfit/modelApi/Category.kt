@@ -1,0 +1,6 @@
+package com.example.digitalfit.modelApi
+
+data class Category(
+    val id: Int,
+    val name: String
+)
