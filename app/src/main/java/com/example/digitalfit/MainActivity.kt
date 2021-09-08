@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.digitalfit.databinding.ActivityMainBinding
+import com.example.digitalfit.features.exercises.view.ExercisesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,11 @@ class MainActivity : AppCompatActivity() {
 
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
         setupWithNavController(binding.bottomNavigation, navController)
+
+        val fragment = ExercisesFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(binding.container.id, fragment)
+            .addToBackStack(null).commit()
 
     }
 

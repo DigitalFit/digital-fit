@@ -15,5 +15,8 @@ data class Result(
     val name: String,
     val status: String,
     val uuid: String,
-    val variations: List<Int>
+    val variations: List<Int>,
+    //image
+    val image: String,
+    val is_main: Boolean
 )

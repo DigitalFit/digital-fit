@@ -1,41 +1,34 @@
 package com.example.digitalfit.features.exercises.usecase
 
-import com.example.digitalfit.features.exercises.repository.HomeRepository
-import com.example.digitalfit.modelApi.Exercise
-import com.example.digitalfit.modelApi.Result
-import com.example.digitalfit.utils.ConstantsApp.Home.FIRST_PAGE
+import com.example.digitalfit.api.ApiService
+import com.example.digitalfit.features.exercises.repository.ExercisesRepository
+import com.example.digitalfit.modelApi.ListExercises
 import com.example.digitalfit.utils.ResponseApi
 
 
 class ExercisesUseCase {
 
-    private val homeRepository = HomeRepository()
+    private val exercisesRepository = ExercisesRepository()
 
-    suspend fun getExercises(): ResponseApi {
-        return when (val responseApi = homeRepository.getExercises(FIRST_PAGE)) {
-            is ResponseApi.Success -> {
-                val data = responseApi.data as? Exercise
-                val result = data?.results?.map {
-                    it
-                }
-                ResponseApi.Success(result)
-            }
-            is ResponseApi.Error -> {
-                responseApi
-            }
-        }
+
+    suspend fun getListExercises(): ResponseApi {
+        return exercisesRepository.getListExercises()
+
+         }
+
+    suspend fun getImageExercises(): ResponseApi {
+         return exercisesRepository.getImageExercises()
+
+
     }
 
+    suspend fun getInfoExercises(): ResponseApi {
+        return exercisesRepository.getInfoExercises()
 
-
-    suspend fun getMovieById(id: Int) =
-        homeRepository.getMovieById(id)
-
-    fun setupMoviesList(list: Exercise?): List<Result> {
-        return list?.results?.map {
-
-            it } ?: listOf()
     }
 }
+
+
+
 
 
