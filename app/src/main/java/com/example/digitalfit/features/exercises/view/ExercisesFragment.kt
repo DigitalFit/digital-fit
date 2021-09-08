@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+<<<<<<< HEAD
 import androidx.recyclerview.widget.GridLayoutManager
+=======
+import androidx.navigation.fragment.findNavController
+>>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
@@ -51,6 +55,25 @@ class ExercisesFragment : BaseFragment() {
             viewModel.getInfoExercises()
 
 
+<<<<<<< HEAD
+=======
+            binding?.let {
+                with(it) {
+                    chAll.setOnClickListener {
+                        findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
+                    }
+                    chMuscleGroups.setOnClickListener {
+                        findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetMusclesFragment)
+                    }
+                    chEquipments.setOnClickListener {
+                        findNavController().navigate(com.example.digitalfit.R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
+                    }
+
+                }
+            }
+
+//
+>>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
         }
 
     }

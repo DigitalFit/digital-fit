@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aqua"
+    android:background="@color/primary_background"
     tools:context="features.exercises.adicionarExercicioFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/aqua"
+        android:backgroundTint="@color/primary_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,7 +29,7 @@
             android:layout_width="228dp"
             android:layout_height="197dp"
             android:layout_marginStart="104dp"
-            android:background="@color/aqua"
+            android:background="@color/primary_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

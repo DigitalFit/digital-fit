@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aqua"
+    android:background="@color/primary_background"
     android:id="@+id/clExercises"
-
     tools:context=".features.exercises.view.ExercisesFragment">
+
 
     <TextView
         android:id="@+id/tvExercises"
@@ -21,7 +21,6 @@
         android:textSize="@dimen/primary_title_default"
         app:layout_constraintBottom_toTopOf="@id/search_bar"
         app:layout_constraintEnd_toStartOf="@id/ibAdd"
-        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,7 +75,7 @@
         android:layout_marginTop="@dimen/vertical_margin_default"
         android:background="@color/white"
         android:text="@string/all"
-        android:textColor="@color/aqua"
+        android:textColor="@color/primary_background"
         app:layout_constraintBottom_toTopOf="@id/svExercises"
         app:layout_constraintEnd_toStartOf="@id/chMuscleGroups"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -89,7 +88,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:text="@string/MuscleGroups"
-        android:textColor="@color/aqua"
+        android:textColor="@color/primary_background"
         app:layout_constraintBottom_toTopOf="@id/svExercises"
         app:layout_constraintEnd_toStartOf="@id/chEquipments"
         app:layout_constraintStart_toEndOf="@id/chAll"
@@ -101,7 +100,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:text="@string/Equipments"
-        android:textColor="@color/aqua"
+        android:textColor="@color/primary_background"
         app:layout_constraintBottom_toTopOf="@id/svExercises"
         app:layout_constraintEnd_toEndOf="@id/ibAdd"
         app:layout_constraintStart_toEndOf="@id/chMuscleGroups"
