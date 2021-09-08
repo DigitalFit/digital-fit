@@ -10,7 +10,7 @@ import java.io.IOException
 object ErrorUtils {
 
     fun parseError(response: Response<*>): ApiError? {
-        val converter: Converter<ResponseBody, ApiError> = ApiService.getTMDBApiClient()
+        val converter: Converter<ResponseBody, ApiError> = ApiService.getWGERApiClient()
             .responseBodyConverter(ApiError::class.java, arrayOfNulls<Annotation>(0))
 
         var error: ApiError? = null
