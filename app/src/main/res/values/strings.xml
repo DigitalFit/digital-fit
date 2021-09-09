@@ -170,4 +170,5 @@
     <string name="optional">Opcional</string>
     <string name="image">Imagem</string>
     <string name="target_muscle">Músculos alvo</string>
+    <string name="next_training">Próximo Treino</string>
 </resources>

@@ -11,7 +11,6 @@
         android:background="@color/primary_background"
         tools:context=".features.workout.WorkoutFragment">
 
-
         <TextView
             android:id="@+id/tvWorkout"
             android:layout_width="0dp"
@@ -43,14 +42,15 @@
 
         <CalendarView
             android:id="@+id/calendarView"
-            android:layout_width="0dp"
-            android:layout_height="145dp"
+            android:layout_width="385dp"
+            android:layout_height="144dp"
             android:layout_marginTop="@dimen/vertical_margin_between_contents"
             android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/search_bar"
             app:layout_constraintEnd_toEndOf="@id/ibAdd"
             app:layout_constraintStart_toStartOf="@id/tvWorkout"
-            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
-            app:layout_constraintBottom_toTopOf="@id/search_bar">
+            app:layout_constraintTop_toBottomOf="@id/tvWorkout">
+
         </CalendarView>
 
         <androidx.appcompat.widget.SearchView
@@ -61,8 +61,7 @@
             android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@id/calendarView"
             app:layout_constraintEnd_toEndOf="@id/ibAdd"
-            app:layout_constraintStart_toStartOf="@id/tvWorkout"
-            />
+            app:layout_constraintStart_toStartOf="@id/tvWorkout"/>
 
         <ScrollView
             android:id="@+id/svWorkout"
@@ -96,28 +95,15 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/margin_default"/>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="8dp" />
+
             </LinearLayout>
 
         </ScrollView>
-
-
-
-<!--        <com.google.android.material.card.MaterialCardView-->
-<!--            android:id="@+id/card"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            app:layout_constraintBottom_toTopOf="@id/calendarView"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/search_bar"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/search_bar"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/search_bar" />-->
-
-
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

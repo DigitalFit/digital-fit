@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <TextView
             android:id="@+id/tvWorkout"
             android:layout_width="0dp"
@@ -40,7 +39,6 @@
             app:layout_constraintStart_toEndOf="@id/tvWorkout"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/three_dots_icon" />
-
 
         <!--  Quantity  -->
 
@@ -117,8 +115,6 @@
             app:layout_constraintEnd_toEndOf="@id/tvDuration"
             app:layout_constraintBottom_toBottomOf="@id/ivDuration"/>
 
-        <!--  Burn  -->
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBurn"
             android:layout_width="@dimen/icon_size"
@@ -154,6 +150,5 @@
             app:layout_constraintEnd_toEndOf="@id/tvBurn"
             app:layout_constraintBottom_toBottomOf="@id/ivBurn"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </com.google.android.material.card.MaterialCardView>
