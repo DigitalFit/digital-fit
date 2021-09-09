@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/primary_background"
     tools:context=".features.profile.ProfileFragment">
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvProfileConf"

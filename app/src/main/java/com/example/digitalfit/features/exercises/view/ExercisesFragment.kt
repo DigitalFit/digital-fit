@@ -8,12 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-<<<<<<< HEAD
-import androidx.recyclerview.widget.GridLayoutManager
-=======
 import androidx.navigation.fragment.findNavController
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.digitalfit.R
 import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentExercisesBinding
@@ -54,9 +51,6 @@ class ExercisesFragment : BaseFragment() {
             viewModel.getImageExercises()
             viewModel.getInfoExercises()
 
-
-<<<<<<< HEAD
-=======
             binding?.let {
                 with(it) {
                     chAll.setOnClickListener {
@@ -72,8 +66,6 @@ class ExercisesFragment : BaseFragment() {
                 }
             }
 
-//
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
         }
 
     }

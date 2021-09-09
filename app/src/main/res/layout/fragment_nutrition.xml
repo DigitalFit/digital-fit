@@ -14,14 +14,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent"  >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/textView"
@@ -51,9 +49,7 @@
                     android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-
-                    />
+                    android:layout_marginTop="10dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -76,8 +72,7 @@
                 android:layout_height="30dp"
                 android:text="RESUMO"
                 android:textColor="@color/white"
-                android:layout_marginLeft="20dp"
-                />
+                android:layout_marginLeft="20dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewResumo"
@@ -168,8 +163,7 @@
                 android:text="REFEIÇÕES"
                 android:textColor="@color/white"
                 android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                />
+                android:layout_marginLeft="20dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewCafeDaManha"
@@ -217,8 +211,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="300dp"
                     android:layout_marginTop="7dp"
-                    android:background="@drawable/add_square_icon2"
-                    />
+                    android:background="@drawable/add_square_icon2" />
 
                 <TextView
                     android:layout_width="80dp"
@@ -301,7 +294,6 @@
                     android:text="206 Kcal"
                     android:textAlignment="center"
                     android:textStyle="bold" />
-
 
             </androidx.cardview.widget.CardView>
 
