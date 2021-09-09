@@ -1,58 +1,103 @@
 import androidx.lifecycle.LiveData
-//import androidx.lifecycle.viewModelScope
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PageKeyedDataSource
-import androidx.paging.PagedList
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.digitalfit.base.BaseViewModel
-import com.example.digitalfit.features.exercises.paging.HomeDataSourceFactory
-import com.example.digitalfit.features.exercises.paging.HomePageKeyedDataSource
-import com.example.digitalfit.features.exercises.repository.HomeRepository
 import com.example.digitalfit.features.exercises.usecase.ExercisesUseCase
+import com.example.digitalfit.modelApi.ImageExercises
+import com.example.digitalfit.modelApi.InfoExercises
 import com.example.digitalfit.modelApi.Result
-import com.example.digitalfit.utils.ConstantsApp.Home.PAGE_SIZE
 import kotlinx.coroutines.launch
 
 class ExercisesViewModel : BaseViewModel() {
 
-    var moviesPagedList: LiveData<PagedList<com.example.digitalfit.modelApi.Result>>? = null
-    private var watchMoviesLiveDataSource: LiveData<PageKeyedDataSource<Int, Result>>? = null
 
     private val exercisesUseCase = ExercisesUseCase()
-    private val homeRepository = HomeRepository()
 
-    init {
-        val pagedListConfig = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPageSize(PAGE_SIZE).build()
+    private val _onSuccessListExercises: MutableLiveData<List<Result>> =
+        MutableLiveData()
+
+    val onSuccessListExercises: LiveData<List<Result>>
+        get() = _onSuccessListExercises
+
+    private val _onErrorListExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorListExercises: LiveData<Int>
+        get() = _onErrorListExercises
 
 
-        val homePageKeyedDataSource = HomePageKeyedDataSource(
-            homeUseCase = exercisesUseCase,
-            homeRepository = homeRepository
-        )
-        val homeDataSourceFactory = HomeDataSourceFactory(homePageKeyedDataSource)
+    private val _onSuccessImageExercises: MutableLiveData<ImageExercises> =
+        MutableLiveData()
 
-        watchMoviesLiveDataSource = homeDataSourceFactory.getLiveDataSource()
-        moviesPagedList = LivePagedListBuilder(homeDataSourceFactory, pagedListConfig)
-            .build()
+    val onSuccessImageExercises: MutableLiveData<ImageExercises>
+        get() = _onSuccessImageExercises
 
+    private val _onErrorImageExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorImageExercises: LiveData<Int>
+        get() = _onErrorImageExercises
+
+    private val _onSuccessInfoExercises: MutableLiveData<InfoExercises> =
+        MutableLiveData()
+
+    val onSuccessInfoExercises: MutableLiveData<InfoExercises>
+        get() = _onSuccessInfoExercises
+
+    private val _onErrorInfoExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorInfoExercises: LiveData<Int>
+        get() = _onErrorInfoExercises
+
+    fun getListExercises() {
+        //Scope = Criar nova trade
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getListExercises() },
+                onSuccess = {
+                    val result = it as? List<*>
+                    _onSuccessListExercises.postValue(
+                        result?.filterIsInstance<Result>()
+                    )
+                }
+            )
+        }
     }
 
-//    fun getMovieById(id: Int) {
-//        viewModelScope.launch {
-//            callApi(
-//                suspend { exercisesUseCase.getMovieById(id) },
-//                onSuccess = {
-//                    it
-//                }
-//            )
-//        }
-//    }
-//
-//    private fun callApi(call: suspend () -> Unit, onSuccess: (Any?) -> Unit) {
-//
-//    }
+
+    fun getImageExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getImageExercises() },
+                onSuccess = {
+                    _onSuccessImageExercises.postValue(
+                        it as? ImageExercises
+                    )
+                }
+            )
+        }
+    }
+
+    fun getInfoExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getInfoExercises() },
+                onSuccess = {
+                    _onSuccessInfoExercises.postValue(
+                        it as? InfoExercises
+                    )
+
+                }
+            )
+        }
+    }
+
 }
+
+
+
+
 
 
 
