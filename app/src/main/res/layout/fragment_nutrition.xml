@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aqua"
+    android:background="@color/primary_background"
     tools:context=".features.nutrition.NutritionFragment">
 
     <ScrollView
@@ -83,10 +83,9 @@
                 android:id="@+id/cardViewResumo"
                 android:layout_width="362dp"
                 android:layout_height="164dp"
-                app:cardCornerRadius="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                >
+                app:cardCornerRadius="30dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -302,10 +301,6 @@
                     android:text="206 Kcal"
                     android:textAlignment="center"
                     android:textStyle="bold" />
-
-
-
-
 
 
             </androidx.cardview.widget.CardView>
