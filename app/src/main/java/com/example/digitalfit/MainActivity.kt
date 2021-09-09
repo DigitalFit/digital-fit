@@ -16,14 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
         setupWithNavController(binding.bottomNavigation, navController)
 
-        val fragment = ExercisesFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(binding.container.id, fragment)
-            .addToBackStack(null).commit()
+//        val fragment = ExercisesFragment()
+//        supportFragmentManager.beginTransaction()
+//            .replace(binding.container.id, fragment)
+//            .addToBackStack(null).commit()
 
     }
 

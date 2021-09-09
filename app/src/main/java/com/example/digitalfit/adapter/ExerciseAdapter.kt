@@ -1,6 +1,5 @@
 package com.example.digitalfit.adapter
 
-<<<<<<< HEAD
 //import android.view.LayoutInflater
 //import android.view.ViewGroup
 //import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +44,7 @@ package com.example.digitalfit.adapter
 //    }
 //
 //}
-=======
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -93,4 +92,4 @@ class ExerciseAdapter (
     }
 
 }
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
+
