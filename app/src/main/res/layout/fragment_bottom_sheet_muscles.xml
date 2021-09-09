@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin_between_contents"
                 android:layout_marginStart="@dimen/horizontal_margin_default"
-                android:text="@string/frente"
+                android:text="@string/front"
                 android:textColor="@color/light_grey"
                 android:textSize="@dimen/checkBox_text_size"
                 android:textStyle="bold" />
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin_between_contents"
                 android:layout_marginStart="@dimen/horizontal_margin_default"
-                android:text="@string/costas"
+                android:text="@string/back"
                 android:textColor="@color/light_grey"
                 android:textSize="@dimen/checkBox_text_size"
                 android:textStyle="bold" />
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin_between_contents"
                 android:layout_marginStart="@dimen/horizontal_margin_default"
-                android:text="@string/bracos"
+                android:text="@string/arms"
                 android:textColor="@color/light_grey"
                 android:textSize="@dimen/checkBox_text_size"
                 android:textStyle="bold" />
@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin_between_contents"
                 android:layout_marginStart="@dimen/horizontal_margin_default"
-                android:text="@string/pernas"
+                android:text="@string/legs"
                 android:textColor="@color/light_grey"
                 android:textSize="@dimen/checkBox_text_size"
                 android:textStyle="bold" />
@@ -288,7 +288,7 @@
         android:backgroundTint="@color/aqua_button"
         android:paddingHorizontal="60dp"
         android:text="@string/apply_button"
-        app:cornerRadius="@dimen/cornerRadiusButton"
+        app:cornerRadius="@dimen/cornerRadius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
