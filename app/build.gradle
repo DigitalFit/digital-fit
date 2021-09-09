@@ -36,16 +36,6 @@ android {
         viewBinding true
     }
 
-    repositories {
-        mavenCentral()
-        maven {
-            url "https://maven.springframework.org/release"
-        }
-        maven {
-            url "https://maven.restlet.com"
-        }
-    }
-
     android {
         compileOptions {
             sourceCompatibility 1.8
@@ -57,7 +47,7 @@ android {
 dependencies {
     // Kotlin
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.21"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.20"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -84,9 +74,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 
     //Jetpack
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-aplha03'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-aplha03'
-    implementation 'androidx.paging:paging-runtime-ktx:3.0.1'
+   implementation 'androidx.paging:paging-runtime-ktx:3.0.1'
+
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'

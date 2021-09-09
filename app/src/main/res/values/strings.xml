@@ -163,4 +163,5 @@
     <string name="barra">Barra</string>
     <string name="aparelho">Aparelho</string>
     <string name="error_default">Erro desconhecido, tente novamente</string>
+    <string name="next_training">Próximo Treino</string>
 </resources>

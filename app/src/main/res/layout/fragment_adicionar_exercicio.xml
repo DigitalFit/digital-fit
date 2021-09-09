@@ -18,6 +18,7 @@
         <Button
             android:layout_width="70dp"
             android:layout_height="51dp"
+            android:backgroundTint="@color/primary_background"
             android:text=" ←"
             android:textColor="@color/white"
             android:textSize="30sp">
@@ -47,10 +48,10 @@
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf=""
+        app:layout_constraintBottom_toTopOf=""
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="204dp">
-
     </TextView>
 
     <LinearLayout
@@ -58,9 +59,8 @@
         android:layout_height="233dp"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="270dp">
+        tools:layout_editor_absoluteY="270dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
