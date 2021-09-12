@@ -164,7 +164,7 @@
         android:backgroundTint="@color/aqua_button"
         android:paddingHorizontal="60dp"
         android:text="@string/apply_button"
-        app:cornerRadius="@dimen/cornerRadiusButton"
+        app:cornerRadius="@dimen/cornerRadius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondary_background"
-    tools:context=".ui.exercises.BottomSheetFilterFragment">
+    tools:context=".features.exercises.viewmodel.BottomSheetFilterFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFilter"
@@ -76,7 +76,7 @@
         android:layout_margin="@dimen/margin_default"
         android:backgroundTint="@color/aqua_button"
         android:text="@string/apply_button"
-        app:cornerRadius="@dimen/cornerRadiusButton"
+        app:cornerRadius="@dimen/cornerRadius"
         app:layout_constraintTop_toBottomOf="@id/rgFilter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

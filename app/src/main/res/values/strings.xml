@@ -136,20 +136,20 @@
     <string name="gluteos">Glúteos</string>
     <string name="isquiotibiais">Isquiotibiais</string>
     <string name="quadriceps">Quadríceps</string>
-    <string name="pernas">Pernas</string>
+    <string name="legs">Pernas</string>
     <string name="antebracos">Antebraços</string>
     <string name="triceps">Tríceps</string>
     <string name="biceps">Bíceps</string>
     <string name="ombros">Ombros</string>
-    <string name="bracos">Braços</string>
+    <string name="arms">Braços</string>
     <string name="dorsais">Dorsais</string>
     <string name="trapezio">Trapézio</string>
     <string name="lombares">Lombares</string>
-    <string name="costas">Costas</string>
+    <string name="back">Costas</string>
     <string name="obliquos">Oblíquos</string>
     <string name="abdomen">Abdômen</string>
     <string name="peitoral">Peitoral</string>
-    <string name="frente">Frente</string>
+    <string name="front">Frente</string>
     <string name="MuscleGroupTitle">Grupos Musculares:</string>
     <string name="EquipmentsTitle">Equipamentos:</string>
     <string name="bola">Bola</string>
@@ -163,4 +163,12 @@
     <string name="barra">Barra</string>
     <string name="aparelho">Aparelho</string>
     <string name="error_default">Erro desconhecido, tente novamente</string>
+    <string name="exercise_add">Adicionar exercício</string>
+    <string name="name">Nome</string>
+    <string name="required">Obrigatório*</string>
+    <string name="description">Descrição</string>
+    <string name="optional">Opcional</string>
+    <string name="image">Imagem</string>
+    <string name="target_muscle">Músculos alvo</string>
+    <string name="next_training">Próximo Treino</string>
 </resources>

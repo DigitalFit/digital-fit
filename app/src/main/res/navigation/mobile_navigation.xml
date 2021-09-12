@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_navigation_exercises_to_bottomSheetEquipmentsFragment"
             app:destination="@id/bottomSheetEquipmentsFragment" />
+        <action
+            android:id="@+id/action_navigation_exercises_to_exercisesAddFragment"
+            app:destination="@id/exercisesAddFragment" />
     </fragment>
 
     <fragment
@@ -47,7 +50,7 @@
         tools:layout="@layout/fragment_nutrition" />
     <dialog
         android:id="@+id/bottomSheetFilterFragment"
-        android:name="com.example.digitalfit.ui.exercises.BottomSheetFilterFragment"
+        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetFilterFragment"
         android:label="fragment_bottom_sheet_filter"
         tools:layout="@layout/fragment_bottom_sheet_filter" />
     <dialog
@@ -60,4 +63,9 @@
         android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetEquipmentsFragment"
         android:label="fragment_bottom_sheet_equipments"
         tools:layout="@layout/fragment_bottom_sheet_equipments" />
+    <fragment
+        android:id="@+id/exercisesAddFragment"
+        android:name="com.example.digitalfit.features.exercises.viewmodel.ExercisesAddFragment"
+        android:label="fragment_exercises_add"
+        tools:layout="@layout/fragment_exercises_add" />
 </navigation>

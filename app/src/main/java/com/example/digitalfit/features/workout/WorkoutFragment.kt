@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.adapter.WorkoutAdapter
 import com.example.digitalfit.databinding.FragmentWorkoutBinding
 import com.example.digitalfit.model.Workout
@@ -72,12 +73,21 @@ class WorkoutFragment : Fragment() {
         val workoutAdapter = WorkoutAdapter(workoutList = workoutList){
 
         }
+<<<<<<< HEAD
 //        binding?.let {
 //            with(it) {
 //                vgWorkoutRecyclerView.layoutManager = LinearLayoutManager(context)
 //                vgWorkoutRecyclerView.adapter = workoutAdapter
 //            }
 //        }
+=======
+        binding?.let {
+            with(it) {
+                vgWorkoutRecyclerView.layoutManager = LinearLayoutManager(context)
+                vgWorkoutRecyclerView.adapter = workoutAdapter
+            }
+        }
+>>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
     }
 
     override fun onDestroyView() {
