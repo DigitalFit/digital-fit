@@ -73,21 +73,13 @@ class WorkoutFragment : Fragment() {
         val workoutAdapter = WorkoutAdapter(workoutList = workoutList){
 
         }
-<<<<<<< HEAD
-//        binding?.let {
-//            with(it) {
-//                vgWorkoutRecyclerView.layoutManager = LinearLayoutManager(context)
-//                vgWorkoutRecyclerView.adapter = workoutAdapter
-//            }
-//        }
-=======
+
         binding?.let {
             with(it) {
                 vgWorkoutRecyclerView.layoutManager = LinearLayoutManager(context)
                 vgWorkoutRecyclerView.adapter = workoutAdapter
             }
         }
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
     }
 
     override fun onDestroyView() {

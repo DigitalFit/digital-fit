@@ -32,7 +32,7 @@ class ExercisesUseCase {
         return exercisesRepository.getCategoryExercises()
     }
 
-    fun getCommentExercises(): ResponseApi {
+    suspend fun getCommentExercises(): ResponseApi {
         return exercisesRepository.getCommentExercises()
     }
 }

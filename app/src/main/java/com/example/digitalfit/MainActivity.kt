@@ -19,15 +19,6 @@ class MainActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
         setupWithNavController(binding.bottomNavigation, navController)
 
-<<<<<<< HEAD
-
-=======
-//        val fragment = ExercisesFragment()
-//        supportFragmentManager.beginTransaction()
-//            .replace(binding.container.id, fragment)
-//            .addToBackStack(null).commit()
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
-
     }
 
 

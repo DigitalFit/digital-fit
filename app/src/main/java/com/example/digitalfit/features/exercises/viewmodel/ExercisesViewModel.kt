@@ -117,7 +117,6 @@ class ExercisesViewModel : BaseViewModel() {
         }
     }
 
-<<<<<<< HEAD
     fun getCategoryExercises() {
         viewModelScope.launch {
             callApi(
@@ -147,8 +146,6 @@ class ExercisesViewModel : BaseViewModel() {
         }
     }
 
-=======
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
 }
 
 
