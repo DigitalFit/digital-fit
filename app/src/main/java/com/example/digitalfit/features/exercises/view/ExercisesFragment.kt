@@ -5,14 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-<<<<<<< HEAD
-import androidx.recyclerview.widget.GridLayoutManager
-=======
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.R
@@ -21,8 +15,6 @@ import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentExercisesBinding
 import com.example.digitalfit.utils.Command
 import com.google.android.material.snackbar.Snackbar
-
-
 
 
 class ExercisesFragment : BaseFragment() {
@@ -57,16 +49,8 @@ class ExercisesFragment : BaseFragment() {
             viewModel.getCategoryExercises()
             viewModel.getCommentExercises()
 
-
-
             setupObeservables()
 
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
             binding?.let {
                 with(it) {
                     chAll.setOnClickListener {
@@ -81,20 +65,10 @@ class ExercisesFragment : BaseFragment() {
                     ibAdd.setOnClickListener {
                         findNavController().navigate(R.id.action_navigation_exercises_to_exercisesAddFragment)
                     }
-
                 }
             }
-
-<<<<<<< HEAD
-=======
-        }
->>>>>>> 2d9e1a38b1d048786a10e74b6d2539da63ff5cec
-
         }
     }
-
-
-
 
 
     private fun setupObeservables() {
