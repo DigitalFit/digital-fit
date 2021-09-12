@@ -3,9 +3,9 @@ package com.example.digitalfit.features.exercises.paging
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
-//
-//class HomeDataSourceFactory(
-//    private val wgerDataSource: HomePageKeyedDataSource
+
+//class ExercisesDataSourceFactory(
+//    private val wgerDataSource: ExercisesPageKeyedDataSource
 //): DataSource.Factory<Int, com.example.digitalfit.modelApi.Result>() {
 //
 //    private val wgerLiveDataSource = MutableLiveData<PageKeyedDataSource<Int, com.example.digitalfit.modelApi.Result>>()

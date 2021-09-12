@@ -5,23 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-<<<<<<< HEAD
 import androidx.recyclerview.widget.GridLayoutManager
-=======
 import androidx.navigation.fragment.findNavController
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.digitalfit.R
 import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentExercisesBinding
 import com.example.digitalfit.utils.Command
 import com.google.android.material.snackbar.Snackbar
 
-// it = activity
-// pode usar viewLifecyclerOwner
+
 
 
 class ExercisesFragment : BaseFragment() {
@@ -53,10 +51,16 @@ class ExercisesFragment : BaseFragment() {
             viewModel.getListExercises()
             viewModel.getImageExercises()
             viewModel.getInfoExercises()
+            viewModel.getCategoryExercises()
+            viewModel.getCommentExercises()
 
 
-<<<<<<< HEAD
-=======
+
+            setupObeservables()
+
+
+
+
             binding?.let {
                 with(it) {
                     chAll.setOnClickListener {
@@ -72,11 +76,13 @@ class ExercisesFragment : BaseFragment() {
                 }
             }
 
-//
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
-        }
 
+        }
     }
+
+
+
+
 
     private fun setupObeservables() {
         viewModel.onSuccessListExercises.observe(viewLifecycleOwner, {
@@ -122,14 +128,9 @@ class ExercisesFragment : BaseFragment() {
     }
 
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
     }
 }
-
-
-
-
-
-

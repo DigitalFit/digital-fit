@@ -10,9 +10,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
-//class HomePageKeyedDataSource(
-//    private val homeRepository: ExercisesRepository,
-//    private val homeUseCase: ExercisesUseCase
+//class ExercisesPageKeyedDataSource(
+//    private val exercisesRepository: ExercisesRepository,
+//    private val exercisesUseCase: ExercisesUseCase
 //) : PageKeyedDataSource<Int, com.example.digitalfit.modelApi.Result>() {
 //
 //    override fun loadInitial(
@@ -32,25 +32,25 @@ import kotlinx.coroutines.launch
 //    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, com.example.digitalfit.modelApi.Result>) {
 //        loadData(params.key, params.key + 1, callback)
 //    }
-
+//
 //    private fun loadData(page: Int, nextPage: Int, callback: LoadCallback<Int, com.example.digitalfit.modelApi.Result>) {
 //        CoroutineScope(IO).launch {
-//            val movies: List<com.example.digitalfit.modelApi.Result> = callNowPlayingMoviesApi(page)
-//            callback.onResult(movies, nextPage)
+//            val exercises: List<com.example.digitalfit.modelApi.Result> = callNowPlayingMoviesApi(page)
+//            callback.onResult(exercises, nextPage)
 //        }
 //    }
-
+//
 //    private suspend fun callNowPlayingMoviesApi(page: Int): List<com.example.digitalfit.modelApi.Result> {
 //        return when (
-//            val response = homeRepository.getExercises(page)
+//            val response = exercisesRepository.getListExercises(pag)
 //        ) {
 //            is ResponseApi.Success -> {
 //                val list = response.data as? ListExercises
-//                homeUseCase.setupMoviesList(list)
+//                exercisesUseCase.setupExercisesList(list)
 //            }
 //            is ResponseApi.Error -> {
 //                listOf()
 //            }
 //        }
-////    }
+//   }
 //}

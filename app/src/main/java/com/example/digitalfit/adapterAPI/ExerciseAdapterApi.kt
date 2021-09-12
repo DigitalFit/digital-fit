@@ -1,5 +1,7 @@
 package com.example.digitalfit.adapterAPI
 
+
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +37,7 @@ class ExerciseAdapterApi(
             onClickListener: (exercises: Result) -> Unit,
         ) {
             with(binding) {
-              tvExercise.text = exercises.uuid
+                tvExercise.text = exercises.uuid
                 cvExercise.setOnClickListener {
                     onClickListener(exercises)
                 }
@@ -44,7 +46,7 @@ class ExerciseAdapterApi(
                     .load(exercises.image)
                     .placeholder(R.drawable.noimage)
                     .into(ivExercise)
-                }
             }
         }
     }
+}

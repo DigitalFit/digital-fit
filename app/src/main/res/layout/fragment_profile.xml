@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/aqua"
     tools:context=".features.profile.ProfileFragment">
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 863b4c6d6a705a63b324b4c1c8e5910c1f748443
 
 
     <com.google.android.material.button.MaterialButton
@@ -190,7 +185,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:rippleColor="#FBFBFB" />
->>>>>>> 0c979a08c8090c157acce83f6fdfd56e8c5b1388
 
     <TextView
         android:id="@+id/text_profile"

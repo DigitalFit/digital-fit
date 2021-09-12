@@ -1,5 +1,6 @@
 package com.example.digitalfit.features.exercises.usecase
 
+
 import com.example.digitalfit.api.ApiService
 import com.example.digitalfit.features.exercises.repository.ExercisesRepository
 import com.example.digitalfit.modelApi.ListExercises
@@ -14,10 +15,10 @@ class ExercisesUseCase {
     suspend fun getListExercises(): ResponseApi {
         return exercisesRepository.getListExercises()
 
-         }
+    }
 
     suspend fun getImageExercises(): ResponseApi {
-         return exercisesRepository.getImageExercises()
+        return exercisesRepository.getImageExercises()
 
 
     }
@@ -26,7 +27,16 @@ class ExercisesUseCase {
         return exercisesRepository.getInfoExercises()
 
     }
+
+    suspend fun getCategoryExercises(): ResponseApi {
+        return exercisesRepository.getCategoryExercises()
+    }
+
+    fun getCommentExercises(): ResponseApi {
+        return exercisesRepository.getCommentExercises()
+    }
 }
+
 
 
 
