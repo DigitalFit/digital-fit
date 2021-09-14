@@ -17,6 +17,7 @@
             android:layout_height="@dimen/avatar_size"
             android:adjustViewBounds="true"
             android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:layout_marginVertical="@dimen/vertical_margin_default"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvExercise"
             app:layout_constraintStart_toStartOf="parent"

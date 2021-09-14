@@ -36,10 +36,10 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorImageExercises: LiveData<Int>
         get() = _onErrorImageExercises
 
-    private val _onSuccessInfoExercises: MutableLiveData<InfoExercises> =
+    private val _onSuccessInfoExercises: MutableLiveData<List<ResultInfo>> =
         MutableLiveData()
 
-    val onSuccessInfoExercises: MutableLiveData<InfoExercises>
+    val onSuccessInfoExercises: MutableLiveData<List<ResultInfo>>
         get() = _onSuccessInfoExercises
 
     private val _onErrorInfoExercises: MutableLiveData<Int> =
@@ -108,8 +108,9 @@ class ExercisesViewModel : BaseViewModel() {
             callApi(
                 suspend { exercisesUseCase.getInfoExercises() },
                 onSuccess = {
+                    val result = it as? List<*>
                     _onSuccessInfoExercises.postValue(
-                        it as? InfoExercises
+                        result?.filterIsInstance<ResultInfo>()
                     )
 
                 }
@@ -141,6 +142,17 @@ class ExercisesViewModel : BaseViewModel() {
                         it as? CommentExercises
                     )
 
+                }
+            )
+        }
+    }
+
+    fun getExerciseById(id: Int) {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getExerciseById(id) },
+                onSuccess = {
+                    it
                 }
             )
         }

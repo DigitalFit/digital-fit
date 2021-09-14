@@ -1,19 +1,18 @@
 package com.example.digitalfit.adapterAPI
 
 
-
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.digitalfit.R
 import com.example.digitalfit.databinding.ExerciseItemBinding
-import com.example.digitalfit.modelApi.Result
+import com.example.digitalfit.modelApi.Image
+import com.example.digitalfit.modelApi.ResultInfo
 
 class ExerciseAdapterApi(
-    private val exercisesList: List<Result>,
-    private val onClickListener: (exercises: Result) -> Unit
+    private val exercisesList: List<ResultInfo>,
+    private val onClickListener: (exercises: ResultInfo) -> Unit
 ) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,17 +32,18 @@ class ExerciseAdapterApi(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            exercises: Result,
-            onClickListener: (exercises: Result) -> Unit,
+            exercises: ResultInfo,
+            onClickListener: (exercises: ResultInfo) -> Unit,
         ) {
             with(binding) {
-                tvExercise.text = exercises.uuid
+                tvExercise.text = exercises.name
                 cvExercise.setOnClickListener {
                     onClickListener(exercises)
                 }
+                //se imagem não for null, carrega primeira imagem da lista
                 Glide
                     .with(itemView.context)
-                    .load(exercises.image)
+                    .load(exercises.images.firstOrNull()?.image)
                     .placeholder(R.drawable.noimage)
                     .into(ivExercise)
             }

@@ -43,6 +43,12 @@ class ExercisesRepository : BaseRepository() {
 
     }
 
+    suspend fun getExerciseById(id: Int): ResponseApi {
+        return safeApiCall {
+            ApiService.wgerApi.getExerciseById(id)
+        }
+    }
+
 
 }
 

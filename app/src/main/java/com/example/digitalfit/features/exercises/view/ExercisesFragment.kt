@@ -17,6 +17,8 @@ import com.example.digitalfit.utils.Command
 import com.google.android.material.snackbar.Snackbar
 
 
+
+
 class ExercisesFragment : BaseFragment() {
 
 
@@ -72,11 +74,14 @@ class ExercisesFragment : BaseFragment() {
 
 
     private fun setupObeservables() {
-        viewModel.onSuccessListExercises.observe(viewLifecycleOwner, {
+        //chamando api InfoExercise
+        //chamando api ListExercise por id
+        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
             it?.let { exercisesList ->
                 val exercisesAdapterApi = ExerciseAdapterApi(
                     exercisesList = exercisesList
-                ) { it
+                ) { exercises ->
+                    viewModel.getExerciseById(exercises.id)
                 }
 
                 binding?.let {
@@ -90,6 +95,26 @@ class ExercisesFragment : BaseFragment() {
             }
         }
         )
+
+//        viewModel.onSuccessListExercises.observe(viewLifecycleOwner, {
+//            it?.let { exercisesList ->
+//                val exercisesAdapterApi = ExerciseAdapterApi(
+//                    exercisesList = exercisesList
+//                ) { exercises ->
+//                    viewModel.getExerciseById(exercises.id)
+//                }
+//
+//                binding?.let {
+//                    with(it) {
+//                        vgExerciseRecyclerView.apply {
+//                            layoutManager = LinearLayoutManager(context)
+//                            adapter = exercisesAdapterApi
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        )
 
         viewModel.onErrorListExercises.observe(viewLifecycleOwner, {
             viewLifecycleOwner
