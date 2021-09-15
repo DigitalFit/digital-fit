@@ -9,6 +9,7 @@ import com.example.digitalfit.R
 import com.example.digitalfit.databinding.ExerciseItemBinding
 import com.example.digitalfit.modelApi.Image
 import com.example.digitalfit.modelApi.ResultInfo
+import kotlinx.coroutines.delay
 
 class ExerciseAdapterApi(
     private val exercisesList: List<ResultInfo>,

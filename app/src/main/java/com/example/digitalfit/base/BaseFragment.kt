@@ -7,6 +7,5 @@ import com.example.digitalfit.utils.Command
 
 abstract class BaseFragment: Fragment() {
 
-
     abstract var command: MutableLiveData<Command>
 }

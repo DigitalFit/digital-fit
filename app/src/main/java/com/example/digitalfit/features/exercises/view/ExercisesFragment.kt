@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.R
@@ -14,6 +15,7 @@ import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentExercisesBinding
 import com.example.digitalfit.utils.Command
+import com.example.digitalfit.utils.ConstantsApp.Exercise.KEY_BUNDLE_EXERCISE_ID
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -81,7 +83,11 @@ class ExercisesFragment : BaseFragment() {
                 val exercisesAdapterApi = ExerciseAdapterApi(
                     exercisesList = exercisesList
                 ) { exercises ->
-                    viewModel.getExerciseById(exercises.id)
+                    val bundle = Bundle()
+                    bundle.putInt(KEY_BUNDLE_EXERCISE_ID, exercises.id)
+                    findNavController().navigate(R.id.action_navigation_exercises_to_exerciseDetailFragment,
+                    bundle)
+                    //viewModel.getExerciseById(exercises.id)
                 }
 
                 binding?.let {

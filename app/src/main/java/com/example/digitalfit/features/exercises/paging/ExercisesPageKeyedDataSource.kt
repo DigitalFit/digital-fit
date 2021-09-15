@@ -4,7 +4,7 @@ import androidx.paging.PageKeyedDataSource
 import com.example.digitalfit.features.exercises.repository.ExercisesRepository
 import com.example.digitalfit.features.exercises.usecase.ExercisesUseCase
 import com.example.digitalfit.modelApi.ListExercises
-import com.example.digitalfit.utils.ConstantsApp.Home.FIRST_PAGE
+import com.example.digitalfit.utils.ConstantsApp.Exercise.FIRST_PAGE
 import com.example.digitalfit.utils.ResponseApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
