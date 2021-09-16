@@ -60,7 +60,10 @@ class ExercisesFragment : BaseFragment() {
                         findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetMusclesFragment)
                     }
                     chEquipments.setOnClickListener {
-                        findNavController().navigate(com.example.digitalfit.R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
+                        findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
+                    }
+                    ibAdd.setOnClickListener {
+                        findNavController().navigate(R.id.action_navigation_exercises_to_exercisesAddFragment)
                     }
 
                 }

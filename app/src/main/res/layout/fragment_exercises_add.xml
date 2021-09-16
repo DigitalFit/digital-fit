@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary_background"
+    android:fillViewport="true"
+    tools:context=".features.exercises.viewmodel.ExercisesAddFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvExercisesAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:layout_marginBottom="@dimen/vertical_margin_between_contents"
+            android:text="@string/exercise_add"
+            android:textColor="@color/white"
+            android:textSize="@dimen/secondary_title_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:hint="@string/name"
+            android:textColorHint="@color/white"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@color/light_grey"
+            app:layout_constraintBottom_toTopOf="@id/etDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExercisesAdd">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDescription"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:hint="@string/description"
+            android:textColorHint="@color/white"
+            app:helperText="@string/optional"
+            app:helperTextTextColor="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:paddingStart="@dimen/horizontal_margin_default"
+            android:text="@string/image"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/tvImageHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etDescription" />
+
+        <TextView
+            android:id="@+id/tvImageHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:paddingStart="@dimen/horizontal_margin_default"
+            android:text="@string/optional"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImage" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
+            android:layout_width="360dp"
+            android:layout_height="240dp"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:paddingStart="@dimen/horizontal_margin_default"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/cornerRadius"
+            app:cardElevation="1dp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintBottom_toTopOf="@id/tvTargetMuscle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="@dimen/max_height_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImageHint"
+            app:layout_constraintWidth_max="@dimen/max_width_image">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_default"
+                android:src="@drawable/ic_baseline_add_a_photo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/aerobicos" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvTargetMuscle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:paddingStart="@dimen/horizontal_margin_default"
+            android:text="@string/target_muscle"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/tvTargetMuscleHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvImage" />
+
+        <TextView
+            android:id="@+id/tvTargetMuscleHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:paddingStart="@dimen/horizontal_margin_default"
+            android:paddingEnd="@dimen/horizontal_margin_default"
+            android:text="@string/optional"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscle" />
+
+        <TextView
+            android:id="@+id/tvTargetMuscleFront"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:text="@string/front"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleHint" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgFront"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:paddingEnd="@dimen/horizontal_margin_extra"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleFront"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvTargetMuscleBack"
+            >
+
+            <!-- Chips can be declared here, or added dynamically. -->
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chFront1"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/peitoral" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chFront2"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/abdomen" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chFront3"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/obliquos" />
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tvTargetMuscleBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:text="@string/back"
+            android:textColor="@color/light_grey"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/cgFront"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cgBack"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgBack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin_default"
+                android:paddingEnd="@dimen/horizontal_margin_extra"
+                app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvTargetMuscleArms">
+
+                <!-- Chips can be declared here, or added dynamically. -->
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chBack1"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lombares" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chBack2"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trapezio" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chBack3"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dorsais" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tvTargetMuscleArms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:text="@string/arms"
+            android:textColor="@color/light_grey"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/cgBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cgArms"/>
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgArms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:paddingEnd="@dimen/horizontal_margin_extra"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleArms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvTargetMuscleLegs">
+
+            <!-- Chips can be declared here, or added dynamically. -->
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chArms1"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ombros" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chArms2"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/biceps" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chArms3"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/triceps" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chArms4"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/antebracos" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+        <TextView
+            android:id="@+id/tvTargetMuscleLegs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:text="@string/legs"
+            android:textColor="@color/light_grey"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/cgArms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/svTargetMuscleLegs"/>
+
+        <HorizontalScrollView
+            android:id="@+id/svTargetMuscleLegs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleLegs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvTargetMuscleCardio">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgLegs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin_default"
+                android:paddingEnd="@dimen/horizontal_margin_extra">
+
+                <!-- Chips can be declared here, or added dynamically. -->
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs1"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quadriceps" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs2"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/isquiotibiais" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs3"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gluteos" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs4"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/abdutores" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs5"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adutores" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chLegs6"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/panturrilha" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tvTargetMuscleCardio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginTop="@dimen/vertical_margin_between_contents"
+            android:text="@string/cardio"
+            android:textColor="@color/light_grey"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/svTargetMuscleLegs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/cgFront"/>
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgCardio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:paddingEnd="@dimen/horizontal_margin_extra"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetMuscleCardio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Chips can be declared here, or added dynamically. -->
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chCardio1"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cardio" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

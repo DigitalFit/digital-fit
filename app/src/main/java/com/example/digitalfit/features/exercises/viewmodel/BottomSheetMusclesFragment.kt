@@ -1,3 +1,4 @@
+git status
 package com.example.digitalfit.features.exercises.viewmodel
 
 import android.os.Bundle
