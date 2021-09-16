@@ -7,6 +7,24 @@
     android:background="@color/primary_background"
     tools:context=".features.profile.ProfileFragment">
 
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonGoogle"
+        android:layout_width="324dp"
+        android:layout_height="43dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/pesquisa"
+        android:text="Vincular sua conta Google"
+        android:textColor="@color/black"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toTopOf="@id/cvProfileConf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </com.google.android.material.button.MaterialButton>
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvProfileConf"
         android:layout_width="337dp"
@@ -166,8 +184,8 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:rippleColor="#FBFBFB"
         app:layout_constraintStart_toStartOf="parent">
-
     </com.google.android.material.button.MaterialButton>
 
     <TextView
@@ -194,21 +212,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonGoogle"
-        android:layout_width="324dp"
-        android:layout_height="43dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/pesquisa"
-        android:text="Vincular sua conta Google"
-        android:textColor="@color/black"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@id/cvProfileConf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-    </com.google.android.material.button.MaterialButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

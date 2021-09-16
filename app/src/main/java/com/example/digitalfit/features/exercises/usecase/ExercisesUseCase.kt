@@ -1,7 +1,8 @@
 package com.example.digitalfit.features.exercises.usecase
 
-import com.example.digitalfit.api.ApiService
+
 import com.example.digitalfit.features.exercises.repository.ExercisesRepository
+import com.example.digitalfit.modelApi.InfoExercises
 import com.example.digitalfit.modelApi.ListExercises
 import com.example.digitalfit.utils.ResponseApi
 
@@ -12,21 +13,52 @@ class ExercisesUseCase {
 
 
     suspend fun getListExercises(): ResponseApi {
-        return exercisesRepository.getListExercises()
-
-         }
+        return when (val responseApi = exercisesRepository.getListExercises()) {
+            is ResponseApi.Success -> {
+                val data = responseApi.data as? ListExercises
+                val result = data?.results
+                ResponseApi.Success(result)
+            }
+            is ResponseApi.Error -> {
+                responseApi
+            }
+        }
+    }
 
     suspend fun getImageExercises(): ResponseApi {
-         return exercisesRepository.getImageExercises()
+        return exercisesRepository.getImageExercises()
 
 
     }
 
     suspend fun getInfoExercises(): ResponseApi {
-        return exercisesRepository.getInfoExercises()
-
+        return when (val responseApi = exercisesRepository.getInfoExercises()) {
+            is ResponseApi.Success -> {
+                val data = responseApi.data as? InfoExercises
+                val result = data?.results
+                ResponseApi.Success(result)
+            }
+            is ResponseApi.Error -> {
+                responseApi
+            }
+        }
     }
+
+    suspend fun getCategoryExercises(): ResponseApi {
+        return exercisesRepository.getCategoryExercises()
+    }
+
+    suspend fun getCommentExercises(): ResponseApi {
+        return exercisesRepository.getCommentExercises()
+    }
+
+    suspend fun getExerciseById(id: Int) = exercisesRepository.getExerciseById(id)
+
 }
+
+
+
+
 
 
 

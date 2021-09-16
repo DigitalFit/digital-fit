@@ -11,9 +11,14 @@ package com.example.digitalfit.utils
             const val QUERY_PARAM_REGION_LABEL = "3fdab48e2bddf5d597050debe64abb1c"
         }
 
-        object Home {
-            const val KEY_BUNDLE_MOVIE_ID = "movieId"
-            const val PAGE_SIZE = 20
+//        object Home {
+//            const val KEY_BUNDLE_MOVIE_ID = "movieId"
+//            const val PAGE_SIZE = 20
+//            const val FIRST_PAGE = 1
+//        }
+
+        object Exercise {
+            const val KEY_BUNDLE_EXERCISE_ID = "exerciseId"
             const val FIRST_PAGE = 1
         }
     }

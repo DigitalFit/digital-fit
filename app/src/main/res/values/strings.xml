@@ -173,4 +173,10 @@
     <string name="next_training">Próximo Treino</string>
     <string name="next_meal">Próxima Refeição</string>
     <string name="body_data">Dados Corporais</string>
+    <string name="exercise_name">Nome do Exercício</string>
+    <string name="description_value">Descrição do exercício</string>
+    <string name="primary_muscle">Músculos Primários</string>
+    <string name="muscle_list">Lista de músculos</string>
+    <string name="secondary_muscle">Músculos Secundários</string>
+
 </resources>

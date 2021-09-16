@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_navigation_exercises_to_exercisesAddFragment"
             app:destination="@id/exercisesAddFragment" />
+        <action
+            android:id="@+id/action_navigation_exercises_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
     </fragment>
 
     <fragment
@@ -68,4 +71,9 @@
         android:name="com.example.digitalfit.features.exercises.viewmodel.ExercisesAddFragment"
         android:label="fragment_exercises_add"
         tools:layout="@layout/fragment_exercises_add" />
+    <fragment
+        android:id="@+id/exerciseDetailFragment"
+        android:name="com.example.digitalfit.features.exercisedetail.view.ExerciseDetailFragment"
+        android:label="fragment_exercise_detail"
+        tools:layout="@layout/fragment_exercise_detail" />
 </navigation>

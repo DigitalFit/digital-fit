@@ -73,6 +73,7 @@ class WorkoutFragment : Fragment() {
         val workoutAdapter = WorkoutAdapter(workoutList = workoutList){
 
         }
+
         binding?.let {
             with(it) {
                 vgWorkoutRecyclerView.layoutManager = LinearLayoutManager(context)

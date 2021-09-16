@@ -3,9 +3,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.digitalfit.base.BaseViewModel
 import com.example.digitalfit.features.exercises.usecase.ExercisesUseCase
-import com.example.digitalfit.modelApi.ImageExercises
-import com.example.digitalfit.modelApi.InfoExercises
-import com.example.digitalfit.modelApi.Result
+import com.example.digitalfit.modelApi.*
 import kotlinx.coroutines.launch
 
 class ExercisesViewModel : BaseViewModel() {
@@ -38,10 +36,10 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorImageExercises: LiveData<Int>
         get() = _onErrorImageExercises
 
-    private val _onSuccessInfoExercises: MutableLiveData<InfoExercises> =
+    private val _onSuccessInfoExercises: MutableLiveData<List<ResultInfo>> =
         MutableLiveData()
 
-    val onSuccessInfoExercises: MutableLiveData<InfoExercises>
+    val onSuccessInfoExercises: MutableLiveData<List<ResultInfo>>
         get() = _onSuccessInfoExercises
 
     private val _onErrorInfoExercises: MutableLiveData<Int> =
@@ -49,6 +47,32 @@ class ExercisesViewModel : BaseViewModel() {
 
     val onErrorInfoExercises: LiveData<Int>
         get() = _onErrorInfoExercises
+
+    private val _onSuccessCategoryExercises: MutableLiveData<CategoryExercises> =
+        MutableLiveData()
+
+    val onSuccessCategoryExercises: MutableLiveData<CategoryExercises>
+        get() = _onSuccessCategoryExercises
+
+    private val _onErrorCategoryExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorCategoryExercises: LiveData<Int>
+        get() = _onErrorCategoryExercises
+
+    private val _onSuccessCommentExercises: MutableLiveData<CommentExercises> =
+        MutableLiveData()
+
+    val onSuccessCommentExercises: MutableLiveData<CommentExercises>
+        get() = _onSuccessCommentExercises
+
+    private val _onErrorCommentExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorCommentExercises: LiveData<Int>
+        get() = _onErrorCommentExercises
+
+
 
     fun getListExercises() {
         //Scope = Criar nova trade
@@ -84,8 +108,9 @@ class ExercisesViewModel : BaseViewModel() {
             callApi(
                 suspend { exercisesUseCase.getInfoExercises() },
                 onSuccess = {
+                    val result = it as? List<*>
                     _onSuccessInfoExercises.postValue(
-                        it as? InfoExercises
+                        result?.filterIsInstance<ResultInfo>()
                     )
 
                 }
@@ -93,7 +118,48 @@ class ExercisesViewModel : BaseViewModel() {
         }
     }
 
+    fun getCategoryExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getCategoryExercises() },
+                onSuccess = {
+                    _onSuccessCategoryExercises.postValue(
+                        it as? CategoryExercises
+                    )
+
+                }
+            )
+        }
+
+    }
+
+    fun getCommentExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getCommentExercises() },
+                onSuccess = {
+                    _onSuccessCommentExercises.postValue(
+                        it as? CommentExercises
+                    )
+
+                }
+            )
+        }
+    }
+
+    fun getExerciseById(id: Int) {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getExerciseById(id) },
+                onSuccess = {
+                    it
+                }
+            )
+        }
+    }
+
 }
+
 
 
 

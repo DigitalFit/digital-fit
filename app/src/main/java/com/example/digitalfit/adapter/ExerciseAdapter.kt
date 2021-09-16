@@ -30,15 +30,18 @@ package com.example.digitalfit.adapter
 //    ) : RecyclerView.ViewHolder(binding.root){
 //
 //        fun bind(
-//            exercise: Result?,
-//            onClickListener: (movie: Result) -> Unit,
+//            android falou para substituir Result? por Exercise
+//            exercise: Result?
+//            exercise: Exercise,
+//            android falou para substituir exercise: Result por exercise: Exercise
+//            onClickListener: (exercise: Exercise) -> Unit,
 //        ) {
 //            binding.tvExercise.text = exercise.name
 //            binding.ivExercise.setImageResource(exercise.avatar)
 //            binding.ibExercise.setOnClickListener {
 //              it.isSelected = !it.isSelected
 //            }
-//            //binding.ibExercise.setImageResource(exercise.icon)
+//            binding.ibExercise.setImageResource(exercise.icon)
 //        }
 //
 //    }

@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.R
@@ -15,10 +15,10 @@ import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentExercisesBinding
 import com.example.digitalfit.utils.Command
+import com.example.digitalfit.utils.ConstantsApp.Exercise.KEY_BUNDLE_EXERCISE_ID
 import com.google.android.material.snackbar.Snackbar
 
-// it = activity
-// pode usar viewLifecyclerOwner
+
 
 
 class ExercisesFragment : BaseFragment() {
@@ -50,6 +50,10 @@ class ExercisesFragment : BaseFragment() {
             viewModel.getListExercises()
             viewModel.getImageExercises()
             viewModel.getInfoExercises()
+            viewModel.getCategoryExercises()
+            viewModel.getCommentExercises()
+
+            setupObeservables()
 
             binding?.let {
                 with(it) {
@@ -65,20 +69,25 @@ class ExercisesFragment : BaseFragment() {
                     ibAdd.setOnClickListener {
                         findNavController().navigate(R.id.action_navigation_exercises_to_exercisesAddFragment)
                     }
-
                 }
             }
-
         }
-
     }
 
+
     private fun setupObeservables() {
-        viewModel.onSuccessListExercises.observe(viewLifecycleOwner, {
+        //chamando api InfoExercise
+        //chamando api ListExercise por id
+        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
             it?.let { exercisesList ->
                 val exercisesAdapterApi = ExerciseAdapterApi(
                     exercisesList = exercisesList
-                ) { it
+                ) { exercises ->
+                    val bundle = Bundle()
+                    bundle.putInt(KEY_BUNDLE_EXERCISE_ID, exercises.id)
+                    findNavController().navigate(R.id.action_navigation_exercises_to_exerciseDetailFragment,
+                    bundle)
+                    //viewModel.getExerciseById(exercises.id)
                 }
 
                 binding?.let {
@@ -92,6 +101,26 @@ class ExercisesFragment : BaseFragment() {
             }
         }
         )
+
+//        viewModel.onSuccessListExercises.observe(viewLifecycleOwner, {
+//            it?.let { exercisesList ->
+//                val exercisesAdapterApi = ExerciseAdapterApi(
+//                    exercisesList = exercisesList
+//                ) { exercises ->
+//                    viewModel.getExerciseById(exercises.id)
+//                }
+//
+//                binding?.let {
+//                    with(it) {
+//                        vgExerciseRecyclerView.apply {
+//                            layoutManager = LinearLayoutManager(context)
+//                            adapter = exercisesAdapterApi
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        )
 
         viewModel.onErrorListExercises.observe(viewLifecycleOwner, {
             viewLifecycleOwner
@@ -117,14 +146,9 @@ class ExercisesFragment : BaseFragment() {
     }
 
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
     }
 }
-
-
-
-
-
-

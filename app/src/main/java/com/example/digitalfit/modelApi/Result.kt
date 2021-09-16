@@ -1,5 +1,7 @@
 package com.example.digitalfit.modelApi
 
+import androidx.recyclerview.widget.DiffUtil
+
 data class Result(
     val category: Int,
     val creation_date: String,
@@ -20,3 +22,18 @@ data class Result(
     val image: String,
     val is_main: Boolean
 )
+    // {
+//
+//    companion object {
+//        var DIFF_CALLBACK: DiffUtil.ItemCallback<Result> =
+//            object : DiffUtil.ItemCallback<Result>() {
+//                override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
+//                    return oldItem.id == newItem.id
+//                }
+//
+//                override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
+//                    return oldItem.id == newItem.id
+//                }
+//            }
+//    }
+//}

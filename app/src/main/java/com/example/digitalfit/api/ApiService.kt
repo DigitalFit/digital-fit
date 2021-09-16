@@ -15,7 +15,7 @@ object ApiService {
 
     val wgerApi: WGERApi = getWGERApiClient().create(WGERApi::class.java)
 
-   fun getWGERApiClient(): Retrofit {
+    fun getWGERApiClient(): Retrofit {
         return Retrofit.Builder()
             //.baseUrl(BuildConfig.BASE_URL)
             .baseUrl("https://wger.de/api/v2/")
@@ -37,8 +37,8 @@ object ApiService {
             .addInterceptor(loggingInterceptor)
             .addInterceptor { chain ->
                 val url = chain.request().url.newBuilder()
-                    .addQueryParameter(API_TOKEN_KEY, API_TOKEN)
-                    .addQueryParameter(QUERY_PARAM_LANGUAGE_KEY, QUERY_PARAM_LANGUAGE_VALUE)
+                    //.addQueryParameter(API_TOKEN_KEY, API_TOKEN)
+                   // .addQueryParameter(QUERY_PARAM_LANGUAGE_KEY, QUERY_PARAM_LANGUAGE_VALUE)
                     .build()
                 val newRequest = chain.request().newBuilder().url(url).build()
                 chain.proceed(newRequest)

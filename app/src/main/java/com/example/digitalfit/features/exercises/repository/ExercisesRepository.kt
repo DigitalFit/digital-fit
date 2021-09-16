@@ -28,6 +28,28 @@ class ExercisesRepository : BaseRepository() {
         }
 
     }
+
+    suspend fun getCategoryExercises(): ResponseApi {
+        return  safeApiCall {
+            ApiService.wgerApi.getCategoryExercises()
+        }
+
+    }
+
+    suspend fun getCommentExercises(): ResponseApi {
+        return  safeApiCall {
+            ApiService.wgerApi.getCommentExercises()
+        }
+
+    }
+
+    suspend fun getExerciseById(id: Int): ResponseApi {
+        return safeApiCall {
+            ApiService.wgerApi.getExerciseById(id)
+        }
+    }
+
+
 }
 
 
