@@ -46,7 +46,6 @@ class ExercisesFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.i("Life - ExercisesFrag", "onCreateView")
         binding = FragmentExercisesBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -69,18 +68,15 @@ class ExercisesFragment : BaseFragment() {
 
             setupObeservables()
             setupRecyclerView()
-            Log.i("Life - ExercisesFrag", "onViewCreated")
         }
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("Life - ExercisesFrag", "pause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("Life - ExercisesFrag", "stop")
     }
 
     private fun setupObeservables() {
@@ -186,6 +182,5 @@ class ExercisesFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
-        Log.i("Life - ExercisesFrag", "onDestroyView")
     }
 }

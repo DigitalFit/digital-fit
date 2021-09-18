@@ -13,7 +13,7 @@ interface WGERApi {
     @GET("exerciseinfo/{exercise_id}")
     suspend fun getExerciseById(
         @Path("exercise_id") exerciseId : Int
-    ): Response<Exercise>
+    ): Response<ResultInfo>
 
 //    @GET("exerciseimage/")
 //    suspend fun getImageExercises(): Response<ImageExercises>
