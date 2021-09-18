@@ -69,10 +69,10 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorImageExercises: LiveData<Int>
         get() = _onErrorImageExercises
 
-    private val _onSuccessInfoExercises: MutableLiveData<List<ResultInfo>> =
+    private val _onSuccessInfoExercises: MutableLiveData<List<Exercise>> =
         MutableLiveData()
 
-    val onSuccessInfoExercises: MutableLiveData<List<ResultInfo>>
+    val onSuccessInfoExercises: MutableLiveData<List<Exercise>>
         get() = _onSuccessInfoExercises
 
     private val _onErrorInfoExercises: MutableLiveData<Int> =
@@ -144,7 +144,7 @@ class ExercisesViewModel : BaseViewModel() {
                 onSuccess = {
                     val result = it as? List<*>
                     _onSuccessInfoExercises.postValue(
-                        result?.filterIsInstance<ResultInfo>()
+                        result?.filterIsInstance<Exercise>()
                     )
 
                 }
