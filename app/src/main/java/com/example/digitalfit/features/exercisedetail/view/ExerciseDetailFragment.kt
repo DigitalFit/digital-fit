@@ -1,6 +1,7 @@
 package com.example.digitalfit.features.exercisedetail.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,6 +68,7 @@ class ExerciseDetailFragment() : BaseFragment() {
 
                         val muscleList = mutableListOf<String>()
                         val separator = " - "
+
                         exercise.muscles.forEach { muscle ->
                             muscleList.add(muscle.name)
                         }
@@ -92,7 +94,13 @@ class ExerciseDetailFragment() : BaseFragment() {
                 }
             }
         })
+
+        binding?.ibBackIcon?.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
