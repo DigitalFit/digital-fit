@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.digitalfit.R
 import com.example.digitalfit.databinding.ExerciseItemBinding
-import com.example.digitalfit.modelApi.Image
-import com.example.digitalfit.modelApi.ResultInfo
-import kotlinx.coroutines.delay
+import com.example.digitalfit.modelApi.Exercise
 
 class ExerciseAdapterApi(
-    private val exercisesList: List<ResultInfo>,
-    private val onClickListener: (exercises: ResultInfo) -> Unit
+    private val exercisesList: List<Exercise>,
+    private val onClickListener: (exercises: Exercise) -> Unit
 ) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,8 +31,8 @@ class ExerciseAdapterApi(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            exercises: ResultInfo,
-            onClickListener: (exercises: ResultInfo) -> Unit,
+            exercises: Exercise,
+            onClickListener: (exercises: Exercise) -> Unit,
         ) {
             with(binding) {
                 tvExercise.text = exercises.name

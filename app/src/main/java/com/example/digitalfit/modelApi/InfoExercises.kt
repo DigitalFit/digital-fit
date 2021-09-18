@@ -4,5 +4,5 @@ data class InfoExercises(
     val count: Int,
     val next: String,
     val previous: Any,
-    val results: List<ResultInfo>
+    val results: List<Exercise>
 )

@@ -1,4 +1,4 @@
-package com.example.digitalfit.features.exercises
+package com.example.digitalfit.features.exercises.viewmodel
 
 import androidx.lifecycle.ViewModel
 

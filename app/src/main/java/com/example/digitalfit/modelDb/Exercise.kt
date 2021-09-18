@@ -1,19 +1,28 @@
-package com.example.digitalfit.modelApi
+package com.example.digitalfit.modelDb
 
-data class ResultInfo(
+import androidx.room.Embedded
+
+data class Exercise(
+    val id: Int,
+    @Embedded
     val category: Category,
+    @Embedded
     val comments: List<Comment>,
     val creation_date: String,
     val description: String,
+    @Embedded
     val equipment: List<Equipment>,
-    val id: Int,
+    @Embedded
     val images: List<Image>,
+    @Embedded
     val language: Language,
+    @Embedded
     val license: License,
     val license_author: String,
+    @Embedded
     val muscles: List<Muscle>,
+    @Embedded
     val muscles_secondary: List<MusclesSecondary>,
     val name: String,
     val uuid: String,
-    val variations: List<Int>
 )
