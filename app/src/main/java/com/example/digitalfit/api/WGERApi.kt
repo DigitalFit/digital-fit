@@ -6,7 +6,6 @@ import retrofit2.http.*
 
 interface WGERApi {
 
-
     @GET("exercise/")
     //@HEAD("Authorization: Token e3d6c9c869a54578e57d9a9f951c6aff31d7a5e9")
     //@Header("e3d6c9c869a54578e57d9a9f951c6aff31d7a5e9")
@@ -28,11 +27,6 @@ interface WGERApi {
 
     @GET("exercisecomment/")
     suspend fun getCommentExercises(): Response<CommentExercises>
-
-
-
-
-
 
 
 }
