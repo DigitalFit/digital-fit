@@ -1,5 +1,7 @@
 package com.example.digitalfit.modelApi
 
+import androidx.recyclerview.widget.DiffUtil
+
 data class ResultInfo(
     val category: Category,
     val comments: List<Comment>,
@@ -16,4 +18,17 @@ data class ResultInfo(
     val name: String,
     val uuid: String,
     val variations: List<Int>
-)
+) {
+    companion object {
+        var DIFF_CALLBACK: DiffUtil.ItemCallback<ResultInfo> =
+            object : DiffUtil.ItemCallback<ResultInfo>() {
+                override fun areItemsTheSame(oldItem: ResultInfo, newItem: ResultInfo): Boolean {
+                    return oldItem.id == newItem.id
+                }
+
+                override fun areContentsTheSame(oldItem: ResultInfo, newItem: ResultInfo): Boolean {
+                    return oldItem.id == newItem.id
+                }
+            }
+    }
+}

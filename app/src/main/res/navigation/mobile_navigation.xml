@@ -31,7 +31,7 @@
             app:destination="@id/exercisesAddFragment" />
         <action
             android:id="@+id/action_navigation_exercises_to_exerciseDetailFragment"
-            app:destination="@id/exerciseDetailFragment" />
+            app:destination="@id/exerciseDetailFragment"/>
     </fragment>
 
     <fragment

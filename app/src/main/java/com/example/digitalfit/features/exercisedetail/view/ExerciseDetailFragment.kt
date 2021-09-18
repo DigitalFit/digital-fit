@@ -1,6 +1,7 @@
 package com.example.digitalfit.features.exercisedetail.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,12 +33,15 @@ class ExerciseDetailFragment() : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.i("Life - detailfrag", "onCreateView")
         binding = FragmentExerciseDetailBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.i("Life - detailfrag", "onViewCreated")
+
 
         activity?.let {
             viewModel = ViewModelProvider(it)[ExerciseDetailViewModel::class.java]
@@ -48,6 +52,15 @@ class ExerciseDetailFragment() : BaseFragment() {
 
             setupObservables()
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("Life - detailfrag", "pause")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.i("Life - detailfrag", "stop")
     }
 
     private fun setupObservables() {
@@ -92,11 +105,18 @@ class ExerciseDetailFragment() : BaseFragment() {
                 }
             }
         })
+
+        binding?.ibBackIcon?.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+        Log.i("Life - detailfrag", "destroy")
     }
 
 }

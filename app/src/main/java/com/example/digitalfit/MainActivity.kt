@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
         setupWithNavController(binding.bottomNavigation, navController)
+        navController.saveState()
 
     }
 
