@@ -2,6 +2,7 @@ package com.example.digitalfit.modelApi
 
 import androidx.recyclerview.widget.DiffUtil
 
+
 data class ResultInfo(
     val id: Int,
     val category: Category,

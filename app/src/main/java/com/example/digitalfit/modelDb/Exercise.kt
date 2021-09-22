@@ -1,28 +1,37 @@
 package com.example.digitalfit.modelDb
 
+import android.os.Parcelable
 import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Entity
+@Parcelize
 data class Exercise(
-    val id: Int,
+    @PrimaryKey
+    val exerciseId: Int?,
     @Embedded
-    val category: Category,
+    val category: Category?,
     @Embedded
-    val comments: List<Comment>,
-    val creation_date: String,
-    val description: String,
+    val comments: List<Comment>?,
+    val creation_date: String?,
+    val description: String?,
     @Embedded
-    val equipment: List<Equipment>,
+    val equipment: List<Equipment>?,
     @Embedded
-    val images: List<Image>,
+    val images: List<Image>?,
     @Embedded
-    val language: Language,
+    val language: Language?,
     @Embedded
-    val license: License,
-    val license_author: String,
+    val license: License?,
+    val license_author: String?,
     @Embedded
-    val muscles: List<Muscle>,
+    val muscles: List<Muscle>?,
     @Embedded
-    val muscles_secondary: List<MusclesSecondary>,
-    val name: String,
-    val uuid: String,
-)
+    val muscles_secondary: List<MusclesSecondary>?,
+    val name: String?,
+    val uuid: String?,
+): Parcelable {
+
+}
