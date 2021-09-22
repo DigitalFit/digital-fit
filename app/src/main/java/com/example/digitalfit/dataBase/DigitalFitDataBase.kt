@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.digitalfit.modelDb.Exercise
+import com.example.digitalfit.modelDb.*
 
 object DigitalFitDataBase {
 
-    @Database(entities = [Exercise::class, CategoryDao::class, CommentDao::class, EquipmentDao::class,ImageDao::class,LanguageDao::class,LicenseDao::class,MuscleDao::class,MusclesSecondarySecondaryDao::class], version =1)
+    @Database(entities = [Exercise::class, Category::class, Comment::class, Equipment::class,Image::class,Language::class,License::class,Muscle::class, MusclesSecondary::class], version =1)
     abstract class DigitalFitRoomDatabase : RoomDatabase() {
         abstract fun exerciseDao(): ExerciseDao
         abstract fun categoryDao(): CategoryDao
