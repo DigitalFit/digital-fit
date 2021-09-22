@@ -3,12 +3,12 @@ package com.example.digitalfit.modelApi
 import androidx.recyclerview.widget.DiffUtil
 
 data class ResultInfo(
+    val id: Int,
     val category: Category,
     val comments: List<Comment>,
     val creation_date: String,
-    val description: String,
+    var description: String,
     val equipment: List<Equipment>,
-    val id: Int,
     val images: List<Image>,
     val language: Language,
     val license: License,
@@ -16,8 +16,7 @@ data class ResultInfo(
     val muscles: List<Muscle>,
     val muscles_secondary: List<MusclesSecondary>,
     val name: String,
-    val uuid: String,
-    val variations: List<Int>
+    val uuid: String
 ) {
     companion object {
         var DIFF_CALLBACK: DiffUtil.ItemCallback<ResultInfo> =
