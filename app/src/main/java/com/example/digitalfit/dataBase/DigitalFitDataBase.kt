@@ -8,17 +8,34 @@ import com.example.digitalfit.modelDb.*
 
 object DigitalFitDataBase {
 
-    @Database(entities = [Exercise::class, Category::class, Comment::class, Equipment::class,Image::class,Language::class,License::class,Muscle::class, MusclesSecondary::class], version =1)
+    @Database(
+        entities = [
+            ExerciseDb::class,
+            CategoryDb::class,
+            CommentDb::class,
+            EquipmentDb::class,
+            ExerciseEquipmentCrossRef::class,
+            ImageDb::class,
+            LanguageDb::class,
+            LicenseDb::class,
+            MuscleDb::class,
+            ExerciseMuscleCrossRef::class,
+            ExerciseMuscleSecondaryCrossRef::class,
+        ],
+        version =1
+    )
     abstract class DigitalFitRoomDatabase : RoomDatabase() {
         abstract fun exerciseDao(): ExerciseDao
         abstract fun categoryDao(): CategoryDao
         abstract fun commentDao(): CommentDao
         abstract fun equipmentDao(): EquipmentDao
+        abstract fun exerciseEquipmentDao(): ExerciseEquipmentCrossRefDao
         abstract fun imageDao(): ImageDao
         abstract fun languageDao(): LanguageDao
         abstract fun licenseDao(): LicenseDao
         abstract fun muscleDao(): MuscleDao
-        abstract fun musclesSecondaryDao(): MusclesSecondarySecondaryDao
+        abstract fun exerciseMuscleDao(): ExerciseMuscleCrossRefDao
+        abstract fun exerciseMuscleSecondaryDao(): ExerciseMuscleSecondaryCrossRefDao
     }
 
     fun getDatabase(context: Context): DigitalFitRoomDatabase {

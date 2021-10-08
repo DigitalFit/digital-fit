@@ -4,12 +4,12 @@ import androidx.room.Embedded
 import androidx.room.Relation
 
 
-data class LicenseWithExercises(
+data class CategoryWithExercise(
 
-    @Embedded val license: LicenseDb,
+    @Embedded val category: CategoryDb,
     @Relation(
-        parentColumn = "licenseId",
-        entityColumn = "licenseId"
+        parentColumn = "categoryId",
+        entityColumn = "categoryId"
     )
     val exercise: List<ExerciseDb>
 )

@@ -3,13 +3,12 @@ package com.example.digitalfit.modelDb
 import androidx.room.Embedded
 import androidx.room.Relation
 
+data class LanguageWithExercise(
 
-data class LicenseWithExercises(
-
-    @Embedded val license: LicenseDb,
+    @Embedded val language: LanguageDb,
     @Relation(
-        parentColumn = "licenseId",
-        entityColumn = "licenseId"
+        parentColumn = "languageId",
+        entityColumn = "languageId"
     )
     val exercise: List<ExerciseDb>
 )

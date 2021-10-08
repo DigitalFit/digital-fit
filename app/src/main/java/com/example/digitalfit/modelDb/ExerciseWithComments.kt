@@ -1,22 +1,15 @@
 package com.example.digitalfit.modelDb
 
-import android.os.Parcelable
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
-import kotlinx.parcelize.Parcelize
 
 
-@Entity
-@Parcelize
 data class ExerciseWithComments(
 
-    @Embedded val exercise: Exercise,
+    @Embedded val exercise: ExerciseDb,
     @Relation(
         parentColumn = "exerciseId",
-        entityColumn = "commentId"
+        entityColumn = "exerciseId"
     )
-    val comment: Comment
-): Parcelable{
-
-}
+    val commentDb: List<CommentDb>
+)

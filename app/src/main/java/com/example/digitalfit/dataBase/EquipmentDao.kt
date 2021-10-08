@@ -7,25 +7,17 @@ import com.example.digitalfit.modelDb.*
 interface EquipmentDao {
 
         @Query("SELECT * FROM equipment")
-        suspend fun getAllEquipment(): List<Equipment>
+        suspend fun getAllEquipment(): List<EquipmentDb>
 
         @Query("SELECT * FROM equipment WHERE equipmentId = :equipmentId")
-        suspend fun loadEquipmentById (equipmentId: Int): List<Equipment>
-
-        @Transaction
-        @Query("SELECT * FROM Exercise")
-        fun getExerciseWithEquipment(): List<Equipment>
-
-        @Transaction
-        @Query("SELECT * FROM Equipment")
-        fun getEquipmentWithExercise(): List<Exercise>
-
-         @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun insertAllEquipments (equipmentsList: List<Equipment>)
+        suspend fun loadEquipmentById (equipmentId: Int): List<EquipmentDb>
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun insertEquipment (equipment: Equipment)
+        suspend fun insertAllEquipments (equipmentsList: List<EquipmentDb>)
+
+        @Insert(onConflict = OnConflictStrategy.REPLACE)
+        suspend fun insertEquipment (equipment: EquipmentDb)
 
         @Delete
-        suspend fun delete(equipment: Equipment)
+        suspend fun delete(equipment: EquipmentDb)
     }

@@ -1,28 +1,29 @@
 package com.example.digitalfit.dataBase
 
 import androidx.room.*
-import com.example.digitalfit.modelDb.Language
+import com.example.digitalfit.modelDb.LanguageDb
+import com.example.digitalfit.modelDb.LanguageWithExercise
 
 @Dao
 interface LanguageDao {
     
     @Query("SELECT * FROM language")
-    suspend fun getAllLanguage(): List<Language>
+    suspend fun getAllLanguage(): List<LanguageDb>
 
     @Query("SELECT * FROM language WHERE languageId = :languageId")
-    suspend fun loadLanguageById (languageId: Int): List<Language>
+    suspend fun loadLanguageById (languageId: Int): List<LanguageDb>
 
     @Transaction
-    @Query("SELECT * FROM Exercise")
-    fun getExerciseWithLanguage(): List<Language>
+    @Query("SELECT * FROM language")
+    fun getExerciseWithLanguage(): List<LanguageWithExercise>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllLanguages (languagesList: List<Language>)
+    suspend fun insertAllLanguages (languagesList: List<LanguageDb>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLanguage (language: Language)
+    suspend fun insertLanguage (language: LanguageDb)
 
     @Delete
-    suspend fun delete(language: Language)
+    suspend fun delete(language: LanguageDb)
 
 }

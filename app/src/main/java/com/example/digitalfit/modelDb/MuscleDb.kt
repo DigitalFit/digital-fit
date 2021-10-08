@@ -6,13 +6,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "muscle")
 @Parcelize
-data class Category(
+data class MuscleDb(
     @PrimaryKey
-    val categoryId: Int?,
-    val name: String?,
-    @ColumnInfo(name = "category") val category: String?
-) : Parcelable{
+    val muscleId: Int?,
+    val image_url_main: String?,
+    val image_url_secondary: String?,
+    val is_front: Boolean?,
+    val name: String?
+):Parcelable{
 
 }

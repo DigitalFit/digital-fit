@@ -1,22 +1,31 @@
 package com.example.digitalfit.modelDb
 
-import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
-import kotlinx.parcelize.Parcelize
+import com.example.digitalfit.modelApi.ResultInfo
 
-@Entity
-@Parcelize
 data class ExerciseWithImages(
 
-    @Embedded val exercise: Exercise,
+    @Embedded val exercise: ExerciseDb,
     @Relation(
         parentColumn = "exerciseId",
-        entityColumn = "imageId",
+        entityColumn = "exerciseId",
     )
-    val image: Image
+    val image: List<ImageDb>
 
-) : Parcelable{
+)
+{
+    companion object {
+        var DIFF_CALLBACK: DiffUtil.ItemCallback<ExerciseWithImages> =
+            object : DiffUtil.ItemCallback<ExerciseWithImages>() {
+                override fun areItemsTheSame(oldItem: ExerciseWithImages, newItem: ExerciseWithImages): Boolean {
+                    return oldItem.exercise.exerciseId == newItem.exercise.exerciseId
+                }
 
+                override fun areContentsTheSame(oldItem: ExerciseWithImages, newItem: ExerciseWithImages): Boolean {
+                    return oldItem.exercise.exerciseId == newItem.exercise.exerciseId
+                }
+            }
+    }
 }

@@ -6,17 +6,18 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "image")
 @Parcelize
-data class Image(
+data class ImageDb(
     @PrimaryKey
     val imageId: Int?,
+    //ForeignKey
+    val exerciseId: Int?,
     val exercise_base: Int?,
     val image: String?,
     val is_main: Boolean?,
     val status: String?,
     val uuid: String?,
-    @ColumnInfo(name = "images") val images: String
 ): Parcelable{
 
 }

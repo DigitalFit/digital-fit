@@ -22,10 +22,12 @@ interface WGERApi {
         @Path("exercise_id") exerciseId: Int
     ): Response<ResultInfo>
 
-    @GET("exerciseimage/")
-    suspend fun getImageExercises(): Response<ImageExercises>
+//    @GET("exerciseinfo/?language=2&limit=20")
+//    suspend fun getInfoExercises(
+//        @Query("offset") page: Int
+//    ): Response<InfoExercises>
 
-    @GET("exerciseinfo/?language=2&limit=20")
+    @GET("exerciseinfo/?language=2&limit=250")
     suspend fun getInfoExercises(
         @Query("offset") page: Int
     ): Response<InfoExercises>
@@ -33,9 +35,26 @@ interface WGERApi {
     @GET("exercisecategory/")
     suspend fun getCategoryExercises(): Response<CategoryExercises>
 
-    @GET("exercisecomment/")
+    @GET("exercisecomment/?language=2&limit=100")
     suspend fun getCommentExercises(): Response<CommentExercises>
 
+    @GET("equipment/")
+    suspend fun getEquipmentExercises(): Response<EquipmentExercises>
+
+   // @GET("exerciseimage/")
+   // suspend fun getImageExercises(): Response<ImageExercises>
+
+    @GET("exerciseinfo/?language=2&limit=250")
+    suspend fun getImageExercises(): Response<InfoExercises>
+
+    @GET("language/")
+    suspend fun getLanguageExercises(): Response<LanguageExercises>
+
+    @GET("license/")
+    suspend fun getLicenseExercises(): Response<LicenseExercises>
+
+    @GET("muscle/")
+    suspend fun getMuscleExercises(): Response<MuscleExercises>
 
 }
 

@@ -6,15 +6,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "category")
 @Parcelize
-data class Comment(
+data class CategoryDb(
     @PrimaryKey
-    val commentId: Int?,
-    val comment: String?,
-    val exercise: Int?,
-    @ColumnInfo(name = "comments")  val comments: String?
-
-): Parcelable{
-
-}
+    val categoryId: Int?,
+    val name: String?
+) : Parcelable

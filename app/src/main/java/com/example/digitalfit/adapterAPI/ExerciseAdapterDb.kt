@@ -9,6 +9,7 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -25,11 +26,11 @@ import java.util.Timer
 import kotlin.concurrent.schedule
 
 
-class ExerciseAdapterApi(
+class ExerciseAdapterDb(
     //private val exercisesList: List<ResultInfo>,
     private val onClickListener: (exercises: ExerciseWithImages) -> Unit
 //) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
-) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterApi.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
+) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterDb.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ExerciseItemBinding

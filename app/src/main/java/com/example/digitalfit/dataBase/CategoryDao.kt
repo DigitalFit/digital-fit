@@ -1,28 +1,29 @@
 package com.example.digitalfit.dataBase
 
 import androidx.room.*
-import com.example.digitalfit.modelDb.Category
+import com.example.digitalfit.modelDb.CategoryDb
+import com.example.digitalfit.modelDb.CategoryWithExercise
 
 @Dao
 interface CategoryDao {
     @Query("SELECT * FROM category")
-    suspend fun getAllCategory(): List<Category>
+    suspend fun getAllCategory(): List<CategoryDb>
 
     @Query("SELECT * FROM category WHERE categoryId = :categoryId")
-    suspend fun loadCategoryById (categoryId: Int): List<Category>
+    suspend fun loadCategoryById (categoryId: Int): List<CategoryDb>
 
     @Transaction
-    @Query("SELECT * FROM Exercise")
-    fun getExerciseWithCategory(): Category
+    @Query("SELECT * FROM category")
+    fun getExerciseWithCategory(): List<CategoryWithExercise>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllCategory (categoryList: List<Category>)
+    suspend fun insertAllCategory (categoryList: List<CategoryDb>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCategory (category: Category)
+    suspend fun insertCategory (category: CategoryDb)
 
     @Delete
-    suspend fun delete(category: Category)
+    suspend fun delete(category: CategoryDb)
     
     
 }

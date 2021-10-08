@@ -8,17 +8,25 @@ import com.example.digitalfit.modelDb.*
 interface ExerciseDao {
 
     @Query("SELECT * FROM exercise")
-    suspend fun getAllExercises(): Exercise
+    suspend fun getAllExercises(): List<ExerciseDb>
 
     @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
-   suspend fun loadExerciseById (exerciseId: Int): Exercise
+    suspend fun loadExerciseById(exerciseId: Int): ExerciseDb
 
-   @Insert(onConflict = REPLACE)
-   suspend fun insertAllExercises (exercises: Exercise)
+    @Transaction
+    @Query("SELECT * FROM exercise LIMIT 20 OFFSET :offset")
+    fun getExerciseWithImages(offset: Int): List<ExerciseWithImages>
 
-   @Insert (onConflict = REPLACE)
-   suspend fun insertExercise (exercise: Exercise)
+    @Transaction
+    @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
+    fun getExerciseWithImagesById(exerciseId: Int): ExerciseWithImages
+
+    @Insert(onConflict = REPLACE)
+    suspend fun insertAllExercises(exerciseList: List<ExerciseDb>)
+
+    @Insert(onConflict = REPLACE)
+    suspend fun insertExercise(exercise: ExerciseDb)
 
     @Delete
-   suspend fun delete(exercise: Exercise)
+    suspend fun delete(exercise: ExerciseDb)
 }

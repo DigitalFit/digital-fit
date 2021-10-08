@@ -1,27 +1,32 @@
+package com.example.digitalfit.features.exercises.viewmodel
+
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PageKeyedDataSource
-import androidx.paging.PagedList
+import androidx.paging.*
 import com.example.digitalfit.base.BaseViewModel
 import com.example.digitalfit.features.exercises.paging.ExercisesDataSourceFactory
 import com.example.digitalfit.features.exercises.paging.ExercisesPageKeyedDataSource
 import com.example.digitalfit.features.exercises.repository.ExercisesRepository
-//import com.example.digitalfit.features.exercises.paging.ExercisesDataSourceFactory
-//import com.example.digitalfit.features.exercises.paging.ExercisesPageKeyedDataSource
 import com.example.digitalfit.features.exercises.usecase.ExercisesUseCase
 import com.example.digitalfit.modelApi.*
+import com.example.digitalfit.modelDb.ExerciseWithImages
 import com.example.digitalfit.utils.ConstantsApp.Exercise.PAGE_SIZE
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
-class ExercisesViewModel : BaseViewModel() {
+class ExercisesViewModel(
+    application: Application
+) : BaseViewModel(application) {
 
-    var exercisesPagedList: LiveData<PagedList<ResultInfo>>? = null
-    private var exercisesLiveDataSource: LiveData<PageKeyedDataSource<Int, ResultInfo>>? = null
+    var exercisesPagedList: LiveData<PagedList<ExerciseWithImages>>? = null
 
-    private val exercisesUseCase = ExercisesUseCase()
-    private val exerciseRepository = ExercisesRepository()
+    private var exercisesLiveDataSource: LiveData<PageKeyedDataSource<Int, ExerciseWithImages>>? = null
+
+    private val exercisesUseCase = ExercisesUseCase(getApplication())
+    private val exerciseRepository = ExercisesRepository(getApplication<Application>())
 
     init {
         val pagedListConfig = PagedList.Config.Builder()
@@ -42,8 +47,6 @@ class ExercisesViewModel : BaseViewModel() {
 
     }
 
-
-
     private val _onSuccessListExercises: MutableLiveData<List<Result>> =
         MutableLiveData()
 
@@ -56,7 +59,7 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorListExercises: LiveData<Int>
         get() = _onErrorListExercises
 
-
+    //
     private val _onSuccessImageExercises: MutableLiveData<ImageExercises> =
         MutableLiveData()
 
@@ -69,6 +72,7 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorImageExercises: LiveData<Int>
         get() = _onErrorImageExercises
 
+    //
     private val _onSuccessInfoExercises: MutableLiveData<List<ResultInfo>> =
         MutableLiveData()
 
@@ -81,6 +85,7 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorInfoExercises: LiveData<Int>
         get() = _onErrorInfoExercises
 
+    //
     private val _onSuccessCategoryExercises: MutableLiveData<CategoryExercises> =
         MutableLiveData()
 
@@ -93,6 +98,7 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorCategoryExercises: LiveData<Int>
         get() = _onErrorCategoryExercises
 
+    //
     private val _onSuccessCommentExercises: MutableLiveData<CommentExercises> =
         MutableLiveData()
 
@@ -105,8 +111,66 @@ class ExercisesViewModel : BaseViewModel() {
     val onErrorCommentExercises: LiveData<Int>
         get() = _onErrorCommentExercises
 
+    //
+    private val _onSuccessEquipmentExercises: MutableLiveData<EquipmentExercises> =
+        MutableLiveData()
 
+    val onSuccessEquipmentExercises: MutableLiveData<EquipmentExercises>
+        get() = _onSuccessEquipmentExercises
 
+    private val _onErrorEquipmentExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorEquipmentExercises: LiveData<Int>
+        get() = _onErrorEquipmentExercises
+
+    //
+    private val _onSuccessLanguageExercises: MutableLiveData<LanguageExercises> =
+        MutableLiveData()
+
+    val onSuccessLanguageExercises: MutableLiveData<LanguageExercises>
+        get() = _onSuccessLanguageExercises
+
+    private val _onErrorLanguageExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorLanguageExercises: LiveData<Int>
+        get() = _onErrorLanguageExercises
+
+    //
+    private val _onSuccessLicenseExercises: MutableLiveData<LicenseExercises> =
+        MutableLiveData()
+
+    val onSuccessLicenseExercises: MutableLiveData<LicenseExercises>
+        get() = _onSuccessLicenseExercises
+
+    private val _onErrorLicenseExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorLicenseExercises: LiveData<Int>
+        get() = _onErrorLicenseExercises
+
+    //
+    private val _onSuccessMuscleExercises: MutableLiveData<MuscleExercises> =
+        MutableLiveData()
+
+    val onSuccessMuscleExercises: MutableLiveData<MuscleExercises>
+        get() = _onSuccessMuscleExercises
+
+    private val _onErrorMuscleExercises: MutableLiveData<Int> =
+        MutableLiveData()
+
+    val onErrorMuscleExercises: LiveData<Int>
+        get() = _onErrorMuscleExercises
+
+    //
+    private val _onExerciseEntitiesLoaded: MutableLiveData<Boolean> =  MutableLiveData()
+    val onExerciseEntitiesLoaded: LiveData<Boolean>
+        get() = _onExerciseEntitiesLoaded
+
+    private val _onExercisesWithImagesLoadedFromDb: MutableLiveData<List<ExerciseWithImages>> = MutableLiveData()
+    val onExercisesWithImagesLoadedFromDb: LiveData<List<ExerciseWithImages>>
+        get() = _onExercisesWithImagesLoadedFromDb
 
 //    fun getListExercises() {
 //        //Scope = Criar nova trade
@@ -123,19 +187,38 @@ class ExercisesViewModel : BaseViewModel() {
 //        }
 //    }
 
+    fun getExerciseEntities() {
+        viewModelScope.launch {
 
-//    fun getImageExercises() {
-//        viewModelScope.launch {
-//            callApi(
-//                suspend { exercisesUseCase.getImageExercises() },
-//                onSuccess = {
-//                    _onSuccessImageExercises.postValue(
-//                        it as? ImageExercises
-//                    )
-//                }
-//            )
-//        }
-//    }
+            val deferreds = listOf(
+                async { exercisesUseCase.getCategoryExercises() },
+                async { exercisesUseCase.getCommentExercises() },
+                async { exercisesUseCase.getEquipmentExercises() },
+                async { exercisesUseCase.getImageExercises() },
+                async { exercisesUseCase.getLanguageExercises() },
+                async { exercisesUseCase.getLicenseExercises() },
+                async { exercisesUseCase.getMuscleExercises() },
+                async { exercisesUseCase.getInfoExercises()}
+            )
+
+            //val info = async { exercisesUseCase.getInfoExercises()}
+
+            if(deferreds.awaitAll().isNotEmpty()){
+                _onExerciseEntitiesLoaded.postValue(true)
+
+//                val result = info.await() as? List<*>
+//                _onSuccessInfoExercises.postValue(result?.filterIsInstance<ResultInfo>())
+            }
+
+        }
+    }
+
+    fun getExercisesWithImagesFromDb(page: Int) {
+        viewModelScope.launch {
+            val exerciseImageList = exercisesUseCase.getExercisesWithImagesFromDb(page)
+            _onExercisesWithImagesLoadedFromDb.postValue(exerciseImageList)
+        }
+    }
 
     fun getInfoExercises() {
         viewModelScope.launch {
@@ -152,34 +235,99 @@ class ExercisesViewModel : BaseViewModel() {
         }
     }
 
-//    fun getCategoryExercises() {
-//        viewModelScope.launch {
-//            callApi(
-//                suspend { exercisesUseCase.getCategoryExercises() },
-//                onSuccess = {
-//                    _onSuccessCategoryExercises.postValue(
-//                        it as? CategoryExercises
-//                    )
-//
-//                }
-//            )
-//        }
-//
-//    }
+    fun getCategoryExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getCategoryExercises() },
+                onSuccess = {
+                    _onSuccessCategoryExercises.postValue(
+                        it as? CategoryExercises
+                    )
 
-//    fun getCommentExercises() {
-//        viewModelScope.launch {
-//            callApi(
-//                suspend { exercisesUseCase.getCommentExercises() },
-//                onSuccess = {
-//                    _onSuccessCommentExercises.postValue(
-//                        it as? CommentExercises
-//                    )
-//
-//                }
-//            )
-//        }
-//    }
+                }
+            )
+        }
+
+    }
+
+    fun getCommentExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getCommentExercises() },
+                onSuccess = {
+                    _onSuccessCommentExercises.postValue(
+                        it as? CommentExercises
+                    )
+
+                }
+            )
+        }
+    }
+
+    fun getEquipmentExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getEquipmentExercises() },
+                onSuccess = {
+                    _onSuccessEquipmentExercises.postValue(
+                        it as? EquipmentExercises
+                    )
+                }
+            )
+        }
+    }
+
+    fun getImageExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getImageExercises() },
+                onSuccess = {
+                    _onSuccessImageExercises.postValue(
+                        it as? ImageExercises
+                    )
+                }
+            )
+        }
+    }
+
+    fun getLanguageExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getLanguageExercises() },
+                onSuccess = {
+                    _onSuccessLanguageExercises.postValue(
+                        it as? LanguageExercises
+                    )
+                }
+            )
+        }
+    }
+
+    fun getLicenseExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getLicenseExercises() },
+                onSuccess = {
+                    _onSuccessLicenseExercises.postValue(
+                        it as? LicenseExercises
+                    )
+                }
+            )
+        }
+    }
+
+    fun getMuscleExercises() {
+        viewModelScope.launch {
+            callApi(
+                suspend { exercisesUseCase.getMuscleExercises() },
+                onSuccess = {
+                    _onSuccessMuscleExercises.postValue(
+                        it as? MuscleExercises
+                    )
+                }
+            )
+        }
+    }
 
     fun getExerciseById(id: Int) {
         viewModelScope.launch {

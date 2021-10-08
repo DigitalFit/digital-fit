@@ -6,13 +6,14 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity
+@Entity(tableName = "license")
 @Parcelize
-data class Equipment(
+data class LicenseDb(
     @PrimaryKey
-    val equipmentId: Int?,
-    val name: String?,
-    @ColumnInfo(name = "equipament") val equipment: String?
+    val licenseId: Int?,
+    val full_name: String?,
+    val short_name: String?,
+    val url: String
 ): Parcelable{
 
 }

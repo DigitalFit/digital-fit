@@ -1,6 +1,8 @@
 package com.example.digitalfit.base
 
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.digitalfit.utils.Command
@@ -8,7 +10,7 @@ import com.example.digitalfit.utils.ResponseApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
     lateinit var command: MutableLiveData<Command>
 
