@@ -31,6 +31,7 @@ class ExercisesFragment : BaseFragment() {
     private lateinit var viewModel: ExercisesViewModel
 
     var pagedList: List<ExerciseWithImages>? = null
+    var paginatedList: PagedList<ExerciseWithImages>? = null
 
     private val exercisesAdapterDb: ExerciseAdapterDb by lazy{
         ExerciseAdapterDb { exercises ->
@@ -80,6 +81,7 @@ class ExercisesFragment : BaseFragment() {
     private fun loadContent(){
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
             pagedList = it.snapshot()
+            paginatedList = it
             exercisesAdapterDb.submitList(it)
         })
     }
@@ -170,7 +172,7 @@ class ExercisesFragment : BaseFragment() {
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
+//            override fun onQueryTextChange(newText: String?): Boolean {
 //                var filteredList: MutableList<ExerciseWithImages> = mutableListOf()
 //                pagedList?.let {pagedList ->
 //                    for (exercise: ExerciseWithImages in pagedList){
@@ -185,6 +187,26 @@ class ExercisesFragment : BaseFragment() {
 //
 //                }
 //                exercisesAdapterDb.submitList(filteredList)
+//
+//
+//                return false
+//            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                var filteredList: PagedList<ExerciseWithImages>? = null
+                paginatedList?.let {paginatedList ->
+                    for (exercise: ExerciseWithImages in paginatedList){
+                        if (newText != null) {
+                            exercise.exercise.name?.let {
+                                if(it.lowercase().contains(newText.lowercase())){
+                                    filteredList?.add(exercise)
+                                }
+                            }
+                        }
+                    }
+
+                }
+                exercisesAdapterDb.submitList(filteredList)
 
 
                 return false

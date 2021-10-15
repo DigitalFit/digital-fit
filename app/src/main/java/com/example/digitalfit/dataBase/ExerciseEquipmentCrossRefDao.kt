@@ -11,11 +11,11 @@ interface ExerciseEquipmentCrossRefDao {
 
     @Transaction
     @Query("SELECT * FROM exercise")
-    fun getExerciseWithEquipment(): List<ExerciseWithEquipment>
+    suspend fun getExerciseWithEquipment(): List<ExerciseWithEquipment>
 
     @Transaction
     @Query("SELECT * FROM equipment")
-    fun getEquipmentWithExercise(): List<EquipmentWithExercise>
+    suspend fun getEquipmentWithExercise(): List<EquipmentWithExercise>
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAllExerciseEquipment(exerciseEquipmentList: List<ExerciseEquipmentCrossRef>)

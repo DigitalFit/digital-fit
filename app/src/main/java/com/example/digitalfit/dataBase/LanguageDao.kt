@@ -15,7 +15,7 @@ interface LanguageDao {
 
     @Transaction
     @Query("SELECT * FROM language")
-    fun getExerciseWithLanguage(): List<LanguageWithExercise>
+    suspend fun getExerciseWithLanguage(): List<LanguageWithExercise>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllLanguages (languagesList: List<LanguageDb>)

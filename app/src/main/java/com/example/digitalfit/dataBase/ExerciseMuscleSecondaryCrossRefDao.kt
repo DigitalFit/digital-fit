@@ -9,15 +9,15 @@ interface ExerciseMuscleSecondaryCrossRefDao {
 
     @Transaction
     @Query("SELECT * FROM exercise")
-    fun getExerciseWithMuscleSecondary(): List<ExerciseWithMusclesSecondary>
+    suspend fun getExerciseWithMuscleSecondary(): List<ExerciseWithMusclesSecondary>
 
     @Transaction
     @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
-    fun getExerciseWithMuscleSecondaryById(exerciseId: Int): List<ExerciseWithMusclesSecondary>
+    suspend fun getExerciseWithMuscleSecondaryById(exerciseId: Int): List<ExerciseWithMusclesSecondary>
 
     @Transaction
     @Query("SELECT * FROM muscle")
-    fun getMuscleSecondaryWithExercise(): List<MusclesSecondaryWithExercise>
+    suspend fun getMuscleSecondaryWithExercise(): List<MusclesSecondaryWithExercise>
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAllExerciseMuscleSecondary(exerciseMuscleSecondaryList: List<ExerciseMuscleSecondaryCrossRef>)

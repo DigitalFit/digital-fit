@@ -15,11 +15,12 @@ interface ExerciseDao {
 
     @Transaction
     @Query("SELECT * FROM exercise LIMIT 20 OFFSET :offset")
-    fun getExerciseWithImages(offset: Int): List<ExerciseWithImages>
+    suspend fun getExerciseWithImages(offset: Int): List<ExerciseWithImages>
 
     @Transaction
     @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
-    fun getExerciseWithImagesById(exerciseId: Int): ExerciseWithImages
+    suspend fun getExerciseWithImagesById(exerciseId: Int): ExerciseWithImages
+
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAllExercises(exerciseList: List<ExerciseDb>)

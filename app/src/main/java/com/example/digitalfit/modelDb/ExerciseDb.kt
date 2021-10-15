@@ -2,10 +2,8 @@ package com.example.digitalfit.modelDb
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.digitalfit.modelApi.ResultInfo
 import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "exercise")

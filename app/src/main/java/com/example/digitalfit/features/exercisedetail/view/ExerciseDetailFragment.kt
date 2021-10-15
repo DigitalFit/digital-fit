@@ -45,108 +45,109 @@ class ExerciseDetailFragment() : BaseFragment() {
 
             viewModel.command = command
 
-            viewModel.getExerciseById(exerciseId)
+           // viewModel.getExerciseById(exerciseId)
 
-//            viewModel.getExerciseWithImagesFromDbById(exerciseId)
-//            viewModel.getExerciseWithMusclesFromDbById(exerciseId)
-//            viewModel.getExerciseWithMusclesSecondaryFromDbById(exerciseId)
+            viewModel.getExerciseWithImagesFromDbById(exerciseId)
+            viewModel.getExerciseWithMusclesFromDbById(exerciseId)
+            viewModel.getExerciseWithMusclesSecondaryFromDbById(exerciseId)
 
             setupObservables()
         }
     }
 
     private fun setupObservables() {
-        viewModel.onSuccessExerciseById.observe(viewLifecycleOwner, {
-            it?.let {exercise ->
-                binding?.let { bindingNonNull ->
-                    with(bindingNonNull){
-                        activity?.let { activityNonNull ->
-                            Glide
-                                .with(activityNonNull)
-                                .load(exercise.images.firstOrNull()?.image)
-                                .placeholder(R.drawable.noimage)
-                                .into(ivExerciseImage)
-                        }
-                        tvExerciseName.text = exercise.name
-                        tvDescriptionValue.text = exercise.description
-
-                        val muscleList = mutableListOf<String>()
-                        val separator = " - "
-
-                        exercise.muscles.forEach { muscle ->
-                            muscleList.add(muscle.name)
-                        }
-                        tvPrimaryMuscleValue.text = muscleList.joinToString(separator)
-
-                        muscleList.clear()
-                        exercise.muscles_secondary.forEach { muscle ->
-                            muscleList.add(muscle.name)
-                        }
-                        tvSecondaryMuscleValue.text = muscleList.joinToString(separator)
-                    }
-                }
-            }
-        })
-
-//        viewModel.onSuccessExerciseWithImagesFromDbById.observe(viewLifecycleOwner, {
+//        viewModel.onSuccessExerciseById.observe(viewLifecycleOwner, {
 //            it?.let {exercise ->
 //                binding?.let { bindingNonNull ->
 //                    with(bindingNonNull){
 //                        activity?.let { activityNonNull ->
 //                            Glide
 //                                .with(activityNonNull)
-//                                .load(exercise.image.firstOrNull()?.image)
+//                                .load(exercise.images.firstOrNull()?.image)
 //                                .placeholder(R.drawable.noimage)
 //                                .into(ivExerciseImage)
 //                        }
-//                        tvExerciseName.text = exercise.exercise.name
-//                        tvDescriptionValue.text = exercise.exercise.description
-//                    }
-//                }
-//            }
-//        })
-//
-//        viewModel.onSuccessExerciseWithMusclesFromDbById.observe(viewLifecycleOwner, {
-//            it?.let {exercise ->
-//                binding?.let { bindingNonNull ->
-//                    with(bindingNonNull){
+//                        tvExerciseName.text = exercise.name
+//                        tvDescriptionValue.text = exercise.description
 //
 //                        val muscleList = mutableListOf<String>()
 //                        val separator = " - "
 //
-//                        exercise.forEach { exerciseWithMuscle ->
-//                            exerciseWithMuscle.muscle.forEach { muscle ->
-//                                muscle.name?.let{ muscleName ->
-//                                    muscleList.add(muscleName)
-//                                }
-//                            }
+//                        exercise.muscles.forEach { muscle ->
+//                            muscleList.add(muscle.name)
 //                        }
 //                        tvPrimaryMuscleValue.text = muscleList.joinToString(separator)
-//                    }
-//                }
-//            }
-//        })
 //
-//        viewModel.onSuccessExerciseWithMusclesSecondaryFromDbById.observe(viewLifecycleOwner, {
-//            it?.let {exercise ->
-//                binding?.let { bindingNonNull ->
-//                    with(bindingNonNull){
-//
-//                        val muscleList = mutableListOf<String>()
-//                        val separator = " - "
-//
-//                        exercise.forEach { exerciseWithMuscleSecondary ->
-//                            exerciseWithMuscleSecondary.musclesSecondary.forEach { muscle ->
-//                                muscle.name?.let{ muscleName ->
-//                                    muscleList.add(muscleName)
-//                                }
-//                            }
+//                        muscleList.clear()
+//                        exercise.muscles_secondary.forEach { muscle ->
+//                            muscleList.add(muscle.name)
 //                        }
 //                        tvSecondaryMuscleValue.text = muscleList.joinToString(separator)
 //                    }
 //                }
 //            }
 //        })
+
+        viewModel.onSuccessExerciseWithImagesFromDbById.observe(viewLifecycleOwner, {
+            it?.let {exercise ->
+                binding?.let { bindingNonNull ->
+                    with(bindingNonNull){
+                        activity?.let { activityNonNull ->
+                            Glide
+                                .with(activityNonNull)
+                                .load(exercise.image.firstOrNull()?.image)
+                                .placeholder(R.drawable.noimage)
+                                .into(ivExerciseImage)
+                        }
+                        tvExerciseName.text = exercise.exercise.name
+                        tvDescriptionValue.text = exercise.exercise.description
+                    }
+                }
+            }
+        })
+
+        viewModel.onSuccessExerciseWithMusclesFromDbById.observe(viewLifecycleOwner, {
+            it?.let {exercise ->
+                binding?.let { bindingNonNull ->
+                    with(bindingNonNull){
+
+                        val muscleList = mutableListOf<String>()
+                        val separator = " - "
+
+
+                        exercise.forEach { exerciseWithMuscle ->
+                            exerciseWithMuscle.muscle.forEach { muscle ->
+                                muscle.name?.let{ muscleName ->
+                                    muscleList.add(muscleName)
+                                }
+                            }
+                        }
+                        tvPrimaryMuscleValue.text = muscleList.joinToString(separator)
+                    }
+                }
+            }
+        })
+
+        viewModel.onSuccessExerciseWithMusclesSecondaryFromDbById.observe(viewLifecycleOwner, {
+            it?.let {exercise ->
+                binding?.let { bindingNonNull ->
+                    with(bindingNonNull){
+
+                        val muscleList = mutableListOf<String>()
+                        val separator = " - "
+
+                        exercise.forEach { exerciseWithMuscleSecondary ->
+                            exerciseWithMuscleSecondary.musclesSecondary.forEach { muscle ->
+                                muscle.name?.let{ muscleName ->
+                                    muscleList.add(muscleName)
+                                }
+                            }
+                        }
+                        tvSecondaryMuscleValue.text = muscleList.joinToString(separator)
+                    }
+                }
+            }
+        })
 
         viewModel.command.observe(viewLifecycleOwner, {
             when(it){

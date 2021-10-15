@@ -15,7 +15,7 @@ interface LicenseDao {
 
     @Transaction
     @Query("SELECT * FROM license")
-    fun getExerciseWithLicense(): List<LicenseWithExercises>
+    suspend fun getExerciseWithLicense(): List<LicenseWithExercises>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllLicenses (licensesList: List<LicenseDb>)

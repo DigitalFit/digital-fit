@@ -5,21 +5,22 @@ import androidx.room.OnConflictStrategy.REPLACE
 import com.example.digitalfit.modelDb.ExerciseMuscleCrossRef
 import com.example.digitalfit.modelDb.ExerciseWithMuscle
 import com.example.digitalfit.modelDb.MuscleWithExercise
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ExerciseMuscleCrossRefDao {
 
     @Transaction
     @Query("SELECT * FROM exercise")
-    fun getExerciseWithMuscle(): List<ExerciseWithMuscle>
+    suspend fun getExerciseWithMuscle(): List<ExerciseWithMuscle>
 
     @Transaction
     @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
-    fun getExerciseWithMuscleById(exerciseId: Int): List<ExerciseWithMuscle>
+    suspend fun getExerciseWithMuscleById(exerciseId: Int): List<ExerciseWithMuscle>
 
     @Transaction
     @Query("SELECT * FROM muscle")
-    fun getMuscleWithExercise(): List<MuscleWithExercise>
+    suspend fun getMuscleWithExercise(): List<MuscleWithExercise>
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAllExerciseMuscle(exerciseMuscleList: List<ExerciseMuscleCrossRef>)
