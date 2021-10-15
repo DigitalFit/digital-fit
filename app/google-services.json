@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543976738808",
+    "project_id": "digitalfitt",
+    "storage_bucket": "digitalfitt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543976738808:android:9e25008180a832d304900d",
+        "android_client_info": {
+          "package_name": "com.example.digitalfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543976738808-phrsossdu4ct0c35dm6jop39jppqsmbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6u0v5LPmSfEbnKGFFCTgve5eLmzkQTmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543976738808-phrsossdu4ct0c35dm6jop39jppqsmbg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

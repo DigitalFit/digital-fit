@@ -11,7 +11,7 @@
         android:id="@+id/text_init"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:text="@string/init"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -22,9 +22,7 @@
         android:id="@+id/cvCalendarNutrition"
         android:layout_width="352dp"
         android:layout_height="119dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
+       android:layout_margin="16dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/txNextTrainig"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,15 +33,12 @@
         android:id="@+id/txNextTrainig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="217dp"
         android:text="@string/next_training"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/cvNextTraining"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvCalendarNutrition">
 
@@ -53,31 +48,26 @@
         android:id="@+id/cvNextTraining"
         android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="327dp"
         app:cardCornerRadius="15sp"
         app:layout_constraintBottom_toTopOf="@id/txNextMeal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvCalendarNutrition">
 
-
     </androidx.cardview.widget.CardView>
-
 
     <TextView
         android:id="@+id/txNextMeal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="285dp"
+        android:layout_margin="16dp"
         android:text="@string/next_meal"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/cvNextMeal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvNextTraining">
 
@@ -87,16 +77,13 @@
         android:id="@+id/cvNextMeal"
         android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="382dp"
         app:cardCornerRadius="15sp"
         app:layout_constraintBottom_toTopOf="@id/txNextMeal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.706">
 
     </androidx.cardview.widget.CardView>
 
@@ -104,14 +91,12 @@
         android:id="@+id/txBodyData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="497dp"
+        android:layout_marginTop="24dp"
         android:text="@string/body_data"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvNextMeal">
 
@@ -121,30 +106,12 @@
         android:id="@+id/cvWeight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="-6dp"
-        android:layout_marginBottom="-64dp"
         app:cardCornerRadius="15sp"
         app:layout_constraintBottom_toTopOf="@id/txBodyData"
-        app:layout_constraintEnd_toEndOf="@id/cvIMC"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.777">
 
     </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvIMC"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        app:cardCornerRadius="15sp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/cvWeight"
-        app:layout_constraintTop_toBottomOf="@id/txBodyData">
-
-    </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

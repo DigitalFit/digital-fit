@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:labelVisibilityMode = "labeled"
-    app:startDestination="@+id/navigation_init">
+    app:startDestination="@id/navigation_profile">
 
     <fragment
         android:id="@+id/navigation_workout"
