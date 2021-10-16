@@ -44,7 +44,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.digitalfit.features.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_splashActivity"
+            app:destination="@id/splashActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_nutrition"
@@ -76,4 +80,9 @@
         android:name="com.example.digitalfit.features.exercisedetail.view.ExerciseDetailFragment"
         android:label="fragment_exercise_detail"
         tools:layout="@layout/fragment_exercise_detail" />
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.digitalfit.features.login.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" />
 </navigation>
