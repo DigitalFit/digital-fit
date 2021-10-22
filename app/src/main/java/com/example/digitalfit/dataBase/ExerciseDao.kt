@@ -21,6 +21,10 @@ interface ExerciseDao {
     @Query("SELECT * FROM exercise WHERE exerciseId = :exerciseId")
     suspend fun getExerciseWithImagesById(exerciseId: Int): ExerciseWithImages
 
+    @Transaction
+    @Query("SELECT * FROM exercise WHERE name LIKE :name")
+    suspend fun searchExercisesByName(name: String?): List<ExerciseWithImages>
+
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAllExercises(exerciseList: List<ExerciseDb>)

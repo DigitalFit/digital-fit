@@ -1,4 +1,4 @@
-package com.example.digitalfit.features.workout
+package com.example.digitalfit.features.workout.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

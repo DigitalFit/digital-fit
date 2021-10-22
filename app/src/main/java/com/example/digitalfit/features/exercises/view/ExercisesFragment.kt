@@ -19,8 +19,11 @@ import com.example.digitalfit.utils.Command
 import com.example.digitalfit.utils.ConstantsApp.Exercise.KEY_BUNDLE_EXERCISE_ID
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.paging.PagedList
 import com.example.digitalfit.adapterAPI.ExerciseAdapterDb
+import com.example.digitalfit.adapterAPI.SearchAdapter
 import com.example.digitalfit.modelDb.ExerciseDb
 import com.example.digitalfit.modelDb.ExerciseWithImages
 
@@ -33,8 +36,19 @@ class ExercisesFragment : BaseFragment() {
     var pagedList: List<ExerciseWithImages>? = null
     var paginatedList: PagedList<ExerciseWithImages>? = null
 
-    private val exercisesAdapterDb: ExerciseAdapterDb by lazy{
+    private val exercisesAdapterDb: ExerciseAdapterDb by lazy {
         ExerciseAdapterDb { exercises ->
+            val bundle = Bundle()
+            exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
+            findNavController().navigate(
+                R.id.action_navigation_exercises_to_exerciseDetailFragment,
+                bundle
+            )
+        }
+    }
+
+    private val searchAdapter: SearchAdapter by lazy {
+        SearchAdapter { exercises ->
             val bundle = Bundle()
             exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
             findNavController().navigate(
@@ -63,7 +77,7 @@ class ExercisesFragment : BaseFragment() {
 
             viewModel.command = command
 
-           // viewModel.getInfoExercises()
+             //viewModel.getInfoExercises()
 
 
             viewModel.getExerciseEntities()
@@ -78,7 +92,7 @@ class ExercisesFragment : BaseFragment() {
         }
     }
 
-    private fun loadContent(){
+    private fun loadContent() {
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
             pagedList = it.snapshot()
             paginatedList = it
@@ -94,13 +108,18 @@ class ExercisesFragment : BaseFragment() {
             loadContent()
         })
 
+        viewModel.onSuccessSearchExercisesByName.observe(viewLifecycleOwner, {
+            searchAdapter.submitList(it)
+        })
+
+
 //        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
 //            pagedList = it
 //        })
 
 
         binding?.vgExerciseRecyclerView?.adapter?.stateRestorationPolicy =
-                            RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+            RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
 //        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
 //            it?.let { exercisesList ->
@@ -164,10 +183,10 @@ class ExercisesFragment : BaseFragment() {
         }
     }
 
-    private fun initSearch(){
+    private fun initSearch() {
         val searchView: SearchView? = binding?.searchBar
 
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -192,49 +211,43 @@ class ExercisesFragment : BaseFragment() {
 //                return false
 //            }
 
+
             override fun onQueryTextChange(newText: String?): Boolean {
-                var filteredList: PagedList<ExerciseWithImages>? = null
-                paginatedList?.let {paginatedList ->
-                    for (exercise: ExerciseWithImages in paginatedList){
-                        if (newText != null) {
-                            exercise.exercise.name?.let {
-                                if(it.lowercase().contains(newText.lowercase())){
-                                    filteredList?.add(exercise)
-                                }
-                            }
-                        }
-                    }
-
+                if (newText != "") {
+                    setupRecyclerViewVisibility(
+                        isListFromSearchShowing = true
+                    )
+                    viewModel.searchExercisesByName("%$newText%")
+                }else{
+                    setupRecyclerViewVisibility(
+                        isListFromSearchShowing = false
+                    )
                 }
-                exercisesAdapterDb.submitList(filteredList)
-
-
                 return false
             }
-
         })
     }
 
-    //outro filtro
-//    private fun filterList(status: String){
-//        val selectedFilter = status
-//
-//        var filteredList: MutableList<ExerciseWithImages> = mutableListOf()
-//
-//        for (exercise: ExerciseWithImages in pagedList){
-//                exercise.exercise.name?.let {
-//                    if(exercise.exercise.name.lowercase().contains(newText.lowercase())){
-//                        filteredList.add(exercise)
-//                    }
-//                }
-//        }
-//    }
-
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         binding?.vgExerciseRecyclerView?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = exercisesAdapterDb
         }
+
+        binding?.vgSearchExerciseRecyclerView?.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = searchAdapter
+        }
+    }
+
+    private fun setupRecyclerViewVisibility(
+        isListFromSearchShowing: Boolean
+    ) {
+        binding?.vgExerciseRecyclerView?.isVisible = !isListFromSearchShowing
+        binding?.vgSearchExerciseRecyclerView?.isVisible = isListFromSearchShowing
+
+//        binding?.vgExerciseRecyclerView?.isGone = !isListFromSearchShowing
+//        binding?.vgSearchExerciseRecyclerView?.isGone = isListFromSearchShowing
     }
 
     override fun onDestroyView() {

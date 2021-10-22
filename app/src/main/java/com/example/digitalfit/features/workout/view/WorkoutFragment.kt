@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.digitalfit.adapter.WorkoutAdapter
 import com.example.digitalfit.databinding.FragmentWorkoutBinding
+import com.example.digitalfit.features.workout.viewmodel.WorkoutViewModel
 import com.example.digitalfit.model.Workout
 
 class WorkoutFragment : Fragment() {
@@ -28,7 +29,7 @@ class WorkoutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         workoutViewModel =
-            ViewModelProvider(this).get(WorkoutViewModel::class.java)
+            ViewModelProvider(this)[WorkoutViewModel::class.java]
 
         _binding = FragmentWorkoutBinding.inflate(inflater, container, false)
         val root: View = binding.root

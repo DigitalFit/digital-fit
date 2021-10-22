@@ -256,6 +256,11 @@ class ExercisesRepository(
         return exerciseDao.getExerciseWithImages(page)
     }
 
+    suspend fun searchExercisesByName(name: String?): List<ExerciseWithImages> {
+        val exerciseDao = DigitalFitDataBase.getDatabase(application).exerciseDao()
+        return exerciseDao.searchExercisesByName(name)
+    }
+
     suspend fun getExerciseById(id: Int): ResponseApi {
         return safeApiCall {
             ApiService.wgerApi.getExerciseById(id)

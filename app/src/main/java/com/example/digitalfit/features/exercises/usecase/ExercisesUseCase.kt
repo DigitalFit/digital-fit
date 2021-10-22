@@ -34,6 +34,11 @@ class ExercisesUseCase(
         return exercisesRepository.getExercisesWithImagesFromDb(page)
     }
 
+    suspend fun searchExercisesByName(name: String?): List<ExerciseWithImages> {
+        return exercisesRepository.searchExercisesByName(name)
+    }
+
+    //FIRST_PAGE
     suspend fun getInfoExercises(): ResponseApi {
         return when (val responseApi = exercisesRepository.getInfoExercises(FIRST_PAGE)) {
             is ResponseApi.Success -> {

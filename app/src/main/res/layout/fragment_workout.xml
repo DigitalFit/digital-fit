@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_background"
-        tools:context=".features.workout.WorkoutFragment">
+        tools:context=".features.workout.view.WorkoutFragment">
 
         <TextView
             android:id="@+id/tvWorkout"

@@ -172,6 +172,12 @@ class ExercisesViewModel(
     val onExercisesWithImagesLoadedFromDb: LiveData<List<ExerciseWithImages>>
         get() = _onExercisesWithImagesLoadedFromDb
 
+    //
+    private val _onSuccessSearchExercisesByName: MutableLiveData<List<ExerciseWithImages>> =
+        MutableLiveData()
+    val onSuccessSearchExercisesByName: LiveData<List<ExerciseWithImages>>
+        get() = _onSuccessSearchExercisesByName
+
 //    fun getListExercises() {
 //        //Scope = Criar nova trade
 //        viewModelScope.launch {
@@ -210,6 +216,13 @@ class ExercisesViewModel(
 //                _onSuccessInfoExercises.postValue(result?.filterIsInstance<ResultInfo>())
             }
 
+        }
+    }
+
+    fun searchExercisesByName(name: String?) {
+        viewModelScope.launch {
+            val exerciseSearchedList = exercisesUseCase.searchExercisesByName(name)
+            _onSuccessSearchExercisesByName.postValue(exerciseSearchedList)
         }
     }
 
