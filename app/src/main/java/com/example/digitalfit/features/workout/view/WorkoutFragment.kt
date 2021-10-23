@@ -1,4 +1,4 @@
-package com.example.digitalfit.features.workout
+package com.example.digitalfit.features.workout.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
