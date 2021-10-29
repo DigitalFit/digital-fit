@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:labelVisibilityMode = "labeled"
-    app:startDestination="@id/navigation_profile">
+    app:startDestination="@id/navigation_exercises">
 
     <fragment
         android:id="@+id/navigation_workout"
@@ -44,12 +44,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_init"
-        android:name="com.example.digitalfit.features.init.InitFragment"
-        android:label="@string/init"
-        tools:layout="@layout/fragment_init" />
-
-    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.digitalfit.features.profile.ProfileFragment"
         android:label="@string/profile"
@@ -59,11 +53,6 @@
             app:destination="@id/splashActivity" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_nutrition"
-        android:name="com.example.digitalfit.features.nutrition.NutritionFragment"
-        android:label="@string/nutrition"
-        tools:layout="@layout/fragment_nutrition" />
     <dialog
         android:id="@+id/bottomSheetFilterFragment"
         android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetFilterFragment"

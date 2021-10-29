@@ -1,6 +1,7 @@
 package com.example.digitalfit.adapterAPI
 
 
+import android.content.Intent
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -27,8 +28,9 @@ import kotlin.concurrent.schedule
 
 class ExerciseAdapterApi(
     //private val exercisesList: List<ResultInfo>,
-    private val onClickListener: (exercises: ExerciseWithImages) -> Unit
+    private val onClickListener: (exercises: ExerciseWithImages) -> Unit,
 //) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
+    private val onSharedListener: (shared: String) -> Unit
 ) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterApi.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,7 +40,7 @@ class ExerciseAdapterApi(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), onClickListener)
+        holder.bind(getItem(position), onClickListener, onSharedListener)
     }
 
     //remover
@@ -51,7 +53,13 @@ class ExerciseAdapterApi(
         fun bind(
             exercises: ExerciseWithImages?,
             onClickListener: (exercises: ExerciseWithImages) -> Unit,
+            onSharedListener: (shared: String) -> Unit
+
         ) {
+            binding?.ibExercise?.setOnClickListener {
+                onSharedListener("funciona")
+
+            }
             with(binding) {
                 exercises?.let {
                     tvExercise.text = exercises.exercise.name

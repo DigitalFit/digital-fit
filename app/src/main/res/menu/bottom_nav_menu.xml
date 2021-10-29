@@ -11,19 +11,13 @@
         android:icon="@drawable/halteres"
         android:title="@string/workout" />
 
-    <item
-        android:id="@+id/navigation_init"
-        android:icon="@drawable/halteres"
-        android:title="@string/init" />
+
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/halteres"
         android:title="@string/profile" />
 
-    <item
-        android:id="@+id/navigation_nutrition"
-        android:icon="@drawable/halteres"
-        android:title="@string/nutrition" />
+
 
 </menu>
