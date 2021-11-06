@@ -36,7 +36,6 @@ class WorkoutAdapter (
             binding.tvWorkout.text = workout.name
             binding.tvQuantityVal.text = workout.quantity.toString()
             binding.tvDurationVal.text = workout.duration.toString()
-            binding.tvBurnVal.text = workout.burn.toString()
         }
 
     }

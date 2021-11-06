@@ -14,12 +14,20 @@
         <action
             android:id="@+id/action_workoutFragment_to_workoutCreateDialog"
             app:destination="@id/workoutCreateDialog" />
+        <action
+            android:id="@+id/action_navigation_workout_to_workoutDetailFragment"
+            app:destination="@id/workoutDetailFragment" />
     </fragment>
     <dialog
         android:id="@+id/workoutCreateDialog"
-        android:name="com.example.digitalfit.features.workout.view.WorkoutCreateDialog"
+        android:name="com.example.digitalfit.features.workoutdialog.view.WorkoutCreateDialog"
         android:label="WorkoutCreateDialog"
-        tools:layout="@layout/dialog_workout_create" />
+        tools:layout="@layout/dialog_workout_create" >
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </dialog>
 
     <fragment
         android:id="@+id/navigation_exercises"
@@ -94,7 +102,15 @@
         android:name="com.example.digitalfit.features.login.SplashActivity"
         android:label="activity_splash"
         tools:layout="@layout/activity_splash" />
-
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.example.digitalfit.features.workoutdetail.view.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
 
 
 </navigation>

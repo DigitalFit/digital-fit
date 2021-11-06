@@ -34,7 +34,7 @@ class ExercisesFragment : BaseFragment() {
     private lateinit var viewModel: ExercisesViewModel
 
     var pagedList: List<ExerciseWithImages>? = null
-    var paginatedList: PagedList<ExerciseWithImages>? = null
+    //var paginatedList: PagedList<ExerciseWithImages>? = null
 
     private val exercisesAdapterDb: ExerciseAdapterDb by lazy {
         ExerciseAdapterDb { exercises ->
@@ -95,7 +95,7 @@ class ExercisesFragment : BaseFragment() {
     private fun loadContent() {
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
             pagedList = it.snapshot()
-            paginatedList = it
+            //paginatedList = it
             exercisesAdapterDb.submitList(it)
         })
     }
@@ -105,6 +105,7 @@ class ExercisesFragment : BaseFragment() {
         //chamando api ListExercise por id
 
         viewModel.onExerciseEntitiesLoaded.observe(viewLifecycleOwner, {
+            binding?.progressBar?.isGone = true
             loadContent()
         })
 

@@ -23,11 +23,11 @@
             app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ibWorkout"
+            app:layout_constraintEnd_toStartOf="@id/ibDeleteWorkout"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageView
-            android:id="@+id/ibWorkout"
+            android:id="@+id/ibDeleteWorkout"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_marginTop="@dimen/vertical_margin_default"
@@ -38,6 +38,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvWorkout"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_close_black_24" />
+
+        <ImageView
+            android:id="@+id/ibEditWorkout"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:layout_marginEnd="@dimen/horizontal_margin_default"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ibDeleteWorkout"
+            app:layout_constraintTop_toBottomOf="@id/ibDeleteWorkout"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/three_dots_icon" />
 
         <!--  Quantity  -->
@@ -101,7 +116,7 @@
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="@id/ivDuration"
             app:layout_constraintStart_toEndOf="@id/ivDuration"
-            app:layout_constraintEnd_toStartOf="@id/ivBurn"
+            app:layout_constraintEnd_toStartOf="@id/ibEditWorkout"
             app:layout_constraintBottom_toTopOf="@id/tvDurationVal"/>
 
         <TextView
@@ -115,40 +130,7 @@
             app:layout_constraintEnd_toEndOf="@id/tvDuration"
             app:layout_constraintBottom_toBottomOf="@id/ivDuration"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivBurn"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            app:srcCompat="@drawable/burn_fire_icon"
-            android:layout_marginTop="@dimen/vertical_margin_between_contents"
-            android:layout_marginBottom="@dimen/vertical_margin_default"
-            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
-            app:layout_constraintStart_toEndOf="@id/tvDuration"
-            app:layout_constraintEnd_toStartOf="@id/tvBurn"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
-            android:id="@+id/tvBurn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/burn"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="@id/ivBurn"
-            app:layout_constraintStart_toEndOf="@id/ivBurn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tvBurnVal"/>
-
-        <TextView
-            android:id="@+id/tvBurnVal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="150"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/tvBurn"
-            app:layout_constraintStart_toStartOf="@id/tvBurn"
-            app:layout_constraintEnd_toEndOf="@id/tvBurn"
-            app:layout_constraintBottom_toBottomOf="@id/ivBurn"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

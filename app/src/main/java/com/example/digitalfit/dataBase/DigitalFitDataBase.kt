@@ -21,6 +21,7 @@ object DigitalFitDataBase {
             MuscleDb::class,
             ExerciseMuscleCrossRef::class,
             ExerciseMuscleSecondaryCrossRef::class,
+            WorkoutDb::class
         ],
         version =1
     )
@@ -36,6 +37,7 @@ object DigitalFitDataBase {
         abstract fun muscleDao(): MuscleDao
         abstract fun exerciseMuscleDao(): ExerciseMuscleCrossRefDao
         abstract fun exerciseMuscleSecondaryDao(): ExerciseMuscleSecondaryCrossRefDao
+        abstract fun workoutDao(): WorkoutDao
     }
 
     fun getDatabase(context: Context): DigitalFitRoomDatabase {

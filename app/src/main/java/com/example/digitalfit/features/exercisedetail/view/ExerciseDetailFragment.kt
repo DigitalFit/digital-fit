@@ -1,5 +1,6 @@
 package com.example.digitalfit.features.exercisedetail.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -53,6 +54,21 @@ class ExerciseDetailFragment() : BaseFragment() {
 
             setupObservables()
         }
+
+
+        binding?.btShare?.setOnClickListener {
+            val intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "${binding?.tvExerciseName?.text} \n\n ${binding?.tvDescription?.text} \n ${binding?.tvDescriptionValue?.text}" )
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(intent, "titulo")
+            startActivity(shareIntent)
+        }
+
+
+
     }
 
     private fun setupObservables() {

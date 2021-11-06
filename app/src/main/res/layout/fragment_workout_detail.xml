@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary_background"
+    android:fillViewport="true"
+    tools:context=".features.workoutdetail.view.WorkoutDetailFragment">
+
+    <ImageButton
+        android:id="@+id/ibBackIcon"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="@dimen/horizontal_margin_default"
+        android:layout_marginTop="@dimen/vertical_margin_between_contents"
+        android:adjustViewBounds="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_arrow_back"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvWorkoutName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/workout_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/primary_title_default"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_extra"
+        android:layout_marginTop="@dimen/vertical_margin_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibBackIcon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vgWorkoutDetailRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWorkoutName" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/white"
+        app:tint="@null"
+        app:borderWidth="0dp"
+        android:src="@drawable/blue_halter_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="32dp" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

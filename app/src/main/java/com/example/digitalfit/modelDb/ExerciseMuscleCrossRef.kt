@@ -6,4 +6,4 @@ import androidx.room.Entity
 data class ExerciseMuscleCrossRef(
     val exerciseId: Int,
     val muscleId: Int
-    )
+)

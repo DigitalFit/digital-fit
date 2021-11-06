@@ -38,7 +38,6 @@ class ExercisesUseCase(
         return exercisesRepository.searchExercisesByName(name)
     }
 
-    //FIRST_PAGE
     suspend fun getInfoExercises(): ResponseApi {
         return when (val responseApi = exercisesRepository.getInfoExercises(FIRST_PAGE)) {
             is ResponseApi.Success -> {
