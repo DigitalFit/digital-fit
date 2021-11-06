@@ -1,27 +1,33 @@
-package com.example.digitalfit.adapterAPI
-
-
-import android.graphics.Bitmap
-import android.graphics.Canvas
+import android.os.Looper
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
-import android.view.View.MeasureSpec
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.digitalfit.R
 import com.example.digitalfit.databinding.ExerciseItemBinding
+import com.example.digitalfit.modelApi.ResultInfo
+import com.example.digitalfit.modelDb.ExerciseDb
 import com.example.digitalfit.modelDb.ExerciseWithImages
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.selects.whileSelect
+import java.util.Timer
+import kotlin.concurrent.schedule
 
 
 class ExerciseAdapterDb(
     //private val exercisesList: List<ResultInfo>,
-    private val onClickListener: (exercises: ExerciseWithImages) -> Unit,
+    private val onClickListener: (exercises: ExerciseWithImages) -> Unit
 //) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
-    private val onSharedListener: (shared: Bitmap) -> Unit
 ) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterDb.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ExerciseItemBinding
@@ -30,7 +36,7 @@ class ExerciseAdapterDb(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), onClickListener , onSharedListener)
+        holder.bind(getItem(position), onClickListener)
     }
 
     //remover
@@ -43,15 +49,9 @@ class ExerciseAdapterDb(
         fun bind(
             exercises: ExerciseWithImages?,
             onClickListener: (exercises: ExerciseWithImages) -> Unit,
-            onSharedListener: (bitmap : Bitmap) -> Unit
         ) {
-
             with(binding) {
                 exercises?.let {
-                    binding?.ibExercise?.setOnClickListener {
-                        onSharedListener(getBitmapFromView(cvExercise)!!)
-                    }
-
                     tvExercise.text = exercises.exercise.name
                     cvExercise.setOnClickListener {
                         onClickListener(exercises)
@@ -66,19 +66,5 @@ class ExerciseAdapterDb(
 
             }
         }
-
-        fun getBitmapFromView(view: View): Bitmap? {
-            view.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-            val bitmap = Bitmap.createBitmap(
-                view.measuredWidth, view.measuredHeight,
-                Bitmap.Config.ARGB_8888
-            )
-            val canvas = Canvas(bitmap)
-            view.layout(0, 0, view.measuredWidth, view.measuredHeight)
-            view.draw(canvas)
-            return bitmap
-        }
-
     }
-    }
-
+}

@@ -1,11 +1,7 @@
 package com.example.digitalfit.features.exercises.view
-
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
+import ExerciseAdapterDb
 import com.example.digitalfit.features.exercises.viewmodel.ExercisesViewModel
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digitalfit.R
-import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.dataBase.DigitalFitDataBase
 import com.example.digitalfit.databinding.FragmentExercisesBinding
@@ -26,14 +21,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.paging.PagedList
-import com.example.digitalfit.adapterAPI.ExerciseAdapterDb
 import com.example.digitalfit.adapterAPI.SearchAdapter
 import com.example.digitalfit.modelDb.ExerciseDb
 import com.example.digitalfit.modelDb.ExerciseWithImages
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileOutputStream
 
 
 class ExercisesFragment : BaseFragment() {
@@ -44,9 +34,16 @@ class ExercisesFragment : BaseFragment() {
     var pagedList: List<ExerciseWithImages>? = null
     var paginatedList: PagedList<ExerciseWithImages>? = null
 
-    private lateinit var exercisesAdapterDb: ExerciseAdapterDb
-
-
+    private val exercisesAdapterDb: ExerciseAdapterDb by lazy {
+        ExerciseAdapterDb { exercises ->
+            val bundle = Bundle()
+            exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
+            findNavController().navigate(
+                R.id.action_navigation_exercises_to_exerciseDetailFragment,
+                bundle
+            )
+        }
+    }
 
     private val searchAdapter: SearchAdapter by lazy {
         SearchAdapter { exercises ->
@@ -68,45 +65,17 @@ class ExercisesFragment : BaseFragment() {
 
         binding = FragmentExercisesBinding.inflate(inflater, container, false)
         return binding?.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        exercisesAdapterDb = ExerciseAdapterDb({ exercises ->
-            val bundle = Bundle()
-            exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
-            findNavController().navigate(
-                R.id.action_navigation_exercises_to_exerciseDetailFragment,
-                bundle
-            )
-        }, {
-            val file = File(context?.cacheDir, "share.png")
-            val output = FileOutputStream(file)
-
-            it.compress(Bitmap.CompressFormat.PNG, 0, output)
-            output.flush()
-            output.close()
-            file.setReadable(true, false)
-
-            val intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file))
-                type = "image/png"
-            }
-
-            val shareIntent = Intent.createChooser(intent, "Compatilhamento de excercicio")
-            startActivity(shareIntent)
-
-
-        })
 
         activity?.let {
             viewModel = ViewModelProvider(it)[ExercisesViewModel::class.java]
 
             viewModel.command = command
 
-             //viewModel.getInfoExercises()
+            //viewModel.getInfoExercises()
 
 
             viewModel.getExerciseEntities()
@@ -118,7 +87,6 @@ class ExercisesFragment : BaseFragment() {
             initSearch()
             setupObeservables()
             setupRecyclerView()
-
         }
     }
 
@@ -129,8 +97,6 @@ class ExercisesFragment : BaseFragment() {
             exercisesAdapterDb.submitList(it)
         })
     }
-
-
 
     private fun setupObeservables() {
         //chamando api InfoExercise
