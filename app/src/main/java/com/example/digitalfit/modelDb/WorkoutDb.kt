@@ -11,7 +11,7 @@ data class WorkoutDb(
     @PrimaryKey(autoGenerate = true)
     val workoutId: Long,
     val name: String?,
-    val description: String = ""
+    val description: String? = ""
 ): Parcelable{
 
 }

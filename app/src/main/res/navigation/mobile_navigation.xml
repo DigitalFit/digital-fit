@@ -96,7 +96,12 @@
         android:id="@+id/exerciseDetailFragment"
         android:name="com.example.digitalfit.features.exercisedetail.view.ExerciseDetailFragment"
         android:label="fragment_exercise_detail"
-        tools:layout="@layout/fragment_exercise_detail" />
+        tools:layout="@layout/fragment_exercise_detail" >
+        <argument
+            android:name="exerciseId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <activity
         android:id="@+id/splashActivity"
         android:name="com.example.digitalfit.features.login.SplashActivity"
@@ -106,6 +111,24 @@
         android:id="@+id/workoutDetailFragment"
         android:name="com.example.digitalfit.features.workoutdetail.view.WorkoutDetailFragment"
         android:label="WorkoutDetailFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_workoutDetailFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
+        <action
+            android:id="@+id/action_workoutDetailFragment_to_workoutAddExerciseFragment"
+            app:destination="@id/workoutAddExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutAddExerciseFragment"
+        android:name="com.example.digitalfit.features.workoutaddexercise.view.WorkoutAddExerciseFragment"
+        android:label="WorkoutAddExerciseFragment" >
+        <action
+            android:id="@+id/action_workoutAddExerciseFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
         <argument
             android:name="itemId"
             app:argType="long"

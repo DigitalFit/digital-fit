@@ -12,6 +12,7 @@ import com.example.digitalfit.features.exercises.repository.ExercisesRepository
 import com.example.digitalfit.features.exercises.usecase.ExercisesUseCase
 import com.example.digitalfit.modelApi.*
 import com.example.digitalfit.modelDb.ExerciseWithImages
+import com.example.digitalfit.modelDb.ExerciseWorkoutCrossRef
 import com.example.digitalfit.utils.ConstantsApp.Exercise.PAGE_SIZE
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -177,6 +178,11 @@ class ExercisesViewModel(
         MutableLiveData()
     val onSuccessSearchExercisesByName: LiveData<List<ExerciseWithImages>>
         get() = _onSuccessSearchExercisesByName
+
+    //add exercise in workout list
+    private val _onSuccessAddExerciseInWorkoutList: MutableLiveData<Boolean> =  MutableLiveData()
+    val onSuccessAddExerciseInWorkoutList: LiveData<Boolean>
+        get() = _onSuccessAddExerciseInWorkoutList
 
 //    fun getListExercises() {
 //        //Scope = Criar nova trade
@@ -350,6 +356,14 @@ class ExercisesViewModel(
                     it
                 }
             )
+        }
+    }
+
+    fun addExerciseInWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
+        viewModelScope.launch {
+            val exerciseAdded = exercisesUseCase.addExerciseInWorkoutList(exerciseWorkoutCrossRef)
+                _onSuccessAddExerciseInWorkoutList.postValue(true)
+
         }
     }
 

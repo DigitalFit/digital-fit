@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ExerciseDb(
     @PrimaryKey
-    val exerciseId: Int?,
+    val exerciseId: Int,
     //ForeignKey
     val categoryId: Int?,
     val creation_date: String?,

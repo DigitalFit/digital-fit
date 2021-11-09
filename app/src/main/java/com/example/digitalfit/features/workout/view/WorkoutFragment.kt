@@ -78,10 +78,9 @@ class WorkoutFragment() : BaseFragment(), Refresh {
     }
 
     override fun refresh(){
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            viewModel.getWorkoutFromDb()
-//        }, 500L)
-        viewModel.getWorkoutFromDb()
+        Handler(Looper.getMainLooper()).postDelayed({
+            viewModel.getWorkoutFromDb()
+        }, 500L)
     }
 
     private fun setupObservables() {

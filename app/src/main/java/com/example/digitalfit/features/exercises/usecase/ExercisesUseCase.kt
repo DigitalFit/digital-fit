@@ -5,6 +5,7 @@ import android.app.Application
 import com.example.digitalfit.features.exercises.repository.ExercisesRepository
 import com.example.digitalfit.modelApi.*
 import com.example.digitalfit.modelDb.ExerciseWithImages
+import com.example.digitalfit.modelDb.ExerciseWorkoutCrossRef
 import com.example.digitalfit.utils.ConstantsApp.Exercise.FIRST_PAGE
 import com.example.digitalfit.utils.ResponseApi
 
@@ -164,6 +165,9 @@ class ExercisesUseCase(
         return list?.results ?: listOf()
     }
 
+    suspend fun addExerciseInWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
+        exercisesRepository.addExerciseInWorkoutList(exerciseWorkoutCrossRef)
+    }
 
 
 }

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clExercises"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    tools:context=".features.exercises.view.ExercisesFragment">
+
+
+    <TextView
+        android:id="@+id/tvExercises"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin_default"
+        android:layout_marginTop="@dimen/vertical_margin_default"
+        android:layout_marginEnd="@dimen/horizontal_margin_default"
+        android:text="@string/Exercises"
+        android:textColor="@color/white"
+        android:textSize="@dimen/primary_title_default"
+        app:layout_constraintBottom_toTopOf="@id/search_bar"
+        app:layout_constraintEnd_toStartOf="@id/ibAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibAdd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="@dimen/horizontal_margin_default"
+        android:adjustViewBounds="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:src="@drawable/add_square_icon"
+        app:layout_constraintBottom_toBottomOf="@id/tvExercises"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvExercises"
+        app:layout_constraintTop_toTopOf="@id/tvExercises" />
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_contents"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tvFilter"
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toEndOf="@id/tvExercises"
+        app:layout_constraintStart_toStartOf="@+id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/tvExercises"/>
+
+    <TextView
+        android:id="@+id/tvFilter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_between_contents"
+        android:text="@string/filter"
+        android:textColor="@color/white"
+        android:textSize="@dimen/secondary_title_default"
+        app:layout_constraintBottom_toTopOf="@id/chAll"
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toStartOf="@+id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/search_bar">
+
+    </TextView>
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_default"
+        android:backgroundTint="@color/white"
+        android:text="@string/all"
+        android:textColor="@color/primary_background"
+
+        app:layout_constraintEnd_toStartOf="@id/chMuscleGroups"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/tvExercises"
+        app:layout_constraintTop_toBottomOf="@id/tvFilter" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chMuscleGroups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/MuscleGroups"
+        android:textColor="@color/primary_background"
+
+        app:layout_constraintEnd_toStartOf="@id/chEquipments"
+        app:layout_constraintStart_toEndOf="@id/chAll"
+        app:layout_constraintTop_toTopOf="@id/chAll" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chEquipments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/Equipments"
+        android:textColor="@color/primary_background"
+
+        app:layout_constraintEnd_toEndOf="@id/ibAdd"
+        app:layout_constraintStart_toEndOf="@id/chMuscleGroups"
+        app:layout_constraintTop_toTopOf="@id/chAll" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chAll" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vgExerciseRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chAll" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vgSearchExerciseRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chAll" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

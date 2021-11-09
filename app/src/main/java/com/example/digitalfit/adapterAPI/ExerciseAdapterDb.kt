@@ -32,6 +32,7 @@ class ExerciseAdapterDb(
 //) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
 ) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterDb.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ExerciseItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)

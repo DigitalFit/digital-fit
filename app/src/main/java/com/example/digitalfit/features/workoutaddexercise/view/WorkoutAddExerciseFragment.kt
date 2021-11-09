@@ -1,63 +1,75 @@
-package com.example.digitalfit.features.exercises.view
+package com.example.digitalfit.features.workoutaddexercise.view
 
-import com.example.digitalfit.features.exercises.viewmodel.ExercisesViewModel
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digitalfit.R
-import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
+import com.example.digitalfit.adapterAPI.*
 import com.example.digitalfit.base.BaseFragment
-import com.example.digitalfit.dataBase.DigitalFitDataBase
-import com.example.digitalfit.databinding.FragmentExercisesBinding
-import com.example.digitalfit.utils.Command
-import com.example.digitalfit.utils.ConstantsApp.Exercise.KEY_BUNDLE_EXERCISE_ID
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
-import androidx.paging.PagedList
-import com.example.digitalfit.adapterAPI.ExerciseAdapterDb
-import com.example.digitalfit.adapterAPI.SearchAdapter
+import com.example.digitalfit.databinding.ExerciseItemBinding
+import com.example.digitalfit.databinding.FragmentWorkoutAddExerciseBinding
+import com.example.digitalfit.databinding.WorkoutAddExerciseItemBinding
+import com.example.digitalfit.features.exercises.viewmodel.ExercisesViewModel
+import com.example.digitalfit.features.workout.view.WorkoutFragmentDirections
 import com.example.digitalfit.modelDb.ExerciseWithImages
+import com.example.digitalfit.modelDb.ExerciseWorkoutCrossRef
+import com.example.digitalfit.utils.Command
+import com.example.digitalfit.utils.ConstantsApp
+import com.google.android.material.snackbar.Snackbar
 
-
-class ExercisesFragment : BaseFragment() {
-
-    private var binding: FragmentExercisesBinding? = null
+class WorkoutAddExerciseFragment: BaseFragment() {
+    private var binding: FragmentWorkoutAddExerciseBinding? = null
     private lateinit var viewModel: ExercisesViewModel
+    private var workoutId: Long = -1
+
 
     var pagedList: List<ExerciseWithImages>? = null
-    //var paginatedList: PagedList<ExerciseWithImages>? = null
 
 
-    private val exercisesAdapterDb: ExerciseAdapterDb by lazy {
-        ExerciseAdapterDb { exercises ->
-            val bundle = Bundle()
-            exercises.exercise.exerciseId.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
+    private val workoutAddExerciseAdapterDb = WorkoutAddExerciseAdapterDb(
+        onInsert = { exercise ->
+            val exerciseWorkout = ExerciseWorkoutCrossRef(
+                exerciseId = exercise,
+                workoutId = workoutId
+            )
+            viewModel.addExerciseInWorkoutList(exerciseWorkout)
+        },
+        onDetail = { exercise ->
             findNavController().navigate(
-                R.id.action_navigation_exercises_to_exerciseDetailFragment,
-                bundle
+                WorkoutAddExerciseFragmentDirections.actionWorkoutAddExerciseFragmentToExerciseDetailFragment(exercise.exercise.exerciseId)
             )
         }
-    }
+    )
 
-    private val searchAdapter: SearchAdapter by lazy {
-        SearchAdapter { exercises ->
-            val bundle = Bundle()
-            exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
+
+    private val searchAdapter = WorkoutAddExerciseSearchAdapter(
+        onInsert = { exercise ->
+            val exerciseWorkout = ExerciseWorkoutCrossRef(
+                exerciseId = exercise,
+                workoutId = workoutId
+            )
+            viewModel.addExerciseInWorkoutList(exerciseWorkout)
+        },
+        onDetail = { exercise ->
             findNavController().navigate(
-                R.id.action_navigation_exercises_to_exerciseDetailFragment,
-                bundle
+                WorkoutAddExerciseFragmentDirections.actionWorkoutAddExerciseFragmentToExerciseDetailFragment(exercise.exercise.exerciseId)
             )
         }
-    }
+    )
+
 
     override var command: MutableLiveData<Command> = MutableLiveData()
 
@@ -66,27 +78,28 @@ class ExercisesFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentExercisesBinding.inflate(inflater, container, false)
+        val args: WorkoutAddExerciseFragmentArgs by navArgs()
+        workoutId = args.itemId
+        Log.i("teste", "${workoutId}")
+
+        binding = FragmentWorkoutAddExerciseBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //val args: WorkoutAddExerciseFragmentArgs by navArgs()
+        //workoutId = args.itemId
 
         activity?.let {
             viewModel = ViewModelProvider(it)[ExercisesViewModel::class.java]
 
             viewModel.command = command
 
-             //viewModel.getInfoExercises()
-
 
             viewModel.getExerciseEntities()
 
-
-//            val bottomSheetFilterBehavior = (bottomSheetFilter.dialog as BottomSheetDialog).behavior
-//            bottomSheetFilterBehavior.saveFlags = BottomSheetBehavior.SAVE_ALL
 
             initSearch()
             setupObeservables()
@@ -97,15 +110,11 @@ class ExercisesFragment : BaseFragment() {
     private fun loadContent() {
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
             pagedList = it.snapshot()
-            //paginatedList = it
-            exercisesAdapterDb.submitList(it)
+            workoutAddExerciseAdapterDb.submitList(it)
         })
     }
 
     private fun setupObeservables() {
-        //chamando api InfoExercise
-        //chamando api ListExercise por id
-
         viewModel.onExerciseEntitiesLoaded.observe(viewLifecycleOwner, {
             binding?.progressBar?.isGone = true
             loadContent()
@@ -116,38 +125,11 @@ class ExercisesFragment : BaseFragment() {
         })
 
 
-//        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
-//            pagedList = it
-//        })
-
 
         binding?.vgExerciseRecyclerView?.adapter?.stateRestorationPolicy =
             RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
-//        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
-//            it?.let { exercisesList ->
-//                val exercisesAdapterApi = ExerciseAdapterApi(
-//                    exercisesList = exercisesList
-//                ) { exercises ->
-//                    val bundle = Bundle()
-//                    bundle.putInt(KEY_BUNDLE_EXERCISE_ID, exercises.id)
-//                    findNavController().navigate(R.id.action_navigation_exercises_to_exerciseDetailFragment,
-//                    bundle)
-//                }
-//
-//                binding?.let {
-//                    with(it) {
-//                        vgExerciseRecyclerView.apply {
-//                            layoutManager = LinearLayoutManager(context)
-//                            adapter = exercisesAdapterApi
-//                        }
-//
-//
-//                    }
-//                }
-//            }
-//        }
-//        )
+
 
 
         viewModel.command.observe(viewLifecycleOwner, {
@@ -165,8 +147,7 @@ class ExercisesFragment : BaseFragment() {
                     }
                 }
             }
-        }
-        )
+        })
 
         binding?.let {
             with(it) {
@@ -185,7 +166,13 @@ class ExercisesFragment : BaseFragment() {
             }
         }
 
-
+        viewModel.onSuccessAddExerciseInWorkoutList.observe(viewLifecycleOwner, { exerciseAdded ->
+            if(exerciseAdded == true){
+                Toast.makeText(context, "Exercício adicionado ao treino!", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(context, "Este exercício já foi adicionado ao treino!", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun initSearch() {
@@ -195,26 +182,6 @@ class ExercisesFragment : BaseFragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
-
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                var filteredList: MutableList<ExerciseWithImages> = mutableListOf()
-//                pagedList?.let {pagedList ->
-//                    for (exercise: ExerciseWithImages in pagedList){
-//                        if (newText != null) {
-//                            exercise.exercise.name?.let {
-//                                if(it.lowercase().contains(newText.lowercase())){
-//                                    filteredList.add(exercise)
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                }
-//                exercisesAdapterDb.submitList(filteredList)
-//
-//
-//                return false
-//            }
 
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -236,7 +203,7 @@ class ExercisesFragment : BaseFragment() {
     private fun setupRecyclerView() {
         binding?.vgExerciseRecyclerView?.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = exercisesAdapterDb
+            adapter = workoutAddExerciseAdapterDb
         }
 
         binding?.vgSearchExerciseRecyclerView?.apply {
@@ -260,4 +227,3 @@ class ExercisesFragment : BaseFragment() {
         binding = null
     }
 }
-
