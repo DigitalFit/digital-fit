@@ -267,9 +267,9 @@ class ExercisesRepository(
         }
     }
 
-    suspend fun addExerciseInWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
+    suspend fun addExerciseToWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef): Long {
         val exerciseWorkoutDao = DigitalFitDataBase.getDatabase(application).exerciseWorkoutDao()
-        exerciseWorkoutDao.insertExerciseWorkout(exerciseWorkoutCrossRef)
+        return exerciseWorkoutDao.insertExerciseWorkout(exerciseWorkoutCrossRef)
     }
 
 

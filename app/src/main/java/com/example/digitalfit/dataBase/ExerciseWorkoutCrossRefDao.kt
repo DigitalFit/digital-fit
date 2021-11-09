@@ -21,8 +21,8 @@ interface ExerciseWorkoutCrossRefDao {
 
 
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertExerciseWorkout(exerciseWorkout: ExerciseWorkoutCrossRef)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertExerciseWorkout(exerciseWorkout: ExerciseWorkoutCrossRef): Long
 
     @Delete
     suspend fun delete(exerciseWorkout: ExerciseWorkoutCrossRef)

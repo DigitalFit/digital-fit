@@ -180,9 +180,9 @@ class ExercisesViewModel(
         get() = _onSuccessSearchExercisesByName
 
     //add exercise in workout list
-    private val _onSuccessAddExerciseInWorkoutList: MutableLiveData<Boolean> =  MutableLiveData()
-    val onSuccessAddExerciseInWorkoutList: LiveData<Boolean>
-        get() = _onSuccessAddExerciseInWorkoutList
+    private val _onSuccessAddExerciseToWorkoutList: MutableLiveData<Boolean> =  MutableLiveData()
+    val onSuccessAddExerciseToWorkoutList: LiveData<Boolean>
+        get() = _onSuccessAddExerciseToWorkoutList
 
 //    fun getListExercises() {
 //        //Scope = Criar nova trade
@@ -359,10 +359,15 @@ class ExercisesViewModel(
         }
     }
 
-    fun addExerciseInWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
+    fun addExerciseToWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
         viewModelScope.launch {
-            val exerciseAdded = exercisesUseCase.addExerciseInWorkoutList(exerciseWorkoutCrossRef)
-                _onSuccessAddExerciseInWorkoutList.postValue(true)
+            val exerciseAdded = exercisesUseCase.addExerciseToWorkoutList(exerciseWorkoutCrossRef)
+            if(exerciseAdded != -1L){
+                _onSuccessAddExerciseToWorkoutList.postValue(true)
+            }else{
+                _onSuccessAddExerciseToWorkoutList.postValue(false)
+            }
+
 
         }
     }

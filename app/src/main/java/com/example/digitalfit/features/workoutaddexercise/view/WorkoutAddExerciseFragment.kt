@@ -61,7 +61,7 @@ class WorkoutAddExerciseFragment: BaseFragment() {
                 exerciseId = exercise,
                 workoutId = workoutId
             )
-            viewModel.addExerciseInWorkoutList(exerciseWorkout)
+            viewModel.addExerciseToWorkoutList(exerciseWorkout)
         },
         onDetail = { exercise ->
             findNavController().navigate(
@@ -80,7 +80,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
 
         val args: WorkoutAddExerciseFragmentArgs by navArgs()
         workoutId = args.itemId
-        Log.i("teste", "${workoutId}")
 
         binding = FragmentWorkoutAddExerciseBinding.inflate(inflater, container, false)
         return binding?.root
@@ -89,8 +88,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val args: WorkoutAddExerciseFragmentArgs by navArgs()
-        //workoutId = args.itemId
 
         activity?.let {
             viewModel = ViewModelProvider(it)[ExercisesViewModel::class.java]
@@ -166,7 +163,7 @@ class WorkoutAddExerciseFragment: BaseFragment() {
             }
         }
 
-        viewModel.onSuccessAddExerciseInWorkoutList.observe(viewLifecycleOwner, { exerciseAdded ->
+        viewModel.onSuccessAddExerciseToWorkoutList.observe(viewLifecycleOwner, { exerciseAdded ->
             if(exerciseAdded == true){
                 Toast.makeText(context, "Exercício adicionado ao treino!", Toast.LENGTH_SHORT).show()
             }else{

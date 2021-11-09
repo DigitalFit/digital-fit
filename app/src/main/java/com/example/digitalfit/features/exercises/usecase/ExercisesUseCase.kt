@@ -165,8 +165,8 @@ class ExercisesUseCase(
         return list?.results ?: listOf()
     }
 
-    suspend fun addExerciseInWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef) {
-        exercisesRepository.addExerciseInWorkoutList(exerciseWorkoutCrossRef)
+    suspend fun addExerciseToWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef): Long {
+       return exercisesRepository.addExerciseToWorkoutList(exerciseWorkoutCrossRef)
     }
 
 
