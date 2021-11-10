@@ -35,17 +35,13 @@ class WorkoutAddExerciseFragment: BaseFragment() {
     private lateinit var viewModel: ExercisesViewModel
     private var workoutId: Long = -1
 
-
-    var pagedList: List<ExerciseWithImages>? = null
-
-
     private val workoutAddExerciseAdapterDb = WorkoutAddExerciseAdapterDb(
         onInsert = { exercise ->
             val exerciseWorkout = ExerciseWorkoutCrossRef(
                 exerciseId = exercise,
                 workoutId = workoutId
             )
-            viewModel.addExerciseInWorkoutList(exerciseWorkout)
+            viewModel.addExerciseToWorkoutList(exerciseWorkout)
         },
         onDetail = { exercise ->
             findNavController().navigate(
@@ -53,7 +49,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
             )
         }
     )
-
 
     private val searchAdapter = WorkoutAddExerciseSearchAdapter(
         onInsert = { exercise ->
@@ -69,7 +64,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
             )
         }
     )
-
 
     override var command: MutableLiveData<Command> = MutableLiveData()
 
@@ -106,7 +100,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
 
     private fun loadContent() {
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
-            pagedList = it.snapshot()
             workoutAddExerciseAdapterDb.submitList(it)
         })
     }
@@ -121,13 +114,8 @@ class WorkoutAddExerciseFragment: BaseFragment() {
             searchAdapter.submitList(it)
         })
 
-
-
         binding?.vgExerciseRecyclerView?.adapter?.stateRestorationPolicy =
             RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-
-
-
 
         viewModel.command.observe(viewLifecycleOwner, {
             when (it) {
@@ -145,23 +133,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
                 }
             }
         })
-
-        binding?.let {
-            with(it) {
-                chAll.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
-                }
-                chMuscleGroups.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetMusclesFragment)
-                }
-                chEquipments.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
-                }
-                ibAdd.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_exercisesAddFragment)
-                }
-            }
-        }
 
         viewModel.onSuccessAddExerciseToWorkoutList.observe(viewLifecycleOwner, { exerciseAdded ->
             if(exerciseAdded == true){
@@ -214,9 +185,6 @@ class WorkoutAddExerciseFragment: BaseFragment() {
     ) {
         binding?.vgExerciseRecyclerView?.isVisible = !isListFromSearchShowing
         binding?.vgSearchExerciseRecyclerView?.isVisible = isListFromSearchShowing
-
-//        binding?.vgExerciseRecyclerView?.isGone = !isListFromSearchShowing
-//        binding?.vgSearchExerciseRecyclerView?.isGone = isListFromSearchShowing
     }
 
     override fun onDestroyView() {

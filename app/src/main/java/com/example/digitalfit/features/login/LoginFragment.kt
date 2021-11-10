@@ -55,18 +55,9 @@ class LoginFragment : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(this.requireActivity(), gso)
         auth = Firebase.auth
 
-        binding?.btEmail?.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_loginEmailFragment)
-        }
-
         binding?.btGoogle?.setOnClickListener {
             signIn()
         }
-
-        binding?.btRegister?.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
-        }
-
     }
 
     override fun onStart() {

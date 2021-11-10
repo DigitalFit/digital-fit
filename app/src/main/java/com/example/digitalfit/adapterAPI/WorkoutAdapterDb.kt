@@ -19,14 +19,13 @@ class WorkoutAdapterDb(private var onEdit: (WorkoutDb) -> Unit, private var onDe
     ) : RecyclerView.ViewHolder(binding.root) {
         private var workoutId: Long = -1
         private var nameView = binding.tvWorkout
-       // private var description = binding.description
+        private var description = binding.tvWorkoutDescription
         private var workout: WorkoutDb? = null
 
         fun bind(workout: WorkoutDb) {
             workoutId = workout.workoutId
             nameView.text = workout.name
-           // description.text = workout.description
-           // thumbnail.setImageResource(R.drawable.donut_with_sprinkles)
+            description.text = workout.description
             this.workout = workout
             binding.ibDeleteWorkout.setOnClickListener {
                 onDelete(workout)

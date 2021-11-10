@@ -50,28 +50,19 @@ class WorkoutCreateDialog: BottomSheetDialogFragment() {
             if (args.itemId > 0) EditingState.EXISTING_WORKOUT
             else EditingState.NEW_WORKOUT
 
-        // If we arrived here with an itemId of >= 0, then we are editing an existing item
         if (editingState == EditingState.EXISTING_WORKOUT) {
-            // Request to edit an existing item, whose id was passed in as an argument.
-            // Retrieve that item and populate the UI with its details
             viewModel.getWorkoutByIdFromDb(args.itemId).observe(viewLifecycleOwner){ workoutItem ->
-                binding?.name?.setText(workoutItem.name)
-                binding?.description?.setText(workoutItem.description)
+                binding?.name?.editText?.setText(workoutItem.name)
+                binding?.description?.editText?.setText(workoutItem.description)
                 workout = workoutItem
             }
         }
 
-        // When the user clicks the Done button, use the data here to either update
-        // an existing item or create a new one
         binding?.doneButton?.setOnClickListener {
-            // Grab these now since the Fragment may go away before the setupNotification
-            // lambda below is called
-
-
-            viewModel.addData(
+                    viewModel.addData(
                 workout?.workoutId ?: 0,
-                binding?.name?.text.toString(),
-                binding?.description?.text.toString(),
+                binding?.name?.editText?.text.toString(),
+                binding?.description?.editText?.text.toString(),
             )
 
             val ac = activity as Acesso
@@ -80,7 +71,6 @@ class WorkoutCreateDialog: BottomSheetDialogFragment() {
             dismiss()
         }
 
-        // User clicked the Cancel button; just exit the dialog without saving the data
         binding?.cancelButton?.setOnClickListener {
             dismiss()
         }

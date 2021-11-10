@@ -26,6 +26,21 @@
             app:layout_constraintEnd_toStartOf="@id/ibDeleteWorkout"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <TextView
+            android:id="@+id/tvWorkoutDescription"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            tools:text="Essa é uma descrição de treino."
+            android:textStyle="normal"
+            android:textSize="@dimen/text_card"
+            android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+            android:layout_marginVertical="@dimen/vertical_margin_default"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ibDeleteWorkout"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <ImageView
             android:id="@+id/ibDeleteWorkout"
             android:layout_width="@dimen/icon_size"
@@ -44,7 +59,7 @@
             android:id="@+id/ibEditWorkout"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
-            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:layout_marginVertical="@dimen/vertical_margin_default"
             android:layout_marginEnd="@dimen/horizontal_margin_default"
             android:background="?attr/selectableItemBackground"
             android:scaleType="fitCenter"
@@ -53,83 +68,7 @@
             app:layout_constraintStart_toStartOf="@id/ibDeleteWorkout"
             app:layout_constraintTop_toBottomOf="@id/ibDeleteWorkout"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/three_dots_icon" />
-
-        <!--  Quantity  -->
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivQuantity"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/vertical_margin_between_contents"
-            android:layout_marginBottom="@dimen/vertical_margin_default"
-            app:srcCompat="@drawable/dumbbells_weight_icon"
-            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tvQuantity"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvQuantity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/quantity"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="@id/ivQuantity"
-            app:layout_constraintStart_toEndOf="@id/ivQuantity"
-            app:layout_constraintEnd_toStartOf="@id/ivDuration"
-            app:layout_constraintBottom_toTopOf="@id/tvQuantityVal"/>
-
-        <TextView
-            android:id="@+id/tvQuantityVal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="3"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/tvQuantity"
-            app:layout_constraintStart_toStartOf="@id/tvQuantity"
-            app:layout_constraintEnd_toEndOf="@id/tvQuantity"
-            app:layout_constraintBottom_toBottomOf="@id/ivQuantity"/>
-
-        <!-- Duration  -->
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivDuration"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            app:srcCompat="@drawable/stopwatch_icon"
-            android:layout_marginTop="@dimen/vertical_margin_between_contents"
-            android:layout_marginBottom="@dimen/vertical_margin_default"
-            app:layout_constraintTop_toBottomOf="@id/tvWorkout"
-            app:layout_constraintStart_toEndOf="@id/tvQuantity"
-            app:layout_constraintEnd_toStartOf="@id/tvDuration"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvDuration"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/duration"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="@id/ivDuration"
-            app:layout_constraintStart_toEndOf="@id/ivDuration"
-            app:layout_constraintEnd_toStartOf="@id/ibEditWorkout"
-            app:layout_constraintBottom_toTopOf="@id/tvDurationVal"/>
-
-        <TextView
-            android:id="@+id/tvDurationVal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="30"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/tvDuration"
-            app:layout_constraintStart_toStartOf="@id/tvDuration"
-            app:layout_constraintEnd_toEndOf="@id/tvDuration"
-            app:layout_constraintBottom_toBottomOf="@id/ivDuration"/>
-
+            android:src="@drawable/ic_baseline_edit_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -17,20 +17,6 @@ class ExercisesUseCase(
     private val exercisesRepository = ExercisesRepository(application)
 
 
-//    suspend fun getListExercises(): ResponseApi {
-//        return when (val responseApi = exercisesRepository.getListExercises()) {
-//            is ResponseApi.Success -> {
-//                val data = responseApi.data as? ListExercises
-//                val result = data?.results
-//                ResponseApi.Success(result)
-//            }
-//            is ResponseApi.Error -> {
-//                responseApi
-//            }
-//        }
-//    }
-
-
     suspend fun getExercisesWithImagesFromDb(page: Int): List<ExerciseWithImages> {
         return exercisesRepository.getExercisesWithImagesFromDb(page)
     }
@@ -159,11 +145,6 @@ class ExercisesUseCase(
     }
 
     suspend fun getExerciseById(id: Int) = exercisesRepository.getExerciseById(id)
-
-
-    fun setupExercisesList(list: InfoExercises?): List<ResultInfo> {
-        return list?.results ?: listOf()
-    }
 
     suspend fun addExerciseToWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef): Long {
        return exercisesRepository.addExerciseToWorkoutList(exerciseWorkoutCrossRef)

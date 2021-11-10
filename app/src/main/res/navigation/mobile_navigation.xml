@@ -35,27 +35,9 @@
         android:label="@string/exercises"
         tools:layout="@layout/fragment_exercises" >
         <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetFilterFragment"
-            app:destination="@id/bottomSheetFilterFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetMusclesFragment"
-            app:destination="@id/bottomSheetMusclesFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetEquipmentsFragment"
-            app:destination="@id/bottomSheetEquipmentsFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_exercisesAddFragment"
-            app:destination="@id/exercisesAddFragment" />
-        <action
             android:id="@+id/action_navigation_exercises_to_exerciseDetailFragment"
             app:destination="@id/exerciseDetailFragment"/>
     </fragment>
-
-    <fragment
-        android:id="@+id/navigation_init"
-        android:name="com.example.digitalfit.features.init.InitFragment"
-        android:label="@string/init"
-        tools:layout="@layout/fragment_init" />
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -67,31 +49,6 @@
             app:destination="@id/splashActivity" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_nutrition"
-        android:name="com.example.digitalfit.features.nutrition.NutritionFragment"
-        android:label="@string/nutrition"
-        tools:layout="@layout/fragment_nutrition" />
-    <dialog
-        android:id="@+id/bottomSheetFilterFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetFilterFragment"
-        android:label="fragment_bottom_sheet_filter"
-        tools:layout="@layout/fragment_bottom_sheet_filter" />
-    <dialog
-        android:id="@+id/bottomSheetMusclesFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetMusclesFragment"
-        android:label="fragment_bottom_sheet_muscles"
-        tools:layout="@layout/fragment_bottom_sheet_muscles" />
-    <dialog
-        android:id="@+id/bottomSheetEquipmentsFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetEquipmentsFragment"
-        android:label="fragment_bottom_sheet_equipments"
-        tools:layout="@layout/fragment_bottom_sheet_equipments" />
-    <fragment
-        android:id="@+id/exercisesAddFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.ExercisesAddFragment"
-        android:label="fragment_exercises_add"
-        tools:layout="@layout/fragment_exercises_add" />
     <fragment
         android:id="@+id/exerciseDetailFragment"
         android:name="com.example.digitalfit.features.exercisedetail.view.ExerciseDetailFragment"

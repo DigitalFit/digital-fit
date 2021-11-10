@@ -180,5 +180,10 @@
     <string name="secondary_muscle">Músculos Secundários</string>
     <string name="workout_name">Nome do Treino</string>
     <string name="share">Compartilhar</string>
+    <string name="done">Feito</string>
+    <string name="cancel">cancelar</string>
+    <string name="exercise_list">Lista de Exercícios</string>
+    <string name="workout_exercise_list">Lista de Exercícios do Treino</string>
+    <string name="select_exercise_to_workout">Selecione exercícios para o seu treino:</string>
 
 </resources>

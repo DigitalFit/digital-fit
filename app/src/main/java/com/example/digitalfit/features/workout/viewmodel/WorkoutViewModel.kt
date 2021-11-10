@@ -37,4 +37,11 @@ class WorkoutViewModel(
 
         }
     }
+
+    fun searchWorkoutsByName(name: String?) {
+        viewModelScope.launch {
+            val workoutSearchedList = workoutUseCase.searchWorkoutsByName(name)
+            _onSuccessWorkoutFromDb.postValue(workoutSearchedList)
+        }
+    }
 }

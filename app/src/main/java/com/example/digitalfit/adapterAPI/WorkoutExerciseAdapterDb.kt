@@ -15,8 +15,13 @@ import com.example.digitalfit.modelDb.ExerciseWithImages
 import com.example.digitalfit.modelDb.WorkoutDb
 import com.example.digitalfit.modelDb.WorkoutWithExercise
 
-class WorkoutExerciseAdapterDb(private var onDelete: (ExerciseWithImages) -> Unit, private var onDetail: (ExerciseWithImages) -> Unit) :
-    ListAdapter<ExerciseWithImages, WorkoutExerciseAdapterDb.WorkoutExerciseListViewHolder>(WorkoutExerciseDiffCallback()) {
+class WorkoutExerciseAdapterDb(
+    private var onDelete: (ExerciseWithImages) -> Unit,
+    private var onDetail: (ExerciseWithImages) -> Unit
+) :
+    ListAdapter<ExerciseWithImages, WorkoutExerciseAdapterDb.WorkoutExerciseListViewHolder>(
+        WorkoutExerciseDiffCallback()
+    ) {
 
     class WorkoutExerciseListViewHolder(
         private val binding: ExerciseItemBinding,
@@ -33,29 +38,31 @@ class WorkoutExerciseAdapterDb(private var onDelete: (ExerciseWithImages) -> Uni
             this.exercise = exercises
 
             with(binding) {
-                //exercises.let {
+
+                ibExercise.isGone = false
+
+                //se imagem nao for null, carrega primeira imagem da lista
+                Glide
+                    .with(itemView.context)
+                    .load(exercises.image.firstOrNull()?.image)
+                    .placeholder(R.drawable.noimage)
+                    .into(ivExercise)
 
 
-                    //se imagem nao for null, carrega primeira imagem da lista
-                    Glide
-                        .with(itemView.context)
-                        .load(exercises.image.firstOrNull()?.image)
-                        .placeholder(R.drawable.noimage)
-                        .into(ivExercise)
-
-
-                    ibExercise.setOnClickListener {
-                        onDelete(exercises)
-                    }
-                    root.setOnClickListener {
-                        onDetail(exercises)
-                    }
-              //  }
+                ibExercise.setOnClickListener {
+                    onDelete(exercises)
+                }
+                root.setOnClickListener {
+                    onDetail(exercises)
+                }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutExerciseListViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): WorkoutExerciseListViewHolder {
 
         return WorkoutExerciseListViewHolder(
             ExerciseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
@@ -70,11 +77,17 @@ class WorkoutExerciseAdapterDb(private var onDelete: (ExerciseWithImages) -> Uni
 }
 
 class WorkoutExerciseDiffCallback : DiffUtil.ItemCallback<ExerciseWithImages>() {
-    override fun areItemsTheSame(oldItem: ExerciseWithImages, newItem: ExerciseWithImages): Boolean {
+    override fun areItemsTheSame(
+        oldItem: ExerciseWithImages,
+        newItem: ExerciseWithImages
+    ): Boolean {
         return oldItem.exercise.exerciseId == newItem.exercise.exerciseId
     }
 
-    override fun areContentsTheSame(oldItem: ExerciseWithImages, newItem: ExerciseWithImages): Boolean {
+    override fun areContentsTheSame(
+        oldItem: ExerciseWithImages,
+        newItem: ExerciseWithImages
+    ): Boolean {
         return oldItem.exercise.exerciseId == newItem.exercise.exerciseId
     }
 }

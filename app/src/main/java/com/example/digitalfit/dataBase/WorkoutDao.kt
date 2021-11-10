@@ -2,6 +2,7 @@ package com.example.digitalfit.dataBase
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.digitalfit.modelDb.ExerciseWithImages
 import com.example.digitalfit.modelDb.WorkoutDb
 
 @Dao
@@ -23,4 +24,11 @@ interface WorkoutDao {
 
     @Delete
     suspend fun delete(workout: WorkoutDb)
+
+    @Query("DELETE FROM exercise_workout WHERE workoutId = :workoutId" )
+    suspend fun deleteExerciseList(workoutId: Long)
+
+    @Transaction
+    @Query("SELECT * FROM workout WHERE name LIKE :name")
+    suspend fun searchWorkoutsByName(name: String?): List<WorkoutDb>
 }

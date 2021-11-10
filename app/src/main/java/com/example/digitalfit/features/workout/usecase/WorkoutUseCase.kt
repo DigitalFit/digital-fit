@@ -20,4 +20,8 @@ class WorkoutUseCase(
     suspend fun deleteWorkoutFromDb(workout: WorkoutDb){
         workoutRepository.deleteWorkoutFromDb(workout)
     }
+
+    suspend fun searchWorkoutsByName(name: String?): List<WorkoutDb> {
+        return workoutRepository.searchWorkoutsByName(name)
+    }
 }

@@ -3,27 +3,17 @@
 
     <item
         android:id="@+id/navigation_exercises"
-        android:icon="@drawable/halteres"
+        android:icon="@drawable/exercise_bottom_menu_icon"
         android:title="@string/exercises" />
 
     <item
         android:id="@+id/navigation_workout"
-        android:icon="@drawable/halteres"
+        android:icon="@drawable/workout_bottom_menu_icon"
         android:title="@string/workout" />
 
     <item
-        android:id="@+id/navigation_init"
-        android:icon="@drawable/halteres"
-        android:title="@string/init" />
-
-    <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/halteres"
-        android:title="@string/profile" />
-
-    <item
-        android:id="@+id/navigation_nutrition"
-        android:icon="@drawable/halteres"
-        android:title="@string/nutrition" />
+        android:icon="@drawable/about_bottom_menu_icon"
+        android:title="Sobre" />
 
 </menu>

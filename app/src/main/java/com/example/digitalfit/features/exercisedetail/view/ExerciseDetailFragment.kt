@@ -46,7 +46,6 @@ class ExerciseDetailFragment() : BaseFragment() {
 
             viewModel.command = command
 
-           // viewModel.getExerciseById(exerciseId)
 
             viewModel.getExerciseWithImagesFromDbById(exerciseId)
             viewModel.getExerciseWithMusclesFromDbById(exerciseId)
@@ -66,44 +65,9 @@ class ExerciseDetailFragment() : BaseFragment() {
             val shareIntent = Intent.createChooser(intent, "titulo")
             startActivity(shareIntent)
         }
-
-
-
     }
 
     private fun setupObservables() {
-//        viewModel.onSuccessExerciseById.observe(viewLifecycleOwner, {
-//            it?.let {exercise ->
-//                binding?.let { bindingNonNull ->
-//                    with(bindingNonNull){
-//                        activity?.let { activityNonNull ->
-//                            Glide
-//                                .with(activityNonNull)
-//                                .load(exercise.images.firstOrNull()?.image)
-//                                .placeholder(R.drawable.noimage)
-//                                .into(ivExerciseImage)
-//                        }
-//                        tvExerciseName.text = exercise.name
-//                        tvDescriptionValue.text = exercise.description
-//
-//                        val muscleList = mutableListOf<String>()
-//                        val separator = " - "
-//
-//                        exercise.muscles.forEach { muscle ->
-//                            muscleList.add(muscle.name)
-//                        }
-//                        tvPrimaryMuscleValue.text = muscleList.joinToString(separator)
-//
-//                        muscleList.clear()
-//                        exercise.muscles_secondary.forEach { muscle ->
-//                            muscleList.add(muscle.name)
-//                        }
-//                        tvSecondaryMuscleValue.text = muscleList.joinToString(separator)
-//                    }
-//                }
-//            }
-//        })
-
         viewModel.onSuccessExerciseWithImagesFromDbById.observe(viewLifecycleOwner, {
             it?.let {exercise ->
                 binding?.let { bindingNonNull ->
@@ -180,8 +144,6 @@ class ExerciseDetailFragment() : BaseFragment() {
             activity?.onBackPressed()
         }
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

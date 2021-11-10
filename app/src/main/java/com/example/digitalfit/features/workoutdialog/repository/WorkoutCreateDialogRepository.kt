@@ -38,11 +38,4 @@ class WorkoutCreateDialogRepository(
         return workoutDao.getWorkoutByIdFromDb(id)
     }
 
-//    fun getWorkoutByIdFromDb(id: Int): WorkoutDb {
-//        return _onSuccessWorkoutDialogFromDb ?: liveData {
-//            emit(donutDao.get(id))
-//        }.also {
-//            donutLiveData = it
-//        }
-//    }
 }

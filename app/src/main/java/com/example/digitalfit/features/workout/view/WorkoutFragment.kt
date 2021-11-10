@@ -6,9 +6,8 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.NotificationManagerCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -18,7 +17,6 @@ import com.example.digitalfit.adapterAPI.WorkoutAdapterDb
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.databinding.FragmentWorkoutBinding
 import com.example.digitalfit.features.workout.viewmodel.WorkoutViewModel
-import com.example.digitalfit.model.Workout
 import com.example.digitalfit.utils.Command
 
 interface Refresh{
@@ -42,7 +40,7 @@ class WorkoutFragment() : BaseFragment(), Refresh {
         onDelete = { workout ->
             NotificationManagerCompat.from(requireContext()).cancel(workout.workoutId.toInt())
             viewModel.delete(workout)
-            viewModel.getWorkoutFromDb()
+            refresh()
         },
         onDetail = { workout ->
             findNavController().navigate(
@@ -73,6 +71,7 @@ class WorkoutFragment() : BaseFragment(), Refresh {
 
             setupObservables()
             setupRecyclerView()
+            initSearch()
         }
 
     }
@@ -81,6 +80,22 @@ class WorkoutFragment() : BaseFragment(), Refresh {
         Handler(Looper.getMainLooper()).postDelayed({
             viewModel.getWorkoutFromDb()
         }, 500L)
+    }
+
+    private fun initSearch() {
+        val searchView: SearchView? = binding?.searchBar
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchWorkoutsByName("%$newText%")
+
+                return false
+            }
+        })
     }
 
     private fun setupObservables() {

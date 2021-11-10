@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.digitalfit.R
-import com.example.digitalfit.databinding.FragmentInitBinding
 import com.example.digitalfit.databinding.FragmentProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -20,9 +19,6 @@ import com.google.firebase.ktx.Firebase
 class ProfileFragment : Fragment() {
 
     private var binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState:Bundle?): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)

@@ -22,6 +22,4 @@ class WorkoutDetailRepository(
         val exerciseWorkoutCrossRefDao = DigitalFitDataBase.getDatabase(application).exerciseWorkoutDao()
         exerciseWorkoutCrossRefDao.delete(exerciseWorkout)
     }
-
-
 }

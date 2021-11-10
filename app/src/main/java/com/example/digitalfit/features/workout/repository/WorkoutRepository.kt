@@ -18,6 +18,12 @@ class WorkoutRepository(
 
     suspend fun deleteWorkoutFromDb(workout: WorkoutDb){
         val workoutDao = DigitalFitDataBase.getDatabase(application).workoutDao()
+        workoutDao.deleteExerciseList(workout.workoutId)
         workoutDao.delete(workout)
+    }
+
+    suspend fun searchWorkoutsByName(name: String?): List<WorkoutDb> {
+        val workoutDao = DigitalFitDataBase.getDatabase(application).workoutDao()
+        return workoutDao.searchWorkoutsByName(name)
     }
 }
