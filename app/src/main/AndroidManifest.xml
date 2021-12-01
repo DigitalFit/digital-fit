@@ -19,14 +19,6 @@
 
         </service>
 
-        <service
-            android:name=".features.login.MyFirebaseMessageService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
 
         <activity
             android:name=".features.login.SplashActivity"
