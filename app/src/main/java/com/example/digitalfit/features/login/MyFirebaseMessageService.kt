@@ -1,4 +1,4 @@
-package com.example.digitalfit.features.init
+package com.example.digitalfit.features.login
 
 import android.app.Service
 import android.content.Intent

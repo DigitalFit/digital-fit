@@ -57,7 +57,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="50dp"
-            android:text="FERNANDO"
+            android:text="Nome"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -67,7 +67,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="70dp"
-            android:text="ALBURQUERQUE"
+            android:text="Sobrenome"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
             android:layout_height="20dp"
             android:layout_marginLeft="160dp"
             android:layout_marginTop="100dp"
-            android:text="20 Anos"
+            android:text="xx Anos"
             android:textSize="12dp" />
 
         <TextView
