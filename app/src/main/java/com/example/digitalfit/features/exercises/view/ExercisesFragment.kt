@@ -173,4 +173,3 @@ class ExercisesFragment : BaseFragment() {
         binding = null
     }
 }
-
