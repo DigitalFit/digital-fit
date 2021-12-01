@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:labelVisibilityMode = "labeled"
-    app:startDestination="@id/navigation_exercises">
+    app:startDestination="@id/navigation_profile">
 
     <fragment
         android:id="@+id/navigation_workout"
@@ -14,30 +14,26 @@
         <action
             android:id="@+id/action_workoutFragment_to_workoutCreateDialog"
             app:destination="@id/workoutCreateDialog" />
+        <action
+            android:id="@+id/action_navigation_workout_to_workoutDetailFragment"
+            app:destination="@id/workoutDetailFragment" />
     </fragment>
     <dialog
         android:id="@+id/workoutCreateDialog"
-        android:name="com.example.digitalfit.features.workout.view.WorkoutCreateDialog"
+        android:name="com.example.digitalfit.features.workoutdialog.view.WorkoutCreateDialog"
         android:label="WorkoutCreateDialog"
-        tools:layout="@layout/dialog_workout_create" />
+        tools:layout="@layout/dialog_workout_create" >
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </dialog>
 
     <fragment
         android:id="@+id/navigation_exercises"
         android:name="com.example.digitalfit.features.exercises.view.ExercisesFragment"
         android:label="@string/exercises"
         tools:layout="@layout/fragment_exercises" >
-        <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetFilterFragment"
-            app:destination="@id/bottomSheetFilterFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetMusclesFragment"
-            app:destination="@id/bottomSheetMusclesFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_bottomSheetEquipmentsFragment"
-            app:destination="@id/bottomSheetEquipmentsFragment" />
-        <action
-            android:id="@+id/action_navigation_exercises_to_exercisesAddFragment"
-            app:destination="@id/exercisesAddFragment" />
         <action
             android:id="@+id/action_navigation_exercises_to_exerciseDetailFragment"
             app:destination="@id/exerciseDetailFragment"/>
@@ -53,37 +49,48 @@
             app:destination="@id/splashActivity" />
     </fragment>
 
-    <dialog
-        android:id="@+id/bottomSheetFilterFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetFilterFragment"
-        android:label="fragment_bottom_sheet_filter"
-        tools:layout="@layout/fragment_bottom_sheet_filter" />
-    <dialog
-        android:id="@+id/bottomSheetMusclesFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetMusclesFragment"
-        android:label="fragment_bottom_sheet_muscles"
-        tools:layout="@layout/fragment_bottom_sheet_muscles" />
-    <dialog
-        android:id="@+id/bottomSheetEquipmentsFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.BottomSheetEquipmentsFragment"
-        android:label="fragment_bottom_sheet_equipments"
-        tools:layout="@layout/fragment_bottom_sheet_equipments" />
-    <fragment
-        android:id="@+id/exercisesAddFragment"
-        android:name="com.example.digitalfit.features.exercises.viewmodel.ExercisesAddFragment"
-        android:label="fragment_exercises_add"
-        tools:layout="@layout/fragment_exercises_add" />
     <fragment
         android:id="@+id/exerciseDetailFragment"
         android:name="com.example.digitalfit.features.exercisedetail.view.ExerciseDetailFragment"
         android:label="fragment_exercise_detail"
-        tools:layout="@layout/fragment_exercise_detail" />
+        tools:layout="@layout/fragment_exercise_detail" >
+        <argument
+            android:name="exerciseId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <activity
         android:id="@+id/splashActivity"
         android:name="com.example.digitalfit.features.login.SplashActivity"
         android:label="activity_splash"
         tools:layout="@layout/activity_splash" />
-
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.example.digitalfit.features.workoutdetail.view.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_workoutDetailFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
+        <action
+            android:id="@+id/action_workoutDetailFragment_to_workoutAddExerciseFragment"
+            app:destination="@id/workoutAddExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutAddExerciseFragment"
+        android:name="com.example.digitalfit.features.workoutaddexercise.view.WorkoutAddExerciseFragment"
+        android:label="WorkoutAddExerciseFragment" >
+        <action
+            android:id="@+id/action_workoutAddExerciseFragment_to_exerciseDetailFragment"
+            app:destination="@id/exerciseDetailFragment" />
+        <argument
+            android:name="itemId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
 
 
 </navigation>

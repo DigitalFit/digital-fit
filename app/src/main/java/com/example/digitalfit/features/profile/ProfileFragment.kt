@@ -17,9 +17,6 @@ class ProfileFragment : Fragment() {
 
     private var binding: FragmentProfileBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState:Bundle?): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding?.root

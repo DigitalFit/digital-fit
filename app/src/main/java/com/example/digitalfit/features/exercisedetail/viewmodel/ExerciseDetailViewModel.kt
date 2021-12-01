@@ -15,10 +15,6 @@ class ExerciseDetailViewModel(
 
     private val exerciseDetailUseCase = ExerciseDetailUseCase(getApplication<Application>())
 
-//    private val _onSuccessExerciseById: MutableLiveData<ResultInfo> = MutableLiveData()
-//    val onSuccessExerciseById: LiveData<ResultInfo>
-//        get() = _onSuccessExerciseById
-
     private val _onSuccessExerciseWithImagesFromDbById: MutableLiveData<ExerciseWithImages> =
         MutableLiveData()
     val onSuccessExerciseWithImagesFromDbById: LiveData<ExerciseWithImages>
@@ -33,18 +29,6 @@ class ExerciseDetailViewModel(
         MutableLiveData()
     val onSuccessExerciseWithMusclesSecondaryFromDbById: LiveData<List<ExerciseWithMusclesSecondary>>
         get() = _onSuccessExerciseWithMusclesSecondaryFromDbById
-
-
-//    fun getExerciseById(exerciseId: Int) {
-//        viewModelScope.launch {
-//            callApi(
-//                suspend { exerciseDetailUseCase.getExerciseById(exerciseId) },
-//                onSuccess = {
-//                    _onSuccessExerciseById.postValue(it as? ResultInfo)
-//                }
-//            )
-//        }
-//    }
 
     fun getExerciseWithImagesFromDbById(exerciseId: Int) {
         viewModelScope.launch {

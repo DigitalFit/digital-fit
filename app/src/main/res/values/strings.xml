@@ -123,7 +123,7 @@
     <string name="workout_list">Lista de Treinos</string>
     <string name="burn">Calorias (Kcal)</string>
     <string name="duration">Duração (minutos)</string>
-    <string name="quantity">Quantidade (exercícios)</string>
+    <string name="quantity">Qtd. (exercícios)</string>
     <string name="bsFilterTitle">Filtros:</string>
     <string name="favorites">Favoritos</string>
     <string name="myExercises">Meus exercícios</string>
@@ -178,5 +178,12 @@
     <string name="primary_muscle">Músculos Primários</string>
     <string name="muscle_list">Lista de músculos</string>
     <string name="secondary_muscle">Músculos Secundários</string>
+    <string name="workout_name">Nome do Treino</string>
+    <string name="share">Compartilhar</string>
+    <string name="done">Feito</string>
+    <string name="cancel">cancelar</string>
+    <string name="exercise_list">Lista de Exercícios</string>
+    <string name="workout_exercise_list">Lista de Exercícios do Treino</string>
+    <string name="select_exercise_to_workout">Selecione exercícios para o seu treino:</string>
 
 </resources>

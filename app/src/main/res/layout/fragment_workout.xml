@@ -22,37 +22,10 @@
             android:textColor="@color/white"
             android:textSize="@dimen/primary_title_default"
             app:layout_constraintBottom_toTopOf="@id/search_bar"
-            app:layout_constraintEnd_toStartOf="@id/ibAdd"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/ibAdd"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="@dimen/horizontal_margin_default"
-            android:adjustViewBounds="true"
-            android:background="?attr/selectableItemBackground"
-            android:src="@drawable/add_square_icon"
-            app:layout_constraintBottom_toBottomOf="@id/tvWorkout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvWorkout"
-            app:layout_constraintTop_toTopOf="@id/tvWorkout" />
-
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="0dp"
-            android:layout_height="144dp"
-            android:layout_marginTop="@dimen/vertical_margin_between_contents"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/search_bar"
-            app:layout_constraintEnd_toEndOf="@id/ibAdd"
-            app:layout_constraintStart_toStartOf="@id/tvWorkout"
-            app:layout_constraintTop_toBottomOf="@id/tvWorkout">
-
-        </CalendarView>
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_bar"
@@ -60,54 +33,51 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/vertical_margin_between_contents"
             android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/calendarView"
-            app:layout_constraintEnd_toEndOf="@id/ibAdd"
-            app:layout_constraintStart_toStartOf="@id/tvWorkout"/>
+            app:layout_constraintEnd_toEndOf="@id/tvWorkout"
+            app:layout_constraintStart_toStartOf="@id/tvWorkout"
+            app:layout_constraintTop_toBottomOf="@id/tvWorkout" />
 
-        <ScrollView
-            android:id="@+id/svWorkout"
+        <TextView
+            android:id="@+id/tvFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:text="@string/workout_list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/secondary_title_default"
+            app:layout_constraintBottom_toTopOf="@id/vgWorkoutRecyclerView"
+            app:layout_constraintEnd_toEndOf="@id/search_bar"
+            app:layout_constraintStart_toStartOf="@id/search_bar"
+            app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vgWorkoutRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fillViewport="true"
-            android:layout_marginTop="@dimen/vertical_margin_default"
+            android:layout_margin="@dimen/margin_default"
+            android:clipToPadding="false"
+            android:paddingBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar">
+            app:layout_constraintTop_toBottomOf="@id/tvFilter" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvFilter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/vertical_margin_default"
-                    android:layout_marginStart="@dimen/horizontal_margin_default"
-                    android:text="@string/workout_list"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/secondary_title_default"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/vgWorkoutRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_default"/>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="8dp" />
-
-            </LinearLayout>
-
-        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:tint="@null"
+            android:src="@drawable/clipboard_add_icon"
+            app:borderWidth="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxImageSize="32dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
 </ScrollView>
 
 

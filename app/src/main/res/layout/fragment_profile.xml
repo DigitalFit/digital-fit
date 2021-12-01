@@ -7,211 +7,116 @@
     android:background="@color/primary_background"
     tools:context=".features.profile.ProfileFragment">
 
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonGoogle"
-        android:layout_width="324dp"
-        android:layout_height="43dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/pesquisa"
-        android:text="Vincular sua conta Google"
-        android:textColor="@color/black"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@id/cvProfileConf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </com.google.android.material.button.MaterialButton>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvProfileConf"
-        android:layout_width="337dp"
-        android:layout_height="305dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_margin="10dp"
-            android:text="MINHAS INFORMAÇÕES"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/ivFotoPerfil"
-            android:layout_width="112dp"
-            android:layout_height="111dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/perfil" />
-
-        <TextView
-            android:id="@+id/tvProfileNome"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="50dp"
-            android:text="Nome"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvProfileSobrenome"
-            android:layout_width="201dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="70dp"
-            android:text="Sobrenome"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textIdade"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="100dp"
-            android:text="xx Anos"
-            android:textSize="12dp" />
-
-        <TextView
-            android:id="@+id/textCidade"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="100dp"
-            android:text="São Paulo/SP"
-            android:textSize="12dp" />
-
-        <TextView
-            android:id="@+id/textEEmail"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="195dp"
-            android:text="EMAIL"
-            android:textSize="12dp" />
-
-        <EditText
-            android:id="@+id/etProfileEmail"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="200dp"
-            android:inputType="textWebEmailAddress"
-            android:text="fernando.alburquerque@mail.com"
-            android:textSize="12dp" />
-
-        <TextView
-            android:id="@+id/tvDataNasc"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="230dp"
-            android:text="Data de Nascimento"
-            android:textSize="12dp" />
-
-        <EditText
-            android:id="@+id/editTextDataNasc"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="235dp"
-            android:inputType="textWebEmailAddress"
-            android:text="01 de jan de 2001"
-            android:textSize="12dp" />
-
-        <TextView
-            android:id="@+id/textEGenero"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="265dp"
-            android:text="Gênero"
-            android:textSize="12dp" />
-
-        <EditText
-            android:id="@+id/editTextGenero"
-            android:layout_width="275dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="270dp"
-            android:inputType="textWebEmailAddress"
-            android:text="Masculino"
-            android:textSize="10dp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonTermos"
-        android:layout_width="341dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="96dp"
-        android:backgroundTint="@color/white"
-        android:text="Termos de Uso e Política de Privacidade"
-        android:textColor="@color/black"
-        android:textSize="12dp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="#FBFBFB" />
-
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonSair"
-        android:layout_width="337dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:layout_marginBottom="@dimen/vertical_margin_between_contents"
+        android:backgroundTint="@color/gray"
         android:drawableLeft="@drawable/sair"
         android:text="Sair"
+        android:textStyle="bold"
         android:textAlignment="viewEnd"
         android:textColor="@color/red"
-        android:textSize="12dp"
+        android:textSize="16sp"
         app:cornerRadius="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:rippleColor="#FBFBFB"
         app:layout_constraintStart_toStartOf="parent">
     </com.google.android.material.button.MaterialButton>
 
     <TextView
-        android:id="@+id/textPageProfile"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Perfil"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:text="Boas Vindas"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/ibProfileConf"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/conf"
+    <TextView
+        android:id="@+id/tvWelcomeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:text="Bem vindo à Digital Fit!"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/tvWelcomeText2"/>
 
+    <TextView
+        android:id="@+id/tvWelcomeText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:text="Esse app foi feito para ajudá-lo a organizar sua rotina de exercícios físicos!"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvWelcomeText3"/>
 
+    <TextView
+        android:id="@+id/tvWelcomeText3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:text="Monte treinos a partir de uma grande lista de exercícios!"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvWelcomeText4"/>
+
+    <TextView
+        android:id="@+id/tvWelcomeText4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:layout_marginBottom="32dp"
+        android:text="Você também pode conferir algumas informações sobre cada um dos exercicios na tela de detalhes!"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewLine"/>
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvWelcomeText5"/>
+
+    <TextView
+        android:id="@+id/tvWelcomeText5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_default"
+        android:layout_marginTop="32dp"
+        android:text="Caso precise sair é só clicar aqui. Mas volte logo, estaremos esperando!"
+        android:textSize="18sp"
+        android:textColor="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/viewLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonSair"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

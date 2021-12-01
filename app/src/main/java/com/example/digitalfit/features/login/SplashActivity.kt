@@ -21,9 +21,6 @@ import com.google.firebase.ktx.Firebase
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
-//    private lateinit var googleSignInClient: GoogleSignInClient
-//    private lateinit var auth: FirebaseAuth
-//    private var  RC_SIGN_IN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

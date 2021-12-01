@@ -13,16 +13,6 @@ class ExercisesRepository(
 ) : BaseRepository() {
     //chamdas de dados
 
-
-//    suspend fun getListExercises(): ResponseApi {
-//        return safeApiCall {
-//            ApiService.wgerApi.getListExercises()
-//        }
-//
-//    }
-//
-
-
     suspend fun getInfoExercises(page: Int): ResponseApi {
         return safeApiCall {
             ApiService.wgerApi.getInfoExercises(page)
@@ -267,6 +257,10 @@ class ExercisesRepository(
         }
     }
 
+    suspend fun addExerciseToWorkoutList(exerciseWorkoutCrossRef: ExerciseWorkoutCrossRef): Long {
+        val exerciseWorkoutDao = DigitalFitDataBase.getDatabase(application).exerciseWorkoutDao()
+        return exerciseWorkoutDao.insertExerciseWorkout(exerciseWorkoutCrossRef)
+    }
 
 
 }

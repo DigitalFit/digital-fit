@@ -1,16 +1,18 @@
 package com.example.digitalfit.features.exercises.view
-import ExerciseAdapterDb
+
 import com.example.digitalfit.features.exercises.viewmodel.ExercisesViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digitalfit.R
+import com.example.digitalfit.adapterAPI.ExerciseAdapterApi
 import com.example.digitalfit.base.BaseFragment
 import com.example.digitalfit.dataBase.DigitalFitDataBase
 import com.example.digitalfit.databinding.FragmentExercisesBinding
@@ -21,8 +23,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.paging.PagedList
+import com.example.digitalfit.adapterAPI.ExerciseAdapterDb
 import com.example.digitalfit.adapterAPI.SearchAdapter
-import com.example.digitalfit.modelDb.ExerciseDb
 import com.example.digitalfit.modelDb.ExerciseWithImages
 
 
@@ -31,13 +33,10 @@ class ExercisesFragment : BaseFragment() {
     private var binding: FragmentExercisesBinding? = null
     private lateinit var viewModel: ExercisesViewModel
 
-    var pagedList: List<ExerciseWithImages>? = null
-    var paginatedList: PagedList<ExerciseWithImages>? = null
-
     private val exercisesAdapterDb: ExerciseAdapterDb by lazy {
         ExerciseAdapterDb { exercises ->
             val bundle = Bundle()
-            exercises.exercise.exerciseId?.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
+            exercises.exercise.exerciseId.let { bundle.putInt(KEY_BUNDLE_EXERCISE_ID, it) }
             findNavController().navigate(
                 R.id.action_navigation_exercises_to_exerciseDetailFragment,
                 bundle
@@ -70,19 +69,13 @@ class ExercisesFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         activity?.let {
             viewModel = ViewModelProvider(it)[ExercisesViewModel::class.java]
 
             viewModel.command = command
 
-            //viewModel.getInfoExercises()
-
-
             viewModel.getExerciseEntities()
-
-
-//            val bottomSheetFilterBehavior = (bottomSheetFilter.dialog as BottomSheetDialog).behavior
-//            bottomSheetFilterBehavior.saveFlags = BottomSheetBehavior.SAVE_ALL
 
             initSearch()
             setupObeservables()
@@ -92,8 +85,6 @@ class ExercisesFragment : BaseFragment() {
 
     private fun loadContent() {
         viewModel.exercisesPagedList?.observe(viewLifecycleOwner, {
-            pagedList = it.snapshot()
-            paginatedList = it
             exercisesAdapterDb.submitList(it)
         })
     }
@@ -103,6 +94,7 @@ class ExercisesFragment : BaseFragment() {
         //chamando api ListExercise por id
 
         viewModel.onExerciseEntitiesLoaded.observe(viewLifecycleOwner, {
+            binding?.progressBar?.isGone = true
             loadContent()
         })
 
@@ -111,39 +103,8 @@ class ExercisesFragment : BaseFragment() {
         })
 
 
-//        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
-//            pagedList = it
-//        })
-
-
         binding?.vgExerciseRecyclerView?.adapter?.stateRestorationPolicy =
             RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-
-//        viewModel.onSuccessInfoExercises.observe(viewLifecycleOwner, {
-//            it?.let { exercisesList ->
-//                val exercisesAdapterApi = ExerciseAdapterApi(
-//                    exercisesList = exercisesList
-//                ) { exercises ->
-//                    val bundle = Bundle()
-//                    bundle.putInt(KEY_BUNDLE_EXERCISE_ID, exercises.id)
-//                    findNavController().navigate(R.id.action_navigation_exercises_to_exerciseDetailFragment,
-//                    bundle)
-//                }
-//
-//                binding?.let {
-//                    with(it) {
-//                        vgExerciseRecyclerView.apply {
-//                            layoutManager = LinearLayoutManager(context)
-//                            adapter = exercisesAdapterApi
-//                        }
-//
-//
-//                    }
-//                }
-//            }
-//        }
-//        )
-
 
         viewModel.command.observe(viewLifecycleOwner, {
             when (it) {
@@ -162,23 +123,6 @@ class ExercisesFragment : BaseFragment() {
             }
         }
         )
-
-        binding?.let {
-            with(it) {
-                chAll.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetFilterFragment)
-                }
-                chMuscleGroups.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetMusclesFragment)
-                }
-                chEquipments.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_bottomSheetEquipmentsFragment)
-                }
-                ibAdd.setOnClickListener {
-                    findNavController().navigate(R.id.action_navigation_exercises_to_exercisesAddFragment)
-                }
-            }
-        }
     }
 
     private fun initSearch() {
@@ -188,27 +132,6 @@ class ExercisesFragment : BaseFragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
-
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                var filteredList: MutableList<ExerciseWithImages> = mutableListOf()
-//                pagedList?.let {pagedList ->
-//                    for (exercise: ExerciseWithImages in pagedList){
-//                        if (newText != null) {
-//                            exercise.exercise.name?.let {
-//                                if(it.lowercase().contains(newText.lowercase())){
-//                                    filteredList.add(exercise)
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                }
-//                exercisesAdapterDb.submitList(filteredList)
-//
-//
-//                return false
-//            }
-
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != "") {
@@ -243,9 +166,6 @@ class ExercisesFragment : BaseFragment() {
     ) {
         binding?.vgExerciseRecyclerView?.isVisible = !isListFromSearchShowing
         binding?.vgSearchExerciseRecyclerView?.isVisible = isListFromSearchShowing
-
-//        binding?.vgExerciseRecyclerView?.isGone = !isListFromSearchShowing
-//        binding?.vgSearchExerciseRecyclerView?.isGone = isListFromSearchShowing
     }
 
     override fun onDestroyView() {
@@ -253,4 +173,3 @@ class ExercisesFragment : BaseFragment() {
         binding = null
     }
 }
-

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_default"
+    android:id="@+id/cvExercise">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivExercise"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:layout_marginVertical="@dimen/vertical_margin_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvExercise"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/aask" />
+
+        <TextView
+            android:id="@+id/tvExercise"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Extensões de perna na máquina"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_card"
+            android:layout_marginStart="@dimen/horizontal_margin_default"
+            android:layout_marginEnd="@dimen/horizontal_margin_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivExercise"
+            app:layout_constraintEnd_toStartOf="@id/ibExercise"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0"/>
+
+        <ImageButton
+            android:id="@+id/ibExercise"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:layout_marginEnd="@dimen/horizontal_margin_extra"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvExercise"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_add_green" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

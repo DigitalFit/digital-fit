@@ -1,3 +1,6 @@
+package com.example.digitalfit.adapterAPI
+
+
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -28,6 +31,7 @@ class ExerciseAdapterDb(
     private val onClickListener: (exercises: ExerciseWithImages) -> Unit
 //) : RecyclerView.Adapter<ExerciseAdapterApi.ViewHolder>() {
 ) : PagedListAdapter<ExerciseWithImages, ExerciseAdapterDb.ViewHolder>(ExerciseWithImages.DIFF_CALLBACK) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ExerciseItemBinding

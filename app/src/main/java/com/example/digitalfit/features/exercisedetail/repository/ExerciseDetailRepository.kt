@@ -13,12 +13,6 @@ class ExerciseDetailRepository(
     private val application: Application
 ) : BaseRepository() {
 
-//    suspend fun getExerciseById(exerciseId: Int): ResponseApi {
-//        return safeApiCall {
-//            ApiService.wgerApi.getExerciseById(exerciseId)
-//        }
-//    }
-
     suspend fun getExercisesWithImagesFromDbById(exerciseId: Int) =
         DigitalFitDataBase.getDatabase(application)
             .exerciseDao().getExerciseWithImagesById(exerciseId)
@@ -32,5 +26,4 @@ class ExerciseDetailRepository(
     suspend fun getExercisesWithMusclesSecondaryFromDbById(exerciseId: Int) =
         DigitalFitDataBase.getDatabase(application)
             .exerciseMuscleSecondaryDao().getExerciseWithMuscleSecondaryById(exerciseId)
-
 }

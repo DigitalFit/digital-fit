@@ -55,13 +55,10 @@ class LoginFragment : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(this.requireActivity(), gso)
         auth = Firebase.auth
 
-
-
         binding?.btGoogle?.setOnClickListener {
             signIn()
         }
-
-            }
+    }
 
     override fun onStart() {
         super.onStart()
